@@ -2,30 +2,1700 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+<body>
+    <form name="CANS">
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+        <h1> CANS Assessment </h1>
+
+        <hr />
+
+        <table id="demographicInfo">
+            <tr>
+                <td>Please check appropriate use:</td>
+                <td>
+                    <input type="checkbox" value="Initial">Initial<br/>
+                    <input type="checkbox" value="Reassessment">Reassessment<br />
+                    <input type="checkbox" value="Transition">Transition/Discharge<br />
+                </td>
+                <td>Date:</td>
+                <td><input type="text" id="date" /></td>
+            </tr>
+
+            <tr>
+                <td>Child's Name:</td>
+                <td><input type="text" id="childName" /></td>
+                <td>Date of Birth:</td>
+                <td><input type="text" id="childDOB" /></td>
+            </tr>
+
+            <tr>
+                <td>Gender:</td>
+                <td>
+                    Male <input type="radio" id="gender" name="gender" value="male"><br>
+                    Female <input type="radio" id="gender" name="gender" value="female">
+                </td>
+                <td>Race/Ethnicity:</td>
+                <td><input type="text" id="race" /></td>
+            </tr>
+
+            <tr>
+                <td>Current Living Situation:</td>
+                <td colspan="3"><input type="text" style="width: 350px;" id="currentLivingSituation"></td>
+            </tr>
+
+            
+
+            <tr>
+                <td>Assessor:</td>
+                <td><input type="text" id="assessor" /></td>
+                <td>Signature:</td>
+                <td><input type="text" id="signature" /></td>
+            </tr>
+
+            <tr>
+                <td>PP Caregiver Name:</td>
+                <td><input type="text" id="PPcaregiverName" /></td>
+                <td>Relation:</td>
+                <td><input type="text" id="relation" /></td>
+            </tr>
+
+            <tr>
+                <td>Current Caregiver Name:</td>
+                <td><input type="text" id="currentCaregiverName" /></td>
+                <td>Relation:</td>
+                <td><input type="text" id="relation" /></td>
+            </tr>
+
+
+        </table>
+
+        <br />
+
+        <table id="lifeDomainFunctioning">
+            <tr style="text-align:center;">
+                <td colspan="6">Life Domain Functioning</td>
+            </tr>
+
+            <tr>
+                <td colspan="2">0 = no evidence of problems <br /> 2 = moderate needs</td>
+                <td></td>
+                <td></td>
+                <td colspan="2">1 = History, minimal <br /> 3 = severe needs</td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td>NA</td>
+                <td>0</td>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+            </tr>
+
+            <tr>
+                <td>Family</td>
+                <td><input type="radio" name="ldf_Family" value="NA"></td>
+                <td><input type="radio" name="ldf_Family" value="0"></td>
+                <td><input type="radio" name="ldf_Family" value="1"></td>
+                <td><input type="radio" name="ldf_Family" value="2"></td>
+                <td><input type="radio" name="ldf_Family" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Living Situation</td>
+                <td><input type="radio" name="ldf_LivingSituation" value="NA"></td>
+                <td><input type="radio" name="ldf_LivingSituation" value="0"></td>
+                <td><input type="radio" name="ldf_LivingSituation" value="1"></td>
+                <td><input type="radio" name="ldf_LivingSituation" value="2"></td>
+                <td><input type="radio" name="ldf_LivingSituation" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Social Functioning</td>
+                <td><input type="radio" name="ldf_SocialFunctioning" value="NA"></td>
+                <td><input type="radio" name="ldf_SocialFunctioning" value="0"></td>
+                <td><input type="radio" name="ldf_SocialFunctioning" value="1"></td>
+                <td><input type="radio" name="ldf_SocialFunctioning" value="2"></td>
+                <td><input type="radio" name="ldf_SocialFunctioning" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Recreational</td>
+                <td><input type="radio" name="ldf_Recreational" value="NA"></td>
+                <td><input type="radio" name="ldf_Recreational" value="0"></td>
+                <td><input type="radio" name="ldf_Recreational" value="1"></td>
+                <td><input type="radio" name="ldf_Recreational" value="2"></td>
+                <td><input type="radio" name="ldf_Recreational" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Job Functioning</td>
+                <td><input type="radio" name="ldf_JobFunctioning" value="NA"></td>
+                <td><input type="radio" name="ldf_JobFunctioning" value="0"></td>
+                <td><input type="radio" name="ldf_JobFunctioning" value="1"></td>
+                <td><input type="radio" name="ldf_JobFunctioning" value="2"></td>
+                <td><input type="radio" name="ldf_JobFunctioning" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Developmental</td>
+                <td><input type="radio" name="ldf_Developmental" value="NA"></td>
+                <td><input type="radio" name="ldf_Developmental" value="0"></td>
+                <td><input type="radio" name="ldf_Developmental" value="1"></td>
+                <td><input type="radio" name="ldf_Developmental" value="2"></td>
+                <td><input type="radio" name="ldf_Developmental" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Legal</td>
+                <td><input type="radio" name="ldf_Legal" value="NA"></td>
+                <td><input type="radio" name="ldf_Legal" value="0"></td>
+                <td><input type="radio" name="ldf_Legal" value="1"></td>
+                <td><input type="radio" name="ldf_Legal" value="2"></td>
+                <td><input type="radio" name="ldf_Legal" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Medical</td>
+                <td><input type="radio" name="ldf_Medical" value="NA"></td>
+                <td><input type="radio" name="ldf_Medical" value="0"></td>
+                <td><input type="radio" name="ldf_Medical" value="1"></td>
+                <td><input type="radio" name="ldf_Medical" value="2"></td>
+                <td><input type="radio" name="ldf_Medical" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Physical</td>
+                <td><input type="radio" name="ldf_Physical" value="NA"></td>
+                <td><input type="radio" name="ldf_Physical" value="0"></td>
+                <td><input type="radio" name="ldf_Physical" value="1"></td>
+                <td><input type="radio" name="ldf_Physical" value="2"></td>
+                <td><input type="radio" name="ldf_Physical" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Sexuality</td>
+                <td><input type="radio" name="ldf_Sexuality" value="NA"></td>
+                <td><input type="radio" name="ldf_Sexuality" value="0"></td>
+                <td><input type="radio" name="ldf_Sexuality" value="1"></td>
+                <td><input type="radio" name="ldf_Sexuality" value="2"></td>
+                <td><input type="radio" name="ldf_Sexuality" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Sleep</td>
+                <td><input type="radio" name="ldf_Sleep" value="NA"></td>
+                <td><input type="radio" name="ldf_Sleep" value="0"></td>
+                <td><input type="radio" name="ldf_Sleep" value="1"></td>
+                <td><input type="radio" name="ldf_Sleep" value="2"></td>
+                <td><input type="radio" name="ldf_Sleep" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>School Behavior</td>
+                <td><input type="radio" name="ldf_SchoolBehavior" value="NA"></td>
+                <td><input type="radio" name="ldf_SchoolBehavior" value="0"></td>
+                <td><input type="radio" name="ldf_SchoolBehavior" value="1"></td>
+                <td><input type="radio" name="ldf_SchoolBehavior" value="2"></td>
+                <td><input type="radio" name="ldf_SchoolBehavior" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>School Achievement</td>
+                <td><input type="radio" name="ldf_SchoolAchievement" value="NA"></td>
+                <td><input type="radio" name="ldf_SchoolAchievement" value="0"></td>
+                <td><input type="radio" name="ldf_SchoolAchievement" value="1"></td>
+                <td><input type="radio" name="ldf_SchoolAchievement" value="2"></td>
+                <td><input type="radio" name="ldf_SchoolAchievement" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>School Attendance</td>
+                <td><input type="radio" name="ldf_SchoolAttendance" value="NA"></td>
+                <td><input type="radio" name="ldf_SchoolAttendance" value="0"></td>
+                <td><input type="radio" name="ldf_SchoolAttendance" value="1"></td>
+                <td><input type="radio" name="ldf_SchoolAttendance" value="2"></td>
+                <td><input type="radio" name="ldf_SchoolAttendance" value="3"></td>
+            </tr>
+        </table>
+
+        <br />
+
+        <table id="youthStrengths">
+            <tr style="text-align:center;">
+                <td colspan="6">Youth Strengths</td>
+            </tr>
+
+            <tr>
+                <td colspan="2">0 = centerpiece <br /> 2 = identified</td>
+                <td></td>
+                <td></td>
+                <td colspan="2">1 = useful <br /> 3 = not yet identified</td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td>NA</td>
+                <td>0</td>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+            </tr>
+
+            <tr>
+                <td>Family</td>
+                <td><input type="radio" name="youthStrengths_Family" value="NA"></td>
+                <td><input type="radio" name="youthStrengths_Family" value="0"></td>
+                <td><input type="radio" name="youthStrengths_Family" value="1"></td>
+                <td><input type="radio" name="youthStrengths_Family" value="2"></td>
+                <td><input type="radio" name="youthStrengths_Family" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Interpersonal</td>
+                <td><input type="radio" name="youthStrengths_Interpersonal" value="NA"></td>
+                <td><input type="radio" name="youthStrengths_Interpersonal" value="0"></td>
+                <td><input type="radio" name="youthStrengths_Interpersonal" value="1"></td>
+                <td><input type="radio" name="youthStrengths_Interpersonal" value="2"></td>
+                <td><input type="radio" name="youthStrengths_Interpersonal" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Optimism</td>
+                <td><input type="radio" name="youthStrengths_Optimism" value="NA"></td>
+                <td><input type="radio" name="youthStrengths_Optimism" value="0"></td>
+                <td><input type="radio" name="youthStrengths_Optimism" value="1"></td>
+                <td><input type="radio" name="youthStrengths_Optimism" value="2"></td>
+                <td><input type="radio" name="youthStrengths_Optimism" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Educational</td>
+                <td><input type="radio" name="youthStrengths_Educational" value="NA"></td>
+                <td><input type="radio" name="youthStrengths_Educational" value="0"></td>
+                <td><input type="radio" name="youthStrengths_Educational" value="1"></td>
+                <td><input type="radio" name="youthStrengths_Educational" value="2"></td>
+                <td><input type="radio" name="youthStrengths_Educational" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Vocational</td>
+                <td><input type="radio" name="youthStrengths_Vocational" value="NA"></td>
+                <td><input type="radio" name="youthStrengths_Vocational" value="0"></td>
+                <td><input type="radio" name="youthStrengths_Vocational" value="1"></td>
+                <td><input type="radio" name="youthStrengths_Vocational" value="2"></td>
+                <td><input type="radio" name="youthStrengths_Vocational" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Talents / Interests</td>
+                <td><input type="radio" name="youthStrengths_Talents" value="NA"></td>
+                <td><input type="radio" name="youthStrengths_Talents" value="0"></td>
+                <td><input type="radio" name="youthStrengths_Talents" value="1"></td>
+                <td><input type="radio" name="youthStrengths_Talents" value="2"></td>
+                <td><input type="radio" name="youthStrengths_Talents" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Spiritual / Religious</td>
+                <td><input type="radio" name="youthStrengths_Spiritual" value="NA"></td>
+                <td><input type="radio" name="youthStrengths_Spiritual" value="0"></td>
+                <td><input type="radio" name="youthStrengths_Spiritual" value="1"></td>
+                <td><input type="radio" name="youthStrengths_Spiritual" value="2"></td>
+                <td><input type="radio" name="youthStrengths_Spiritual" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Community Life</td>
+                <td><input type="radio" name="youthStrengths_CommLife" value="NA"></td>
+                <td><input type="radio" name="youthStrengths_CommLife" value="0"></td>
+                <td><input type="radio" name="youthStrengths_CommLife" value="1"></td>
+                <td><input type="radio" name="youthStrengths_CommLife" value="2"></td>
+                <td><input type="radio" name="youthStrengths_CommLife" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Relation Permanence</td>
+                <td><input type="radio" name="youthStrengths_RelPerm" value="NA"></td>
+                <td><input type="radio" name="youthStrengths_RelPerm" value="0"></td>
+                <td><input type="radio" name="youthStrengths_RelPerm" value="1"></td>
+                <td><input type="radio" name="youthStrengths_RelPerm" value="2"></td>
+                <td><input type="radio" name="youthStrengths_RelPerm" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Resiliency</td>
+                <td><input type="radio" name="youthStrengths_Resiliency" value="NA"></td>
+                <td><input type="radio" name="youthStrengths_Resiliency" value="0"></td>
+                <td><input type="radio" name="youthStrengths_Resiliency" value="1"></td>
+                <td><input type="radio" name="youthStrengths_Resiliency" value="2"></td>
+                <td><input type="radio" name="youthStrengths_Resiliency" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Resourcefulness</td>
+                <td><input type="radio" name="youthStrengths_Resourcefulness" value="NA"></td>
+                <td><input type="radio" name="youthStrengths_Resourcefulness" value="0"></td>
+                <td><input type="radio" name="youthStrengths_Resourcefulness" value="1"></td>
+                <td><input type="radio" name="youthStrengths_Resourcefulness" value="2"></td>
+                <td><input type="radio" name="youthStrengths_Resourcefulness" value="3"></td>
+            </tr>
+        </table>
+
+        <br />
+
+        <table id="acculturation">
+            <tr style="text-align:center;">
+                <td colspan="6">Acculturation</td>
+            </tr>
+
+            <tr>
+                <td colspan="2">0 = no evidence <br/> 2 = minimal needs</td>
+                <td></td>
+                <td></td>
+                <td colspan="2">1 = moderate needs <br /> 3 = severe needs</td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td>NA</td>
+                <td>0</td>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+            </tr>
+
+            <tr>
+                <td>Language</td>
+                <td><input type="radio" name="acculturation_Language" value="NA"></td>
+                <td><input type="radio" name="acculturation_Language" value="0"></td>
+                <td><input type="radio" name="acculturation_Language" value="1"></td>
+                <td><input type="radio" name="acculturation_Language" value="2"></td>
+                <td><input type="radio" name="acculturation_Language" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Identity</td>
+                <td><input type="radio" name="acculturation_Identity" value="NA"></td>
+                <td><input type="radio" name="acculturation_Identity" value="0"></td>
+                <td><input type="radio" name="acculturation_Identity" value="1"></td>
+                <td><input type="radio" name="acculturation_Identity" value="2"></td>
+                <td><input type="radio" name="acculturation_Identity" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Ritual</td>
+                <td><input type="radio" name="acculturation_Ritual" value="NA"></td>
+                <td><input type="radio" name="acculturation_Ritual" value="0"></td>
+                <td><input type="radio" name="acculturation_Ritual" value="1"></td>
+                <td><input type="radio" name="acculturation_Ritual" value="2"></td>
+                <td><input type="radio" name="acculturation_Ritual" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Cultural Stress</td>
+                <td><input type="radio" name="acculturation_CulStress" value="NA"></td>
+                <td><input type="radio" name="acculturation_CulStress" value="0"></td>
+                <td><input type="radio" name="acculturation_CulStress" value="1"></td>
+                <td><input type="radio" name="acculturation_CulStress" value="2"></td>
+                <td><input type="radio" name="acculturation_CulStress" value="3"></td>
+            </tr>
+        </table>
+
+        <br/>
+
+        <table id="permancyPlan">
+            <tr style="text-align:center;">
+                <td colspan="6">Permancy Plan</td>
+            </tr>
+
+            <tr style="text-align:center;">
+                <td colspan="6">Caregiver Strengths & Needs</td>
+            </tr>
+
+            <tr style="text-align:center;">
+                <td colspan="6">
+                    <input type="radio" name="permancyPlan_Caregiver" value="noCaregiver"> N/A child has no identified permanent caregiver (Complete Current Caregiver Module)
+                    <br/><input type="radio" name="permancyPlan_Caregiver" value="noCaregiver">Child in family foster care, complete Current Caregiver module
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2">0 = no evidence <br/> 2 = moderate needs</td>
+                <td></td>
+                <td></td>
+                <td colspan="2">1 = minimal needs <br/> 3 = severe needs</td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td>NA</td>
+                <td>0</td>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+            </tr>
+
+            <tr>
+                <td>Supervision</td>
+                <td><input type="radio" name="permancyPlan_Supervision" value="NA"></td>
+                <td><input type="radio" name="permancyPlan_Supervision" value="0"></td>
+                <td><input type="radio" name="permancyPlan_Supervision" value="1"></td>
+                <td><input type="radio" name="permancyPlan_Supervision" value="2"></td>
+                <td><input type="radio" name="permancyPlan_Supervision" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Involvement</td>
+                <td><input type="radio" name="permancyPlan_Involvement" value="NA"></td>
+                <td><input type="radio" name="permancyPlan_Involvement" value="0"></td>
+                <td><input type="radio" name="permancyPlan_Involvement" value="1"></td>
+                <td><input type="radio" name="permancyPlan_Involvement" value="2"></td>
+                <td><input type="radio" name="permancyPlan_Involvement" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Knowledge</td>
+                <td><input type="radio" name="permancyPlan_Knowledge" value="NA"></td>
+                <td><input type="radio" name="permancyPlan_Knowledge" value="0"></td>
+                <td><input type="radio" name="permancyPlan_Knowledge" value="1"></td>
+                <td><input type="radio" name="permancyPlan_Knowledge" value="2"></td>
+                <td><input type="radio" name="permancyPlan_Knowledge" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Organization</td>
+                <td><input type="radio" name="permancyPlan_Organization" value="NA"></td>
+                <td><input type="radio" name="permancyPlan_Organization" value="0"></td>
+                <td><input type="radio" name="permancyPlan_Organization" value="1"></td>
+                <td><input type="radio" name="permancyPlan_Organization" value="2"></td>
+                <td><input type="radio" name="permancyPlan_Organization" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Social Resources</td>
+                <td><input type="radio" name="permancyPlan_SocResources" value="NA"></td>
+                <td><input type="radio" name="permancyPlan_SocResources" value="0"></td>
+                <td><input type="radio" name="permancyPlan_SocResources" value="1"></td>
+                <td><input type="radio" name="permancyPlan_SocResources" value="2"></td>
+                <td><input type="radio" name="permancyPlan_SocResources" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Residential Stability</td>
+                <td><input type="radio" name="permancyPlan_ResStability" value="NA"></td>
+                <td><input type="radio" name="permancyPlan_ResStability" value="0"></td>
+                <td><input type="radio" name="permancyPlan_ResStability" value="1"></td>
+                <td><input type="radio" name="permancyPlan_ResStability" value="2"></td>
+                <td><input type="radio" name="permancyPlan_ResStability" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Physical</td>
+                <td><input type="radio" name="permancyPlan_Physical" value="NA"></td>
+                <td><input type="radio" name="permancyPlan_Physical" value="0"></td>
+                <td><input type="radio" name="permancyPlan_Physical" value="1"></td>
+                <td><input type="radio" name="permancyPlan_Physical" value="2"></td>
+                <td><input type="radio" name="permancyPlan_Physical" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Mental Health</td>
+                <td><input type="radio" name="permancyPlan_MntlHlth" value="NA"></td>
+                <td><input type="radio" name="permancyPlan_MntlHlth" value="0"></td>
+                <td><input type="radio" name="permancyPlan_MntlHlth" value="1"></td>
+                <td><input type="radio" name="permancyPlan_MntlHlth" value="2"></td>
+                <td><input type="radio" name="permancyPlan_MntlHlth" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Substance Abuse</td>
+                <td><input type="radio" name="permancyPlan_SubAbuse" value="NA"></td>
+                <td><input type="radio" name="permancyPlan_SubAbuse" value="0"></td>
+                <td><input type="radio" name="permancyPlan_SubAbuse" value="1"></td>
+                <td><input type="radio" name="permancyPlan_SubAbuse" value="2"></td>
+                <td><input type="radio" name="permancyPlan_SubAbuse" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Developmental</td>
+                <td><input type="radio" name="permancyPlan_Developmental" value="NA"></td>
+                <td><input type="radio" name="permancyPlan_Developmental" value="0"></td>
+                <td><input type="radio" name="permancyPlan_Developmental" value="1"></td>
+                <td><input type="radio" name="permancyPlan_Developmental" value="2"></td>
+                <td><input type="radio" name="permancyPlan_Developmental" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Safety</td>
+                <td><input type="radio" name="permancyPlan_Safety" value="NA"></td>
+                <td><input type="radio" name="permancyPlan_Safety" value="0"></td>
+                <td><input type="radio" name="permancyPlan_Safety" value="1"></td>
+                <td><input type="radio" name="permancyPlan_Safety" value="2"></td>
+                <td><input type="radio" name="permancyPlan_Safety" value="3"></td>
+            </tr>
+        </table>
+
+        <br />
+
+        <table id="youthBehavioral">
+            <tr style="text-align:center;">
+                <td colspan="6">Youth Behavioral / Emotional Needs</td>
+            </tr>
+
+            <tr>
+                <td colspan="2">0 = no evidence <br /> 2 = causing problems, consistent with diagnosible behavior</td>
+                <td></td>
+                <td></td>
+                <td colspan="2">1 = history or sub-threshold, watch / prevent <br /> 3 = causing severe / dangerous problems</td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td>NA</td>
+                <td>0</td>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+            </tr>
+
+            <tr>
+                <td>Psychosis</td>
+                <td><input type="radio" name="youthBehavioral_Psychosis" value="NA"></td>
+                <td><input type="radio" name="youthBehavioral_Psychosis" value="0"></td>
+                <td><input type="radio" name="youthBehavioral_Psychosis" value="1"></td>
+                <td><input type="radio" name="youthBehavioral_Psychosis" value="2"></td>
+                <td><input type="radio" name="youthBehavioral_Psychosis" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Impulse / Hyper</td>
+                <td><input type="radio" name="youthBehavioral_Impulse" value="NA"></td>
+                <td><input type="radio" name="youthBehavioral_Impulse" value="0"></td>
+                <td><input type="radio" name="youthBehavioral_Impulse" value="1"></td>
+                <td><input type="radio" name="youthBehavioral_Impulse" value="2"></td>
+                <td><input type="radio" name="youthBehavioral_Impulse" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Depression</td>
+                <td><input type="radio" name="youthBehavioral_Depression" value="NA"></td>
+                <td><input type="radio" name="youthBehavioral_Depression" value="0"></td>
+                <td><input type="radio" name="youthBehavioral_Depression" value="1"></td>
+                <td><input type="radio" name="youthBehavioral_Depression" value="2"></td>
+                <td><input type="radio" name="youthBehavioral_Depression" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Anxiety</td>
+                <td><input type="radio" name="youthBehavioral_Anxiety" value="NA"></td>
+                <td><input type="radio" name="youthBehavioral_Anxiety" value="0"></td>
+                <td><input type="radio" name="youthBehavioral_Anxiety" value="1"></td>
+                <td><input type="radio" name="youthBehavioral_Anxiety" value="2"></td>
+                <td><input type="radio" name="youthBehavioral_Anxiety" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Oppositional</td>
+                <td><input type="radio" name="youthBehavioral_Oppositional" value="NA"></td>
+                <td><input type="radio" name="youthBehavioral_Oppositional" value="0"></td>
+                <td><input type="radio" name="youthBehavioral_Oppositional" value="1"></td>
+                <td><input type="radio" name="youthBehavioral_Oppositional" value="2"></td>
+                <td><input type="radio" name="youthBehavioral_Oppositional" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Conduct</td>
+                <td><input type="radio" name="youthBehavioral_Conduct" value="NA"></td>
+                <td><input type="radio" name="youthBehavioral_Conduct" value="0"></td>
+                <td><input type="radio" name="youthBehavioral_Conduct" value="1"></td>
+                <td><input type="radio" name="youthBehavioral_Conduct" value="2"></td>
+                <td><input type="radio" name="youthBehavioral_Conduct" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Adjustment to Trauma</td>
+                <td><input type="radio" name="youthBehavioral_Adjustment" value="NA"></td>
+                <td><input type="radio" name="youthBehavioral_Adjustment" value="0"></td>
+                <td><input type="radio" name="youthBehavioral_Adjustment" value="1"></td>
+                <td><input type="radio" name="youthBehavioral_Adjustment" value="2"></td>
+                <td><input type="radio" name="youthBehavioral_Adjustment" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Anger Control</td>
+                <td><input type="radio" name="youthBehavioral_AngerControl" value="NA"></td>
+                <td><input type="radio" name="youthBehavioral_AngerControl" value="0"></td>
+                <td><input type="radio" name="youthBehavioral_AngerControl" value="1"></td>
+                <td><input type="radio" name="youthBehavioral_AngerControl" value="2"></td>
+                <td><input type="radio" name="youthBehavioral_AngerControl" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Substance Use</td>
+                <td><input type="radio" name="youthBehavioral_SubUse" value="NA"></td>
+                <td><input type="radio" name="youthBehavioral_SubUse" value="0"></td>
+                <td><input type="radio" name="youthBehavioral_SubUse" value="1"></td>
+                <td><input type="radio" name="youthBehavioral_SubUse" value="2"></td>
+                <td><input type="radio" name="youthBehavioral_SubUse" value="3"></td>
+            </tr>
+        </table>
+
+        <br />
+
+        <table id="youthRiskBehaviors">
+            <tr style="text-align:center;">
+                <td colspan="6">Youth Risk Behaviors</td>
+            </tr>
+
+            <tr>
+                <td colspan="2">0 = no evidence <br /> 2 = recent, act</td>
+                <td></td>
+                <td></td>
+                <td colspan="2">1 = history, watch/prevent <br /> 3 = acute, act immediately</td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td>NA</td>
+                <td>0</td>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+            </tr>
+
+            <tr>
+                <td>Suicide Risk</td>
+                <td><input type="radio" name="youthRiskBehaviors_Suicide" value="NA"></td>
+                <td><input type="radio" name="youthRiskBehaviors_Suicide" value="0"></td>
+                <td><input type="radio" name="youthRiskBehaviors_Suicide" value="1"></td>
+                <td><input type="radio" name="youthRiskBehaviors_Suicide" value="2"></td>
+                <td><input type="radio" name="youthRiskBehaviors_Suicide" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Self Mutilation</td>
+                <td><input type="radio" name="youthRiskBehaviors_SelfMutil" value="NA"></td>
+                <td><input type="radio" name="youthRiskBehaviors_SelfMutil" value="0"></td>
+                <td><input type="radio" name="youthRiskBehaviors_SelfMutil" value="1"></td>
+                <td><input type="radio" name="youthRiskBehaviors_SelfMutil" value="2"></td>
+                <td><input type="radio" name="youthRiskBehaviors_SelfMutil" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Other Self Harm</td>
+                <td><input type="radio" name="youthRiskBehaviors_OtherHarm" value="NA"></td>
+                <td><input type="radio" name="youthRiskBehaviors_OtherHarm" value="0"></td>
+                <td><input type="radio" name="youthRiskBehaviors_OtherHarm" value="1"></td>
+                <td><input type="radio" name="youthRiskBehaviors_OtherHarm" value="2"></td>
+                <td><input type="radio" name="youthRiskBehaviors_OtherHarm" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Danger to Others</td>
+                <td><input type="radio" name="youthRiskBehaviors_Danger" value="NA"></td>
+                <td><input type="radio" name="youthRiskBehaviors_Danger" value="0"></td>
+                <td><input type="radio" name="youthRiskBehaviors_Danger" value="1"></td>
+                <td><input type="radio" name="youthRiskBehaviors_Danger" value="2"></td>
+                <td><input type="radio" name="youthRiskBehaviors_Danger" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Sexual Aggression</td>
+                <td><input type="radio" name="youthRiskBehaviors_SexAggress" value="NA"></td>
+                <td><input type="radio" name="youthRiskBehaviors_SexAggress" value="0"></td>
+                <td><input type="radio" name="youthRiskBehaviors_SexAggress" value="1"></td>
+                <td><input type="radio" name="youthRiskBehaviors_SexAggress" value="2"></td>
+                <td><input type="radio" name="youthRiskBehaviors_SexAggress" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Runaway</td>
+                <td><input type="radio" name="youthRiskBehaviors_Runaway" value="NA"></td>
+                <td><input type="radio" name="youthRiskBehaviors_Runaway" value="0"></td>
+                <td><input type="radio" name="youthRiskBehaviors_Runaway" value="1"></td>
+                <td><input type="radio" name="youthRiskBehaviors_Runaway" value="2"></td>
+                <td><input type="radio" name="youthRiskBehaviors_Runaway" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Deliquency</td>
+                <td><input type="radio" name="youthRiskBehaviors_Deliquency" value="NA"></td>
+                <td><input type="radio" name="youthRiskBehaviors_Deliquency" value="0"></td>
+                <td><input type="radio" name="youthRiskBehaviors_Deliquency" value="1"></td>
+                <td><input type="radio" name="youthRiskBehaviors_Deliquency" value="2"></td>
+                <td><input type="radio" name="youthRiskBehaviors_Deliquency" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Judgment</td>
+                <td><input type="radio" name="youthRiskBehaviors_Judgment" value="NA"></td>
+                <td><input type="radio" name="youthRiskBehaviors_Judgment" value="0"></td>
+                <td><input type="radio" name="youthRiskBehaviors_Judgment" value="1"></td>
+                <td><input type="radio" name="youthRiskBehaviors_Judgment" value="2"></td>
+                <td><input type="radio" name="youthRiskBehaviors_Judgment" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Fire Setting</td>
+                <td><input type="radio" name="youthRiskBehaviors_Fire" value="NA"></td>
+                <td><input type="radio" name="youthRiskBehaviors_Fire" value="0"></td>
+                <td><input type="radio" name="youthRiskBehaviors_Fire" value="1"></td>
+                <td><input type="radio" name="youthRiskBehaviors_Fire" value="2"></td>
+                <td><input type="radio" name="youthRiskBehaviors_Fire" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Intentional Misbehavior</td>
+                <td><input type="radio" name="youthRiskBehaviors_Intentional" value="NA"></td>
+                <td><input type="radio" name="youthRiskBehaviors_Intentional" value="0"></td>
+                <td><input type="radio" name="youthRiskBehaviors_Intentional" value="1"></td>
+                <td><input type="radio" name="youthRiskBehaviors_Intentional" value="2"></td>
+                <td><input type="radio" name="youthRiskBehaviors_Intentional" value="3"></td>
+            </tr>
+        </table>
+
+        <br />
+
+        <hr />
+
+        <h2>Modules </h2>
+
+        <br />
+
+        <table id="dd">
+            <tr style="text-align:center;">
+                <td colspan="5">1. DD - Developmental Needs</td>
+            </tr>
+
+            <tr>
+                <td colspan="2">0 = no evidence of problems <br /> 2 = moderate needs</td>
+                <td></td>
+                <td colspan="2">1 = History, minimal <br /> 3 = severe needs</td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td>0</td>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+            </tr>
+
+            <tr>
+                <td>Cognitive</td>
+                <td><input type="radio" name="dd_Cognitive" value="0"></td>
+                <td><input type="radio" name="dd_Cognitive" value="1"></td>
+                <td><input type="radio" name="dd_Cognitive" value="2"></td>
+                <td><input type="radio" name="dd_Cognitive" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Autism Spectrum</td>
+                <td><input type="radio" name="dd_Autism" value="0"></td>
+                <td><input type="radio" name="dd_Autism" value="1"></td>
+                <td><input type="radio" name="dd_Autism" value="2"></td>
+                <td><input type="radio" name="dd_Autism" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Communication</td>
+                <td><input type="radio" name="dd_Communication" value="0"></td>
+                <td><input type="radio" name="dd_Communication" value="1"></td>
+                <td><input type="radio" name="dd_Communication" value="2"></td>
+                <td><input type="radio" name="dd_Communication" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Self Care / Daily Living</td>
+                <td><input type="radio" name="dd_SelfCare" value="0"></td>
+                <td><input type="radio" name="dd_SelfCare" value="1"></td>
+                <td><input type="radio" name="dd_SelfCare" value="2"></td>
+                <td><input type="radio" name="dd_SelfCare" value="3"></td>
+            </tr>
+        </table>
+
+        <br />
+
+        <table id="currentCaregiver">
+            <tr style="text-align:center;">
+                <td colspan="5">2. Current Caregiver</td>
+            </tr>
+
+            <tr>
+                <td colspan="2">0 = no evidence <br /> 2 = moderate needs</td>
+                <td></td>
+                <td colspan="2">1 = minimal needs <br /> 3 = severe needs</td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td>0</td>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+            </tr>
+
+            <tr>
+                <td>Supervision</td>
+                <td><input type="radio" name="currentCaregiver_Supervision" value="0"></td>
+                <td><input type="radio" name="currentCaregiver_Supervision" value="1"></td>
+                <td><input type="radio" name="currentCaregiver_Supervision" value="2"></td>
+                <td><input type="radio" name="currentCaregiver_Supervision" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Involvement</td>
+                <td><input type="radio" name="currentCaregiver_Involvement" value="0"></td>
+                <td><input type="radio" name="currentCaregiver_Involvement" value="1"></td>
+                <td><input type="radio" name="currentCaregiver_Involvement" value="2"></td>
+                <td><input type="radio" name="currentCaregiver_Involvement" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Knowledge</td>
+                <td><input type="radio" name="currentCaregiver_Knowledge" value="0"></td>
+                <td><input type="radio" name="currentCaregiver_Knowledge" value="1"></td>
+                <td><input type="radio" name="currentCaregiver_Knowledge" value="2"></td>
+                <td><input type="radio" name="currentCaregiver_Knowledge" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Organization</td>
+                <td><input type="radio" name="currentCaregiver_Organization" value="0"></td>
+                <td><input type="radio" name="currentCaregiver_Organization" value="1"></td>
+                <td><input type="radio" name="currentCaregiver_Organization" value="2"></td>
+                <td><input type="radio" name="currentCaregiver_Organization" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Social Resources</td>
+                <td><input type="radio" name="currentCaregiver_SocResource" value="0"></td>
+                <td><input type="radio" name="currentCaregiver_SocResource" value="1"></td>
+                <td><input type="radio" name="currentCaregiver_SocResource" value="2"></td>
+                <td><input type="radio" name="currentCaregiver_SocResource" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Residential Stability</td>
+                <td><input type="radio" name="currentCaregiver_ResStability" value="0"></td>
+                <td><input type="radio" name="currentCaregiver_ResStability" value="1"></td>
+                <td><input type="radio" name="currentCaregiver_ResStability" value="2"></td>
+                <td><input type="radio" name="currentCaregiver_ResStability" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Physical</td>
+                <td><input type="radio" name="currentCaregiver_Physical" value="0"></td>
+                <td><input type="radio" name="currentCaregiver_Physical" value="1"></td>
+                <td><input type="radio" name="currentCaregiver_Physical" value="2"></td>
+                <td><input type="radio" name="currentCaregiver_Physical" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Mental Health</td>
+                <td><input type="radio" name="currentCaregiver_MntlHlth" value="0"></td>
+                <td><input type="radio" name="currentCaregiver_MntlHlth" value="1"></td>
+                <td><input type="radio" name="currentCaregiver_MntlHlth" value="2"></td>
+                <td><input type="radio" name="currentCaregiver_MntlHlth" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Substance Abuse</td>
+                <td><input type="radio" name="currentCaregiver_SubAbuse" value="0"></td>
+                <td><input type="radio" name="currentCaregiver_SubAbuse" value="1"></td>
+                <td><input type="radio" name="currentCaregiver_SubAbuse" value="2"></td>
+                <td><input type="radio" name="currentCaregiver_SubAbuse" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Developmental</td>
+                <td><input type="radio" name="currentCaregiver_Developmental" value="0"></td>
+                <td><input type="radio" name="currentCaregiver_Developmental" value="1"></td>
+                <td><input type="radio" name="currentCaregiver_Developmental" value="2"></td>
+                <td><input type="radio" name="currentCaregiver_Developmental" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Safety</td>
+                <td><input type="radio" name="currentCaregiver_Safety" value="0"></td>
+                <td><input type="radio" name="currentCaregiver_Safety" value="1"></td>
+                <td><input type="radio" name="currentCaregiver_Safety" value="2"></td>
+                <td><input type="radio" name="currentCaregiver_Safety" value="3"></td>
+            </tr>
+        </table>
+
+        <br />
+
+        <table id="Trauma">
+            <tr style="text-align:center;">
+                <td colspan="5">3. Trauma</td>
+            </tr>
+
+            <tr>
+                <td colspan="2">0 = no evidence <br /> 2 = causing problems, consistent with diagnosible behavior</td>
+                <td></td>
+                <td colspan="2">1 = history or sub-threshold, watch / prevent <br /> 3 = causing severe / dangerous problems</td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td>0</td>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+            </tr>
+
+            <tr>
+                <td>Sexual Abuse*</td>
+                <td><input type="radio" name="trauma_SexAbuse" value="0"></td>
+                <td><input type="radio" name="trauma_SexAbuse" value="1"></td>
+                <td><input type="radio" name="trauma_SexAbuse" value="2"></td>
+                <td><input type="radio" name="trauma_SexAbuse" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Physical Abuse</td>
+                <td><input type="radio" name="trauma_PhysAbuse" value="0"></td>
+                <td><input type="radio" name="trauma_PhysAbuse" value="1"></td>
+                <td><input type="radio" name="trauma_PhysAbuse" value="2"></td>
+                <td><input type="radio" name="trauma_PhysAbuse" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Neglect</td>
+                <td><input type="radio" name="trauma_Neglect" value="0"></td>
+                <td><input type="radio" name="trauma_Neglect" value="1"></td>
+                <td><input type="radio" name="trauma_Neglect" value="2"></td>
+                <td><input type="radio" name="trauma_Neglect" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Emotional Abuse</td>
+                <td><input type="radio" name="trauma_EmoAbuse" value="0"></td>
+                <td><input type="radio" name="trauma_EmoAbuse" value="1"></td>
+                <td><input type="radio" name="trauma_EmoAbuse" value="2"></td>
+                <td><input type="radio" name="trauma_EmoAbuse" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Medical Trauma</td>
+                <td><input type="radio" name="trauma_MedTrauma" value="0"></td>
+                <td><input type="radio" name="trauma_MedTrauma" value="1"></td>
+                <td><input type="radio" name="trauma_MedTrauma" value="2"></td>
+                <td><input type="radio" name="trauma_MedTrauma" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Natural Disaster</td>
+                <td><input type="radio" name="trauma_NatDisaster" value="0"></td>
+                <td><input type="radio" name="trauma_NatDisaster" value="1"></td>
+                <td><input type="radio" name="trauma_NatDisaster" value="2"></td>
+                <td><input type="radio" name="trauma_NatDisaster" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Witness to Family Violence</td>
+                <td><input type="radio" name="trauma_WitnessFamViolence" value="0"></td>
+                <td><input type="radio" name="trauma_WitnessFamViolence" value="1"></td>
+                <td><input type="radio" name="trauma_WitnessFamViolence" value="2"></td>
+                <td><input type="radio" name="trauma_WitnessFamViolence" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Witness to Community Violence</td>
+                <td><input type="radio" name="trauma_WitnessComViolence" value="0"></td>
+                <td><input type="radio" name="trauma_WitnessComViolence" value="1"></td>
+                <td><input type="radio" name="trauma_WitnessComViolence" value="2"></td>
+                <td><input type="radio" name="trauma_WitnessComViolence" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Witness/Victim - Criminal Acts</td>
+                <td><input type="radio" name="trauma_WitnessCrimActs" value="0"></td>
+                <td><input type="radio" name="trauma_WitnessCrimActs" value="1"></td>
+                <td><input type="radio" name="trauma_WitnessCrimActs" value="2"></td>
+                <td><input type="radio" name="trauma_WitnessCrimActs" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Other (specify): <input type="text" id="other"></td>
+                <td><input type="radio" name="trauma_Other" value="0"></td>
+                <td><input type="radio" name="trauma_Other" value="1"></td>
+                <td><input type="radio" name="trauma_Other" value="2"></td>
+                <td><input type="radio" name="trauma_Other" value="3"></td>
+            </tr>
+
+            <tr style="text-align:center;">
+                <td colspan="5">*If Sexual Abuse > 0, complete the following:</td>
+            </tr>
+
+            <tr>
+                <td>Emotional closeness to perpetrator</td>
+                <td><input type="radio" name="trauma_EmoCloseness" value="0"></td>
+                <td><input type="radio" name="trauma_EmoCloseness" value="1"></td>
+                <td><input type="radio" name="trauma_EmoCloseness" value="2"></td>
+                <td><input type="radio" name="trauma_EmoCloseness" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Frequency</td>
+                <td><input type="radio" name="trauma_Frequency" value="0"></td>
+                <td><input type="radio" name="trauma_Frequency" value="1"></td>
+                <td><input type="radio" name="trauma_Frequency" value="2"></td>
+                <td><input type="radio" name="trauma_Frequency" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Duration</td>
+                <td><input type="radio" name="trauma_Duration" value="0"></td>
+                <td><input type="radio" name="trauma_Duration" value="1"></td>
+                <td><input type="radio" name="trauma_Duration" value="2"></td>
+                <td><input type="radio" name="trauma_Duration" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Force</td>
+                <td><input type="radio" name="trauma_Force" value="0"></td>
+                <td><input type="radio" name="trauma_Force" value="1"></td>
+                <td><input type="radio" name="trauma_Force" value="2"></td>
+                <td><input type="radio" name="trauma_Force" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Reaction to Disclosure</td>
+                <td><input type="radio" name="trauma_Reaction" value="0"></td>
+                <td><input type="radio" name="trauma_Reaction" value="1"></td>
+                <td><input type="radio" name="trauma_Reaction" value="2"></td>
+                <td><input type="radio" name="trauma_Reaction" value="3"></td>
+            </tr>
+
+            <tr style="text-align:center;">
+                <td colspan="5">
+                    For all children with >= 1 on adjustment to trauma
+                    <br />Adjustment
+                </td>
+            </tr>
+
+            <tr>
+                <td>Affect Regulation</td>
+                <td><input type="radio" name="trauma_Affect" value="0"></td>
+                <td><input type="radio" name="trauma_Affect" value="1"></td>
+                <td><input type="radio" name="trauma_Affect" value="2"></td>
+                <td><input type="radio" name="trauma_Affect" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Intrustions</td>
+                <td><input type="radio" name="trauma_Intrustions" value="0"></td>
+                <td><input type="radio" name="trauma_Intrustions" value="1"></td>
+                <td><input type="radio" name="trauma_Intrustions" value="2"></td>
+                <td><input type="radio" name="trauma_Intrustions" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Attachment</td>
+                <td><input type="radio" name="trauma_Attachment" value="0"></td>
+                <td><input type="radio" name="trauma_Attachment" value="1"></td>
+                <td><input type="radio" name="trauma_Attachment" value="2"></td>
+                <td><input type="radio" name="trauma_Attachment" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Dissociation</td>
+                <td><input type="radio" name="trauma_Dissociation" value="0"></td>
+                <td><input type="radio" name="trauma_Dissociation" value="1"></td>
+                <td><input type="radio" name="trauma_Dissociation" value="2"></td>
+                <td><input type="radio" name="trauma_Dissociation" value="3"></td>
+            </tr>
+        </table>
+
+        <br />
+
+        <table id="sud">
+            <tr style="text-align:center;">
+                <td colspan="5">4. SUD - Substance Abuse</td>
+            </tr>
+
+            <tr>
+                <td colspan="2">0 = no evidence <br /> 2 = causing problems, consistent with diagnosible behavior</td>
+                <td></td>
+                <td colspan="2">1 = history or sub-threshold, watch / prevent <br /> 3 = causing severe / dangerous problems</td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td>0</td>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+            </tr>
+
+            <tr>
+                <td>Severity of Use</td>
+                <td><input type="radio" name="sud_Severity" value="0"></td>
+                <td><input type="radio" name="sud_Severity" value="1"></td>
+                <td><input type="radio" name="sud_Severity" value="2"></td>
+                <td><input type="radio" name="sud_Severity" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Duration of Use</td>
+                <td><input type="radio" name="sud_Duration" value="0"></td>
+                <td><input type="radio" name="sud_Duration" value="1"></td>
+                <td><input type="radio" name="sud_Duration" value="2"></td>
+                <td><input type="radio" name="sud_Duration" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Stage of Recovery</td>
+                <td><input type="radio" name="sud_Stage" value="0"></td>
+                <td><input type="radio" name="sud_Stage" value="1"></td>
+                <td><input type="radio" name="sud_Stage" value="2"></td>
+                <td><input type="radio" name="sud_Stage" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Peer Influences</td>
+                <td><input type="radio" name="sud_Peer" value="0"></td>
+                <td><input type="radio" name="sud_Peer" value="1"></td>
+                <td><input type="radio" name="sud_Peer" value="2"></td>
+                <td><input type="radio" name="sud_Peer" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Parental Influences</td>
+                <td><input type="radio" name="sud_Parental" value="0"></td>
+                <td><input type="radio" name="sud_Parental" value="1"></td>
+                <td><input type="radio" name="sud_Parental" value="2"></td>
+                <td><input type="radio" name="sud_Parental" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Environmental Influences</td>
+                <td><input type="radio" name="sud_Environmental" value="0"></td>
+                <td><input type="radio" name="sud_Environmental" value="1"></td>
+                <td><input type="radio" name="sud_Environmental" value="2"></td>
+                <td><input type="radio" name="sud_Environmental" value="3"></td>
+            </tr>
+        </table>
+
+        <br />
+
+        <table id="violenceModule">
+            <tr style="text-align:center;">
+                <td colspan="5">5. Violence Module</td>
+            </tr>
+
+            <tr>
+                <td colspan="2">0 = no evidence <br /> 2 = recent, act</td>
+                <td></td>
+                <td colspan="2">1 = history, watch/prevent <br /> 3 = acute, act immediately</td>
+            </tr>
+
+            <tr>
+                <td>Historical Risk Factors</td>
+                <td>0</td>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+            </tr>
+
+            <tr>
+                <td>History of Physical Abuse</td>
+                <td><input type="radio" name="violence_HisOfPhys" value="0"></td>
+                <td><input type="radio" name="violence_HisOfPhys" value="1"></td>
+                <td><input type="radio" name="violence_HisOfPhys" value="2"></td>
+                <td><input type="radio" name="violence_HisOfPhys" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>History of Violence</td>
+                <td><input type="radio" name="violence_HisOfViolence" value="0"></td>
+                <td><input type="radio" name="violence_HisOfViolence" value="1"></td>
+                <td><input type="radio" name="violence_HisOfViolence" value="2"></td>
+                <td><input type="radio" name="violence_HisOfViolence" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Witness to Domestic Violence</td>
+                <td><input type="radio" name="violence_WitnessDomViolence" value="0"></td>
+                <td><input type="radio" name="violence_WitnessDomViolence" value="1"></td>
+                <td><input type="radio" name="violence_WitnessDomViolence" value="2"></td>
+                <td><input type="radio" name="violence_WitnessDomViolence" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Witness to Environmental Violence</td>
+                <td><input type="radio" name="violence_WitnessEnvironViolence" value="0"></td>
+                <td><input type="radio" name="violence_WitnessEnvironViolence" value="1"></td>
+                <td><input type="radio" name="violence_WitnessEnvironViolence" value="2"></td>
+                <td><input type="radio" name="violence_WitnessEnvironViolence" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Emotional / Behavioral Risks</td>
+                <td>0</td>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+            </tr>
+
+            <tr>
+                <td>Frustration Management</td>
+                <td><input type="radio" name="violence_Frustration" value="0"></td>
+                <td><input type="radio" name="violence_Frustration" value="1"></td>
+                <td><input type="radio" name="violence_Frustration" value="2"></td>
+                <td><input type="radio" name="violence_Frustration" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Hostility</td>
+                <td><input type="radio" name="violence_Hostility" value="0"></td>
+                <td><input type="radio" name="violence_Hostility" value="1"></td>
+                <td><input type="radio" name="violence_Hostility" value="2"></td>
+                <td><input type="radio" name="violence_Hostility" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Paranoid Thinking</td>
+                <td><input type="radio" name="violence_Paranoid" value="0"></td>
+                <td><input type="radio" name="violence_Paranoid" value="1"></td>
+                <td><input type="radio" name="violence_Paranoid" value="2"></td>
+                <td><input type="radio" name="violence_Paranoid" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Secondary Gains from Anger</td>
+                <td><input type="radio" name="violence_SecondGains" value="0"></td>
+                <td><input type="radio" name="violence_SecondGains" value="1"></td>
+                <td><input type="radio" name="violence_SecondGains" value="2"></td>
+                <td><input type="radio" name="violence_SecondGains" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Violent Thinking</td>
+                <td><input type="radio" name="violence_Violent" value="0"></td>
+                <td><input type="radio" name="violence_Violent" value="1"></td>
+                <td><input type="radio" name="violence_Violent" value="2"></td>
+                <td><input type="radio" name="violence_Violent" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Resiliency Factors</td>
+                <td>0</td>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+            </tr>
+
+            <tr>
+                <td>Aware of violence potential</td>
+                <td><input type="radio" name="violence_Aware" value="0"></td>
+                <td><input type="radio" name="violence_Aware" value="1"></td>
+                <td><input type="radio" name="violence_Aware" value="2"></td>
+                <td><input type="radio" name="violence_Aware" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Response to Consequences</td>
+                <td><input type="radio" name="violence_Response" value="0"></td>
+                <td><input type="radio" name="violence_Response" value="1"></td>
+                <td><input type="radio" name="violence_Response" value="2"></td>
+                <td><input type="radio" name="violence_Response" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Commitment to Self-Control</td>
+                <td><input type="radio" name="violence_Commitment" value="0"></td>
+                <td><input type="radio" name="violence_Commitment" value="1"></td>
+                <td><input type="radio" name="violence_Commitment" value="2"></td>
+                <td><input type="radio" name="violence_Commitment" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Treatment Involvement</td>
+                <td><input type="radio" name="violence_Treatment" value="0"></td>
+                <td><input type="radio" name="violence_Treatment" value="1"></td>
+                <td><input type="radio" name="violence_Treatment" value="2"></td>
+                <td><input type="radio" name="violence_Treatment" value="3"></td>
+            </tr>
+        </table>
+
+        <br />
+
+        <table id="sab">
+            <tr style="text-align:center;">
+                <td colspan="5">6. SAB - Sexually Aggressive Behavior</td>
+            </tr>
+
+            <tr>
+                <td colspan="2">0 = no evidence <br /> 2 = recent, act</td>
+                <td></td>
+                <td colspan="2">1 = history, watch/prevent <br /> 3 = acute, act immediately</td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td>0</td>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+            </tr>
+
+            <tr>
+                <td>Relationship</td>
+                <td><input type="radio" name="sab_Relationship" value="0"></td>
+                <td><input type="radio" name="sab_Relationship" value="1"></td>
+                <td><input type="radio" name="sab_Relationship" value="2"></td>
+                <td><input type="radio" name="sab_Relationship" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Physical Force/Threat</td>
+                <td><input type="radio" name="sab_PhysForce" value="0"></td>
+                <td><input type="radio" name="sab_PhysForce" value="1"></td>
+                <td><input type="radio" name="sab_PhysForce" value="2"></td>
+                <td><input type="radio" name="sab_PhysForce" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Planning</td>
+                <td><input type="radio" name="sab_Planning" value="0"></td>
+                <td><input type="radio" name="sab_Planning" value="1"></td>
+                <td><input type="radio" name="sab_Planning" value="2"></td>
+                <td><input type="radio" name="sab_Planning" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Age Differential</td>
+                <td><input type="radio" name="sab_AgeDiff" value="0"></td>
+                <td><input type="radio" name="sab_AgeDiff" value="1"></td>
+                <td><input type="radio" name="sab_AgeDiff" value="2"></td>
+                <td><input type="radio" name="sab_AgeDiff" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Type of Sex Act</td>
+                <td><input type="radio" name="sab_Type" value="0"></td>
+                <td><input type="radio" name="sab_Type" value="1"></td>
+                <td><input type="radio" name="sab_Type" value="2"></td>
+                <td><input type="radio" name="sab_Type" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Response to Accusation</td>
+                <td><input type="radio" name="sab_Response" value="0"></td>
+                <td><input type="radio" name="sab_Response" value="1"></td>
+                <td><input type="radio" name="sab_Response" value="2"></td>
+                <td><input type="radio" name="sab_Response" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Temporal Consistency</td>
+                <td><input type="radio" name="sab_Temporal" value="0"></td>
+                <td><input type="radio" name="sab_Temporal" value="1"></td>
+                <td><input type="radio" name="sab_Temporal" value="2"></td>
+                <td><input type="radio" name="sab_Temporal" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>History of Sexual Behavior</td>
+                <td><input type="radio" name="sab_History" value="0"></td>
+                <td><input type="radio" name="sab_History" value="1"></td>
+                <td><input type="radio" name="sab_History" value="2"></td>
+                <td><input type="radio" name="sab_History" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Severity of Sexual Abuse</td>
+                <td><input type="radio" name="sab_Severity" value="0"></td>
+                <td><input type="radio" name="sab_Severity" value="1"></td>
+                <td><input type="radio" name="sab_Severity" value="2"></td>
+                <td><input type="radio" name="sab_Severity" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Prior Treatment</td>
+                <td><input type="radio" name="sab_Prior" value="0"></td>
+                <td><input type="radio" name="sab_Prior" value="1"></td>
+                <td><input type="radio" name="sab_Prior" value="2"></td>
+                <td><input type="radio" name="sab_Prior" value="3"></td>
+            </tr>
+        </table>
+
+        <br />
+
+        <table id="runaway">
+            <tr style="text-align:center;">
+                <td colspan="5">7. Runaway</td>
+            </tr>
+
+            <tr>
+                <td colspan="2">0 = no evidence <br />2 = recent, act</td>
+                <td></td>
+                <td colspan="2">1 = history, watch/prevent <br /> 3 = acute, act immediately</td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td>0</td>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+            </tr>
+
+            <tr>
+                <td>Frequency of Running</td>
+                <td><input type="radio" name="runaway_Frequency" value="0"></td>
+                <td><input type="radio" name="runaway_Frequency" value="1"></td>
+                <td><input type="radio" name="runaway_Frequency" value="2"></td>
+                <td><input type="radio" name="runaway_Frequency" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Consistency of Destination</td>
+                <td><input type="radio" name="runaway_Consistency" value="0"></td>
+                <td><input type="radio" name="runaway_Consistency" value="1"></td>
+                <td><input type="radio" name="runaway_Consistency" value="2"></td>
+                <td><input type="radio" name="runaway_Consistency" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Planning</td>
+                <td><input type="radio" name="runaway_Planning" value="0"></td>
+                <td><input type="radio" name="runaway_Planning" value="1"></td>
+                <td><input type="radio" name="runaway_Planning" value="2"></td>
+                <td><input type="radio" name="runaway_Planning" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Safety of Destination</td>
+                <td><input type="radio" name="runaway_Safety" value="0"></td>
+                <td><input type="radio" name="runaway_Safety" value="1"></td>
+                <td><input type="radio" name="runaway_Safety" value="2"></td>
+                <td><input type="radio" name="runaway_Safety" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Involvement of Illegal Acts</td>
+                <td><input type="radio" name="runaway_InvlveIllegal" value="0"></td>
+                <td><input type="radio" name="runaway_InvlveIllegal" value="1"></td>
+                <td><input type="radio" name="runaway_InvlveIllegal" value="2"></td>
+                <td><input type="radio" name="runaway_InvlveIllegal" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Likelihood of Return on Own</td>
+                <td><input type="radio" name="runaway_Likelihood" value="0"></td>
+                <td><input type="radio" name="runaway_Likelihood" value="1"></td>
+                <td><input type="radio" name="runaway_Likelihood" value="2"></td>
+                <td><input type="radio" name="runaway_Likelihood" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Involvement of Others</td>
+                <td><input type="radio" name="runaway_InvlveOthers" value="0"></td>
+                <td><input type="radio" name="runaway_InvlveOthers" value="1"></td>
+                <td><input type="radio" name="runaway_InvlveOthers" value="2"></td>
+                <td><input type="radio" name="runaway_InvlveOthers" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Realistic Expectations</td>
+                <td><input type="radio" name="runaway_Realistic" value="0"></td>
+                <td><input type="radio" name="runaway_Realistic" value="1"></td>
+                <td><input type="radio" name="runaway_Realistic" value="2"></td>
+                <td><input type="radio" name="runaway_Realistic" value="3"></td>
+            </tr>
+        </table>
+
+        <br />
+
+        <table id="jj">
+            <tr style="text-align:center;">
+                <td colspan="5">8. JJ - Juvenile Justice</td>
+            </tr>
+
+            <tr>
+                <td colspan="2">0 = no evidence <br /> 2 = recent, act</td>
+                <td></td>
+                <td colspan="2">1 = history, watch/prevent <br /> 3 = acute, act immediately</td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td>0</td>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+            </tr>
+
+            <tr>
+                <td>Seriousness</td>
+                <td><input type="radio" name="jj_Seriousness" value="0"></td>
+                <td><input type="radio" name="jj_Seriousness" value="1"></td>
+                <td><input type="radio" name="jj_Seriousness" value="2"></td>
+                <td><input type="radio" name="jj_Seriousness" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>History</td>
+                <td><input type="radio" name="jj_History" value="0"></td>
+                <td><input type="radio" name="jj_History" value="1"></td>
+                <td><input type="radio" name="jj_History" value="2"></td>
+                <td><input type="radio" name="jj_History" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Arrests</td>
+                <td><input type="radio" name="jj_Arrests" value="0"></td>
+                <td><input type="radio" name="jj_Arrests" value="1"></td>
+                <td><input type="radio" name="jj_Arrests" value="2"></td>
+                <td><input type="radio" name="jj_Arrests" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Planning</td>
+                <td><input type="radio" name="jj_Planning" value="0"></td>
+                <td><input type="radio" name="jj_Planning" value="1"></td>
+                <td><input type="radio" name="jj_Planning" value="2"></td>
+                <td><input type="radio" name="jj_Planning" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Community Safety</td>
+                <td><input type="radio" name="jj_ComSafety" value="0"></td>
+                <td><input type="radio" name="jj_ComSafety" value="1"></td>
+                <td><input type="radio" name="jj_ComSafety" value="2"></td>
+                <td><input type="radio" name="jj_ComSafety" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Legal Compliance</td>
+                <td><input type="radio" name="jj_Legal" value="0"></td>
+                <td><input type="radio" name="jj_Legal" value="1"></td>
+                <td><input type="radio" name="jj_Legal" value="2"></td>
+                <td><input type="radio" name="jj_Legal" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Peer Influences</td>
+                <td><input type="radio" name="jj_Peer" value="0"></td>
+                <td><input type="radio" name="jj_Peer" value="1"></td>
+                <td><input type="radio" name="jj_Peer" value="2"></td>
+                <td><input type="radio" name="jj_Peer" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Parental Influences</td>
+                <td><input type="radio" name="jj_Parental" value="0"></td>
+                <td><input type="radio" name="jj_Parental" value="1"></td>
+                <td><input type="radio" name="jj_Parental" value="2"></td>
+                <td><input type="radio" name="jj_Parental" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Environmental Influences</td>
+                <td><input type="radio" name="jj_Environmental" value="0"></td>
+                <td><input type="radio" name="jj_Environmental" value="1"></td>
+                <td><input type="radio" name="jj_Environmental" value="2"></td>
+                <td><input type="radio" name="jj_Environmental" value="3"></td>
+            </tr>
+        </table>
+
+        <br />
+
+        <table id="fs">
+            <tr style="text-align:center;">
+                <td colspan="5">9. FS - Fire Setting</td>
+            </tr>
+
+            <tr>
+                <td colspan="2">0 = no evidence <br /> 2 = recent, act</td>
+                <td></td>
+                <td colspan="2">1 = history, watch/prevent <br /> 3 = acute, act immediately</td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td>0</td>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+            </tr>
+
+            <tr>
+                <td>Seriousness</td>
+                <td><input type="radio" name="fs_Seriousness" value="0"></td>
+                <td><input type="radio" name="fs_Seriousness" value="1"></td>
+                <td><input type="radio" name="fs_Seriousness" value="2"></td>
+                <td><input type="radio" name="fs_Seriousness" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>History</td>
+                <td><input type="radio" name="fs_History" value="0"></td>
+                <td><input type="radio" name="fs_History" value="1"></td>
+                <td><input type="radio" name="fs_History" value="2"></td>
+                <td><input type="radio" name="fs_History" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Planning</td>
+                <td><input type="radio" name="fs_Planning" value="0"></td>
+                <td><input type="radio" name="fs_Planning" value="1"></td>
+                <td><input type="radio" name="fs_Planning" value="2"></td>
+                <td><input type="radio" name="fs_Planning" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Use of Accelerants</td>
+                <td><input type="radio" name="fs_Accelerants" value="0"></td>
+                <td><input type="radio" name="fs_Accelerants" value="1"></td>
+                <td><input type="radio" name="fs_Accelerants" value="2"></td>
+                <td><input type="radio" name="fs_Accelerants" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Intention to Harm</td>
+                <td><input type="radio" name="fs_Intention" value="0"></td>
+                <td><input type="radio" name="fs_Intention" value="1"></td>
+                <td><input type="radio" name="fs_Intention" value="2"></td>
+                <td><input type="radio" name="fs_Intention" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Community Safety</td>
+                <td><input type="radio" name="fs_ComSafety" value="0"></td>
+                <td><input type="radio" name="fs_ComSafety" value="1"></td>
+                <td><input type="radio" name="fs_ComSafety" value="2"></td>
+                <td><input type="radio" name="fs_ComSafety" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Response to Accusation</td>
+                <td><input type="radio" name="fs_Response" value="0"></td>
+                <td><input type="radio" name="fs_Response" value="1"></td>
+                <td><input type="radio" name="fs_Response" value="2"></td>
+                <td><input type="radio" name="fs_Response" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Remorse</td>
+                <td><input type="radio" name="fs_Remorse" value="0"></td>
+                <td><input type="radio" name="fs_Remorse" value="1"></td>
+                <td><input type="radio" name="fs_Remorse" value="2"></td>
+                <td><input type="radio" name="fs_Remorse" value="3"></td>
+            </tr>
+
+            <tr>
+                <td>Likelihood of Future Fires</td>
+                <td><input type="radio" name="fs_Likelihood" value="0"></td>
+                <td><input type="radio" name="fs_Likelihood" value="1"></td>
+                <td><input type="radio" name="fs_Likelihood" value="2"></td>
+                <td><input type="radio" name="fs_Likelihood" value="3"></td>
+            </tr>
+        </table>
+    </form>
+</body>
