@@ -1,8 +1,20 @@
-﻿#currentLivingSituation {
+﻿@import url('https://fonts.googleapis.com/css?family=Montserrat:400, 700');
+#currentLivingSituation {
      width: 100%; 
      box-sizing: border-box;
      -webkit-box-sizing:border-box;
      -moz-box-sizing: border-box;
+}
+
+body, html{
+    font-family: 'Montserrat', sans-serif; 
+}
+
+h3{
+border-left: 2px solid #0094ff;
+font-weight:300;
+padding-left:20px;
+
 }
 
 table{
@@ -20,4 +32,84 @@ th, td {
 
 .demographicInfo td, .demographicInfo th{
     border-bottom: 0px;
+}
+
+label {
+    display: inline-block;
+    border:2px solid #6f6f6f;
+    border-radius:8px;   
+    padding: 20px;
+    margin: 10px auto;
+    cursor:pointer;
+}
+
+label:hover {
+    background:#1cb0f6; 
+    border:2px solid white;}
+
+input[type=radio]{
+      margin-right:1em;
+}
+
+input[type=radio]{
+-webkit-appearance:none;
+-moz-appearance:none;
+border:2px solid #6f6f6f;
+border-radius:999px;
+height:1em;
+margin-right:5px;
+position:relative;
+top:2px;
+width:1em;
+}
+
+input[type=radio]:hover{
+    border:2px solid white;
+}
+
+input[type=radio]:checked{
+border-color:#0026ff;
+}
+
+input[type=radio]:checked:after{
+background:#0026ff;
+border-radius:999px;
+content:'';
+height:55%;
+left:3px;
+position:absolute;
+top:3px;
+width:55%
+}
+
+.radio-label,.checkbox-label{
+cursor:pointer;
+display:inline-block;
+font-size:17px;
+}
+
+.radio-label.bordered,.checkbox-label.bordered{
+border-radius:999px;
+border:2px solid #6f6f6f;
+box-sizing:border-box;
+color:#6f6f6f;
+font-size:17px;
+min-width:220px;
+padding:8px 15px;
+}
+
+.radio-label.bordered.checked,.checkbox-label.bordered.checked{
+background:#0026ff;
+border-color:#1cb0f6;
+color:white}
+
+.radio-label.bordered input:checked {
+background:#1cb0f6;
+border-color:white}
+
+.radio-label.bordered input:checked:after{
+background:#1cb0f6;}
+
+.radbtn:checked + .radio-label{
+    background:#1cb0f6;
 }
