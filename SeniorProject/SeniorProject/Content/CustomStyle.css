@@ -1,0 +1,23 @@
+﻿#currentLivingSituation {
+     width: 100%; 
+     box-sizing: border-box;
+     -webkit-box-sizing:border-box;
+     -moz-box-sizing: border-box;
+}
+
+table{
+    border-collapse: collapse;
+	width: 100%;
+}
+
+th, td {
+    border-bottom: 1px solid #ddd;
+}
+
+.demographicInfo{
+    border: 0px;
+}
+
+.demographicInfo td, .demographicInfo th{
+    border-bottom: 0px;
+}

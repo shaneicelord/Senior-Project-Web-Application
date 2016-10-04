@@ -25,6 +25,7 @@ namespace SeniorProject
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/CustomStyle.css",
                       "~/Content/site.css"));
         }
     }
