@@ -15,7 +15,7 @@ namespace SeniorProject.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Here is your generated graph:";
 
             return View();
         }
