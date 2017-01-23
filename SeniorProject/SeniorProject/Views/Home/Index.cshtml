@@ -24,6 +24,10 @@
     @if (Request.IsAuthenticated)
     {        
         @Html.ActionLink("Access CANS Form here.", "CANSForm", "CANSForm", null, null)
+        <br/>
+        <br />
+        @Html.ActionLink("Manage roles (ADMIN Only)", "Index", "Users", null, null)
+
     }
     
     
