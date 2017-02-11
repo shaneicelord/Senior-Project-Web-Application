@@ -55,16 +55,38 @@ namespace SeniorProject.Controllers
                 var query = from a in db.CANScalculationss
                             where a.patientID.Equals(cANScalculations.patientID)
                             select a;
-                int fTotalNum = query.FirstOrDefault().totalNumber;
+                int fTotalNum = 0;
+                if (query.FirstOrDefault() != null)
+                {
+                    fTotalNum = query.FirstOrDefault().totalNumber;
+                }
 
                 if (fTotalNum == 0)
                 {
                     cANScalculations.Progress = 0;
                 }
-                else
+                else if (fTotalNum > cANScalculations.totalNumber)
                 {
-                    cANScalculations.Progress = ((cANScalculations.totalNumber - fTotalNum)/fTotalNum) * 100;
+                    cANScalculations.Progress = ((fTotalNum - cANScalculations.totalNumber) / fTotalNum) * 100;
                 }
+
+                else if (fTotalNum < cANScalculations.totalNumber)
+                {
+                    cANScalculations.Progress = ((cANScalculations.totalNumber - fTotalNum) / fTotalNum) * 100;
+                }
+                else if (fTotalNum == cANScalculations.totalNumber)
+                {
+                    cANScalculations.Progress = 0;
+                }
+
+                //if (fTotalNum == 0)
+                //{
+                //    cANScalculations.Progress = 0;
+                //}
+                //else
+                //{
+                //    cANScalculations.Progress = ((cANScalculations.totalNumber - fTotalNum)/fTotalNum) * 100;
+                //}
 
                 db.CANScalculationss.Add(cANScalculations);
                 db.SaveChanges();
@@ -104,17 +126,56 @@ namespace SeniorProject.Controllers
                 var query = from a in db.CANScalculationss
                             where a.patientID.Equals(cANScalculations.patientID)
                             select a;
-                int fTotalNum = query.FirstOrDefault().totalNumber;
+
+                int fTotalNum = 0;
+                int ID = 0;
+                if (query.FirstOrDefault() != null)
+                {
+                    fTotalNum = query.FirstOrDefault().totalNumber;
+                    ID = query.FirstOrDefault().ID;
+                }
+
+                if (query != null)
+                {
+                    db.Entry(cANScalculations).State = EntityState.Detached;
+                }
 
                 if (fTotalNum == 0)
                 {
                     cANScalculations.Progress = 0;
                 }
-                else
+                else if (fTotalNum > cANScalculations.totalNumber)
+                {
+                    cANScalculations.Progress = ((fTotalNum - cANScalculations.totalNumber) / fTotalNum) * 100;
+                }
+
+                else if (fTotalNum < cANScalculations.totalNumber)
                 {
                     cANScalculations.Progress = ((cANScalculations.totalNumber - fTotalNum) / fTotalNum) * 100;
                 }
-                db.Entry(cANScalculations).State = EntityState.Modified;
+                else if (fTotalNum == cANScalculations.totalNumber)
+                {
+                    cANScalculations.Progress = 0;
+                }
+                //if (fTotalNum == 0)
+                //{
+                //    cANScalculations.Progress = 0;
+                //}
+                //else
+                //{
+                //    cANScalculations.Progress = ((cANScalculations.totalNumber - fTotalNum) / fTotalNum) * 100;
+                //}
+                if (ID == cANScalculations.ID)
+                {
+                   // db.CANScalculationss.Attach(cANScalculations);
+                }
+                else
+                {
+                    db.Entry(cANScalculations).State = EntityState.Modified;
+                }
+                
+                
+               
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
