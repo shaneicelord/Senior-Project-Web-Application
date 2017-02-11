@@ -63,20 +63,20 @@ namespace SeniorProject.Controllers
 
                 if (fTotalNum == 0)
                 {
-                    cANScalculations.Progress = 0;
+                    cANScalculations.Progress = "0";
                 }
                 else if (fTotalNum > cANScalculations.totalNumber)
                 {
-                    cANScalculations.Progress = ((fTotalNum - cANScalculations.totalNumber) / fTotalNum) * 100;
+                    cANScalculations.Progress = "-" + (((fTotalNum - cANScalculations.totalNumber) / fTotalNum) * 100).ToString();
                 }
 
                 else if (fTotalNum < cANScalculations.totalNumber)
                 {
-                    cANScalculations.Progress = ((cANScalculations.totalNumber - fTotalNum) / fTotalNum) * 100;
+                    cANScalculations.Progress = (((cANScalculations.totalNumber - fTotalNum) / fTotalNum) * 100).ToString();
                 }
                 else if (fTotalNum == cANScalculations.totalNumber)
                 {
-                    cANScalculations.Progress = 0;
+                    cANScalculations.Progress = "0";
                 }
 
                 //if (fTotalNum == 0)
@@ -142,17 +142,17 @@ namespace SeniorProject.Controllers
 
                 if (ID== cANScalculations.ID)
                 {
-                    cANScalculations.Progress = 0;
+                    cANScalculations.Progress = "0";
                 }
                 else if (fTotalNum == 0)
                 {
-                    cANScalculations.Progress = 0;
+                    cANScalculations.Progress = "0";
                 }
                 else if (fTotalNum > cANScalculations.totalNumber)
                 {
                    // double d = (double)(fTotalNum - cANScalculations.totalNumber) / (double)fTotalNum;
                    // int i = Convert.ToInt32(d * (double)100);
-                    cANScalculations.Progress = ((fTotalNum - cANScalculations.totalNumber) / fTotalNum) * 100;
+                    cANScalculations.Progress = "-" +(((fTotalNum - cANScalculations.totalNumber) / fTotalNum) * 100).ToString();
                 }
 
                 else if (fTotalNum < cANScalculations.totalNumber)
@@ -161,11 +161,11 @@ namespace SeniorProject.Controllers
                    // double d = (double)(cANScalculations.totalNumber - fTotalNum) / (double)fTotalNum;
                     //int i = Convert.ToInt32(d * (double)100);
                    // cANScalculations.Progress = i;
-                    cANScalculations.Progress = ((cANScalculations.totalNumber - fTotalNum) / fTotalNum)* 100;
+                    cANScalculations.Progress = (((cANScalculations.totalNumber - fTotalNum) / fTotalNum)* 100).ToString();
                 }
                 else if (fTotalNum == cANScalculations.totalNumber)
                 {
-                    cANScalculations.Progress = 0;
+                    cANScalculations.Progress = "0";
                 }
                 //if (fTotalNum == 0)
                 //{

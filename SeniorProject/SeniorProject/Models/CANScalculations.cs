@@ -43,7 +43,7 @@ namespace SeniorProject.Models
 
         public int totalNumber { get; set; }
 
-        public int Progress { get; set; }
+        public string Progress { get; set; }
 
 
     }
