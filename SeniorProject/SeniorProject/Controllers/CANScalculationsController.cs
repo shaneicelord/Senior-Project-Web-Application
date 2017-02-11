@@ -152,7 +152,7 @@ namespace SeniorProject.Controllers
                 {
                    // double d = (double)(fTotalNum - cANScalculations.totalNumber) / (double)fTotalNum;
                    // int i = Convert.ToInt32(d * (double)100);
-                    cANScalculations.Progress = "-" +(((fTotalNum - cANScalculations.totalNumber) / fTotalNum) * 100).ToString();
+                    cANScalculations.Progress = "-" +(((fTotalNum - cANScalculations.totalNumber) * 100 / fTotalNum) ).ToString();
                 }
 
                 else if (fTotalNum < cANScalculations.totalNumber)
