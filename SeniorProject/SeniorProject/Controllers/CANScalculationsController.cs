@@ -123,35 +123,45 @@ namespace SeniorProject.Controllers
 
                 cANScalculations.totalNumber = cANScalculations.Family + cANScalculations.LivingSituation + cANScalculations.SocialFunctioning + cANScalculations.Recreatrional + cANScalculations.JobFunctioning + cANScalculations.Developmental + cANScalculations.Legal + cANScalculations.Medical + cANScalculations.Physical;
 
-                var query = from a in db.CANScalculationss
+                CANScalculationsDBContext db2 = new CANScalculationsDBContext();
+
+                var query = from a in db2.CANScalculationss
                             where a.patientID.Equals(cANScalculations.patientID)
                             select a;
 
                 int fTotalNum = 0;
                 int ID = 0;
+
                 if (query.FirstOrDefault() != null)
                 {
-                    fTotalNum = query.FirstOrDefault().totalNumber;
-                    ID = query.FirstOrDefault().ID;
+                    fTotalNum = query.First().totalNumber;
+                    ID = query.First().ID;
                 }
 
-                if (query != null)
+                db2.Dispose();
+
+                if (ID== cANScalculations.ID)
                 {
-                    db.Entry(cANScalculations).State = EntityState.Detached;
+                    cANScalculations.Progress = 0;
                 }
-
-                if (fTotalNum == 0)
+                else if (fTotalNum == 0)
                 {
                     cANScalculations.Progress = 0;
                 }
                 else if (fTotalNum > cANScalculations.totalNumber)
                 {
+                   // double d = (double)(fTotalNum - cANScalculations.totalNumber) / (double)fTotalNum;
+                   // int i = Convert.ToInt32(d * (double)100);
                     cANScalculations.Progress = ((fTotalNum - cANScalculations.totalNumber) / fTotalNum) * 100;
                 }
 
                 else if (fTotalNum < cANScalculations.totalNumber)
                 {
-                    cANScalculations.Progress = ((cANScalculations.totalNumber - fTotalNum) / fTotalNum) * 100;
+
+                   // double d = (double)(cANScalculations.totalNumber - fTotalNum) / (double)fTotalNum;
+                    //int i = Convert.ToInt32(d * (double)100);
+                   // cANScalculations.Progress = i;
+                    cANScalculations.Progress = ((cANScalculations.totalNumber - fTotalNum) / fTotalNum)* 100;
                 }
                 else if (fTotalNum == cANScalculations.totalNumber)
                 {
@@ -165,17 +175,9 @@ namespace SeniorProject.Controllers
                 //{
                 //    cANScalculations.Progress = ((cANScalculations.totalNumber - fTotalNum) / fTotalNum) * 100;
                 //}
-                if (ID == cANScalculations.ID)
-                {
-                   // db.CANScalculationss.Attach(cANScalculations);
-                }
-                else
-                {
-                    db.Entry(cANScalculations).State = EntityState.Modified;
-                }
-                
-                
                
+
+                db.Entry(cANScalculations).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
