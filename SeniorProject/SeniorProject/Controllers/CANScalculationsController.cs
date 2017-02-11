@@ -67,7 +67,7 @@ namespace SeniorProject.Controllers
                 }
                 else if (fTotalNum > cANScalculations.totalNumber)
                 {
-                    cANScalculations.Progress = "-" + (((fTotalNum - cANScalculations.totalNumber) / fTotalNum) * 100).ToString();
+                    cANScalculations.Progress = "-" + (((fTotalNum - cANScalculations.totalNumber) * 100 / fTotalNum) ).ToString();
                 }
 
                 else if (fTotalNum < cANScalculations.totalNumber)
