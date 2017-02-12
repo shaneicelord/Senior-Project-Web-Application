@@ -1,0 +1,18 @@
+﻿@using Microsoft.AspNet.Identity
+@{
+    ViewBag.Title = "Verify your account";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title.</h2>
+<div>
+    <p>
+        A confirmation email has been sent to your email <b>@User.Identity.GetUserName()</b>
+        <br />
+        <br />
+        Please click the link in the email to verify your account before using the CANS Tracking System.
+        <br />
+        <br />
+        If the email doesn't appear in your inbox, please check your <b>junk/spam</b> folder.
+    </p>
+</div>
