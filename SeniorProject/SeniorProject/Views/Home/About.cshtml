@@ -1,7 +1,50 @@
 ﻿@{
     ViewBag.Title = "About";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <script type="text/javascript" src="http://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <title>Line Chart</title>
+</head>
+<body>
+    <div id="chartContainer"></div>
 
-<p>Use this area to provide additional information.</p>
+    <script type="text/javascript">
+        window.onload = function () {
+            var chart = new CanvasJS.Chart("chartContainer", {
+                theme: "theme2",
+                zoomEnabled: true,
+                animationEnabled: true,
+                title: {
+                    text: "CANS Results"
+                },
+                subtitles: [
+                    {
+                        text: "Test Patient"
+                    }
+                ],
+                data: [
+                {
+                    type: "line",
+                    dataPoints: [
+                        
+                        {label: "Life Domain Functioning", y: 2 },
+                        
+                        {label:"Youth Strengths", y: 3 },
+                       
+                        {label:"Acculturation", y: 0 },
+                       
+                        {label:"Permancy Plan", y: 1 },
+                       
+                        {label:"Youth Behavioral / Emotional Needs", y: 2 },
+                        
+                        {label: "Youth Risk Behaviors", y: 3 },
+                    ],
+                }
+                ]
+            });
+            chart.render();
+        };
+    </script>
+
+</body>
