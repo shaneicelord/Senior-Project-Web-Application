@@ -1,0 +1,122 @@
+﻿@model SeniorProject.Models.CANScalculations
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CANScalculations</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.patientID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.patientID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Family)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Family)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LivingSituation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LivingSituation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SocialFunctioning)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SocialFunctioning)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Recreatrional)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Recreatrional)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JobFunctioning)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JobFunctioning)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Developmental)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Developmental)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Legal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Legal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Medical)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Medical)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Physical)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Physical)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReportNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReportNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.totalNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.totalNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Progress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Progress)&nbsp;%
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,101 @@
+﻿@model IEnumerable<SeniorProject.Models.CANScalculations>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.patientID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Family)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LivingSituation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SocialFunctioning)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Recreatrional)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JobFunctioning)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Developmental)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Legal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Medical)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Physical)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReportNumber)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.Progress)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.patientID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Family)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LivingSituation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SocialFunctioning)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Recreatrional)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JobFunctioning)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Developmental)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Legal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Medical)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Physical)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReportNumber)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.Progress) &nbsp;%
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
