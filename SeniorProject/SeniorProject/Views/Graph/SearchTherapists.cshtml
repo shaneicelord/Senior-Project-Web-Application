@@ -1,0 +1,31 @@
+﻿@using WebMatrix.Data;
+@using System.Web.Helpers;
+@model SeniorProject.Models.GraphSession
+
+@{
+    ViewBag.Title = "Select Therapist";
+}
+
+<html>
+
+<body>
+    <h1>Select Therapist</h1>
+
+    <form method="post" action="">
+        <fieldset>
+            <legend>Please type the email of the Therapist you wish to view the graphs of:</legend>
+            @using (Html.BeginForm())
+            {
+            <div>
+                <label>Email:</label>
+                @Html.TextBoxFor(m => m.UserEmail)
+            </div>
+            <div>
+                <label>&nbsp;</label>
+                <input type="submit" value="Submit" class="submit" />
+            </div>
+            }
+        </fieldset>
+    </form>
+</body>
+        </html>
