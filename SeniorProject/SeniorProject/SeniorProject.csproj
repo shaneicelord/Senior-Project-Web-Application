@@ -162,6 +162,12 @@
       <Private>True</Private>
       <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="WebMatrix.Data">
+      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\Senior-Project-Web-Application-GRAPHS\SeniorProject\packages\Microsoft.AspNet.WebPages.Data.3.2.3\lib\net45\WebMatrix.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMatrix.WebData">
+      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\Senior-Project-Web-Application-GRAPHS\SeniorProject\packages\Microsoft.AspNet.WebPages.WebData.3.2.3\lib\net45\WebMatrix.WebData.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="EntityFramework">
@@ -267,6 +273,7 @@
     <Compile Include="Models\C__MigrationHistory.cs">
       <DependentUpon>CANSModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\GraphModels.cs" />
     <Compile Include="Models\ITEM_SCORE.cs">
       <DependentUpon>CANSModel.tt</DependentUpon>
     </Compile>
@@ -318,7 +325,6 @@
       <DependentUpon>CANSModel.edmx</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\CANSSeniorProject.pubxml" />
-    <None Include="Properties\PublishProfiles\DanielsCANS - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -390,6 +396,13 @@
     <Content Include="Views\Patients\Details.cshtml" />
     <Content Include="Views\Patients\Edit.cshtml" />
     <Content Include="Views\Patients\Index.cshtml" />
+    <Content Include="Views\Graph\Graphs.cshtml" />
+    <Content Include="Views\Graph\PatientGraph.cshtml" />
+    <Content Include="Views\Graph\PerPatient.cshtml" />
+    <Content Include="Views\Graph\PerTherapist.cshtml" />
+    <Content Include="Views\Graph\SearchPatients.cshtml" />
+    <Content Include="Views\Graph\SearchTherapists.cshtml" />
+    <Content Include="Views\Graph\TherapistGraph.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,25 @@
+﻿@using WebMatrix.Data;
+@using System.Web.Helpers;
+
+@{
+
+    var db = Database.Open("CANSDB");
+
+    var pID = Session["PatientID"];
+
+    var data = db.Query("CREATE TABLE PLSHELP (number int) DECLARE @number AS INT = 1 WHILE (SELECT AVG(Score) FROM ITEM_SCORE INNER JOIN ASSESSMENTS ON ITEM_SCORE.AssessmentID = ASSESSMENTS.AssessmentID WHERE PatientID = '" + pID + "' AND Number = @number) IS NOT NULL BEGIN INSERT INTO PLSHELP SELECT AVG(Score) FROM ITEM_SCORE INNER JOIN ASSESSMENTS ON ITEM_SCORE.AssessmentID = ASSESSMENTS.AssessmentID WHERE PatientID = '" + pID + "' AND Number = @number; SET @number = @number + 1 END SELECT number FROM PLSHELP DROP TABLE PLSHELP;");
+    var myChart = new Chart(width: 1280, height: 720)
+        .AddTitle("Average Patient Scores for Patient")
+        .AddSeries("Default",
+        chartType: "FastLine",
+    yValues: data, yFields: "number")
+    .SetXAxis("Patient CANS Number", 1)
+    .SetYAxis("Average Composite CANS Score", 0, 3)
+        .Write();
+}
+<html>
+
+<body>
+    <h2>Graph</h2>
+</body>
+</html>
