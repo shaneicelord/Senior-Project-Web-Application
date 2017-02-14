@@ -105,6 +105,8 @@
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -220,6 +222,7 @@
     <Compile Include="Controllers\GraphController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PatientsController.cs" />
     <Compile Include="Controllers\QuestionsController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
@@ -227,10 +230,58 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AspNetRole.cs">
+      <DependentUpon>CANSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUser.cs">
+      <DependentUpon>CANSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUserClaim.cs">
+      <DependentUpon>CANSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUserLogin.cs">
+      <DependentUpon>CANSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ASSESSMENT.cs">
+      <DependentUpon>CANSModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\CANScalculations.cs" />
+    <Compile Include="Models\CANSModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CANSModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CANSModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CANSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CANSModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CANSModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CANS_ITEMS.cs">
+      <DependentUpon>CANSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C__MigrationHistory.cs">
+      <DependentUpon>CANSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ITEM_SCORE.cs">
+      <DependentUpon>CANSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PATIENT.cs">
+      <DependentUpon>CANSModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Question.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\ROLE.cs">
+      <DependentUpon>CANSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\USER.cs">
+      <DependentUpon>CANSModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -242,12 +293,29 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\CANSModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CANSModel.edmx</DependentUpon>
+      <LastGenOutput>CANSModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\CANSModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CANSModel.edmx</DependentUpon>
+      <LastGenOutput>CANSModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <EntityDeploy Include="Models\CANSModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CANSModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\CANSModel.edmx.diagram">
+      <DependentUpon>CANSModel.edmx</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\CANSSeniorProject.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -316,6 +384,11 @@
     <Content Include="Views\CANScalculations\Index.cshtml" />
     <Content Include="Views\Account\ConfirmationSent.cshtml" />
     <Content Include="Views\Shared\Info.cshtml" />
+    <Content Include="Views\Patients\Create.cshtml" />
+    <Content Include="Views\Patients\Delete.cshtml" />
+    <Content Include="Views\Patients\Details.cshtml" />
+    <Content Include="Views\Patients\Edit.cshtml" />
+    <Content Include="Views\Patients\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -327,6 +400,9 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

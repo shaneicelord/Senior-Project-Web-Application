@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b3b5a75f64c74e5db064b3b3719893bd" Name="Diagram1">
+        <EntityTypeShape EntityType="DanielsCANSModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DanielsCANSModel.AspNetRole" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DanielsCANSModel.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DanielsCANSModel.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="DanielsCANSModel.AspNetUser" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DanielsCANSModel.ASSESSMENT" Width="1.5" PointX="8.25" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DanielsCANSModel.CANS_ITEMS" Width="1.5" PointX="8.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DanielsCANSModel.ITEM_SCORE" Width="1.5" PointX="10.5" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DanielsCANSModel.PATIENT" Width="1.5" PointX="5.25" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DanielsCANSModel.USER" Width="1.5" PointX="3" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DanielsCANSModel.ROLE" Width="1.5" PointX="5.25" PointY="17.875" IsExpanded="true" />
+        <AssociationConnector Association="DanielsCANSModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="DanielsCANSModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="DanielsCANSModel.FK__ASSESSMEN__UserI__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="DanielsCANSModel.FK_PATIENTS_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="DanielsCANSModel.FK_ROLES_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="DanielsCANSModel.FK__ASSESSMEN__Patie__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="DanielsCANSModel.FK__ITEM_SCOR__Asses__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="DanielsCANSModel.FK__ITEM_SCOR__ItemI__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="DanielsCANSModel.FK_CANS_ITEMS_CANS_ITEMS1" ManuallyRouted="false" />
+        <AssociationConnector Association="DanielsCANSModel.FK__PATIENTS__UserID__38996AB5" ManuallyRouted="false" />
+        <AssociationConnector Association="DanielsCANSModel.AspNetUserRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
