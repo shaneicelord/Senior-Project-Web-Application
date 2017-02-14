@@ -81,6 +81,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -193,16 +195,67 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AssessmentController.cs" />
     <Compile Include="Controllers\CANSFormController.cs" />
+    <Compile Include="Controllers\FormController.cs" />
     <Compile Include="Controllers\GraphController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PatientsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AspNetRole.cs">
+      <DependentUpon>AssessmentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUser.cs">
+      <DependentUpon>AssessmentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUserClaim.cs">
+      <DependentUpon>AssessmentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUserLogin.cs">
+      <DependentUpon>AssessmentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ASSESSMENT.cs">
+      <DependentUpon>AssessmentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AssessmentModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AssessmentModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AssessmentModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AssessmentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AssessmentModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AssessmentModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CANS_ITEMS.cs">
+      <DependentUpon>AssessmentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C__MigrationHistory.cs">
+      <DependentUpon>AssessmentModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ITEM_SCORE.cs">
+      <DependentUpon>AssessmentModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\PATIENT.cs">
+      <DependentUpon>AssessmentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ROLE.cs">
+      <DependentUpon>AssessmentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\USER.cs">
+      <DependentUpon>AssessmentModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -214,12 +267,29 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\AssessmentModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AssessmentModel.edmx</DependentUpon>
+      <LastGenOutput>AssessmentModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\AssessmentModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AssessmentModel.edmx</DependentUpon>
+      <LastGenOutput>AssessmentModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <EntityDeploy Include="Models\AssessmentModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>AssessmentModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\AssessmentModel.edmx.diagram">
+      <DependentUpon>AssessmentModel.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -270,9 +340,24 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\CANSForm\CANSForm.cshtml" />
     <Content Include="Views\Graph\Graph.cshtml" />
+    <Content Include="Views\Assessment\Create.cshtml" />
+    <Content Include="Views\Assessment\Delete.cshtml" />
+    <Content Include="Views\Assessment\Details.cshtml" />
+    <Content Include="Views\Assessment\Edit.cshtml" />
+    <Content Include="Views\Assessment\Index.cshtml" />
+    <Content Include="Views\Form\Create.cshtml" />
+    <Content Include="Views\Form\Delete.cshtml" />
+    <Content Include="Views\Form\Details.cshtml" />
+    <Content Include="Views\Form\Edit.cshtml" />
+    <Content Include="Views\Form\Index.cshtml" />
+    <Content Include="Views\Patients\Create.cshtml" />
+    <Content Include="Views\Patients\Delete.cshtml" />
+    <Content Include="Views\Patients\Details.cshtml" />
+    <Content Include="Views\Patients\Edit.cshtml" />
+    <Content Include="Views\Patients\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -281,6 +366,9 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -296,7 +384,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>50392</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
