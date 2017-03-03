@@ -9,8 +9,11 @@
 </head>
 <body>
     <form id="CANS" runat="server">
+         <h1> CANS Assessment </h1>
+
+        <hr />
     <div>
-    <table>
+    <table class="center">
         <tr>
             <td>Enter your Therapist ID</td>
             <td><input type="text" id="userID"/></td> 
@@ -77,6 +80,53 @@
         <tr>
             <td>School Attendance</td>
             <td><input type="text" id="14"/></td> 
+        </tr>
+          <tr>
+         <td><h3>Youth Strengths</h3></td>
+        </tr>
+        <tr>
+            <td>Family</td>
+            <td><input type="text" id="15"/></td> 
+        </tr>
+        <tr>
+            <td>Interpersonal</td>
+            <td><input type="text" id="16"/></td> 
+        </tr>
+        <tr>
+            <td>Optimism</td>
+            <td><input type="text" id="17"/></td> 
+        </tr>
+        <tr>
+            <td>Educational</td>
+            <td><input type="text" id="18"/></td> 
+        </tr>
+        <tr>
+            <td>Vocational</td>
+            <td><input type="text" id="19"/></td> 
+        </tr>
+        <tr>
+            <td>Talents/Interests</td>
+            <td><input type="text" id="20"/></td> 
+        </tr>
+        <tr>
+            <td>Spiritual/Religious</td>
+            <td><input type="text" id="21"/></td> 
+        </tr>
+        <tr>
+            <td>Community Life</td>
+            <td><input type="text" id="22"/></td> 
+        </tr>
+        <tr>
+            <td>Relation Permanence</td>
+            <td><input type="text" id="23"/></td> 
+        </tr>
+        <tr>
+            <td>Resiliency</td>
+            <td><input type="text" id="24"/></td> 
+        </tr>
+        <tr>
+            <td>Resourcefulness</td>
+            <td><input type="text" id="25"/></td> 
         </tr>
         <tr>
             <td><asp:Button ID="SubmitCANS" runat="server" OnClick="Insert" Text="Submit CANS" /></td>
