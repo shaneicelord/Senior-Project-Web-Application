@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace SeniorProject.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : ApplicationBaseController
     {
         public ActionResult Index()
         {
@@ -20,10 +20,9 @@ namespace SeniorProject.Controllers
             return View();
         }
 
-        [Authorize]
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Daniel Kids";
 
             return View();
         }

@@ -7,7 +7,8 @@ using SeniorProject.Models;
 
 namespace SeniorProject.Controllers
 {
-    public class GraphController : Controller
+    [Authorize]
+    public class GraphController : ApplicationBaseController
     {
 
         // GET: Graphs

@@ -12,7 +12,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 namespace SeniorProject.Controllers
 {
     [Authorize]
-    public class UsersController : Controller
+    public class UsersController : ApplicationBaseController
     {
         // GET: Users 
         public Boolean isAdminUser()

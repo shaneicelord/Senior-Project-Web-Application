@@ -10,7 +10,7 @@ using System.Web.Mvc;
 namespace SeniorProject.Controllers
 {
     [Authorize]
-    public class RoleController : Controller
+    public class RoleController : ApplicationBaseController
     {
         ApplicationDbContext context;
 
