@@ -8,7 +8,7 @@
     <link href="Content/CustomStyle.css" rel="stylesheet" />
 </head>
 <body>
-    <form id="CANS" runat="server">
+    <form id="CANS" runat="server" method="post">
          <h1> CANS Assessment </h1>
 
         <hr />

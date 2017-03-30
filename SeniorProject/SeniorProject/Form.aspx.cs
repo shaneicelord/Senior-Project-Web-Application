@@ -26,21 +26,23 @@ namespace SeniorProject
             conn.Open();
             int itemCount = 57;
             int patientID = Int32.Parse(Request.Form["patientID"]);
-            string userID = Request.Form["userID"];
+            string userID = Request.Form["userID"].Trim();
             DateTime currentDay = DateTime.Today;
-            string assessment = string.Format("INSERT INTO ASSESSMENTS(PatientID, UserID, AssessmentDate) VALUES({0}, {1}, {2}); SELECT CAST(scope_identity() AS int)", patientID, userID, currentDay);
+            string sqlDate = currentDay.Date.ToString("yyyy-MM-dd").Trim();
+            string number = string.Format("SELECT Number FROM ASSESSMENTS WHERE PatientID= {0}", patientID);
+            SqlCommand incrementNumberSELECT = new SqlCommand(number, conn);
+            int numberIncremented = (int)incrementNumberSELECT.ExecuteScalar();
+            numberIncremented++;
+            string assessment = string.Format("INSERT INTO ASSESSMENTS(PatientID, UserID, AssessmentDate, Number) VALUES({0}, '{1}', '{2}', {3}); SELECT CAST(SCOPE_IDENTITY() AS INT);", patientID, userID, sqlDate, numberIncremented);
             SqlCommand assessmentINSERT = new SqlCommand(assessment, conn);
-            try { 
             assessmentID = (Int32)assessmentINSERT.ExecuteScalar();
-            }
-            catch (Exception ex)
-            {
-                    Console.WriteLine(ex.Message);
-             }
             for (int i=1; i<=itemCount; i++)
             {
-                int score = Int32.Parse(Request.Form[i.ToString()]);
-                string itemScore = string.Format("INSERT INTO ITEM_SCORE (ItemID, Score, AssessmentID) VALUES ({0}, {1}, (SELECT AssessmentID FROM ASSESSMENTS WHERE AssessmentDate= {2}))", i, score, currentDay);
+                string index = i.ToString();
+                string formValue = Request.Form[index].Trim();
+                int score;
+                Int32.TryParse(formValue, out score);
+                string itemScore = string.Format("INSERT INTO ITEM_SCORE (ItemID, Score, AssessmentID) VALUES ({0}, {1}, (SELECT AssessmentID FROM ASSESSMENTS WHERE AssessmentDate= '{2}'))", i, score, sqlDate);
                 SqlCommand scoreINSERT = new SqlCommand(itemScore, conn);
                 scoreINSERT.ExecuteNonQuery();
             }
