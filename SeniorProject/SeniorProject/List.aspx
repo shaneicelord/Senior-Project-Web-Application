@@ -16,11 +16,11 @@
     <table class="center">
     <tr>
         <td>Please enter the Patient ID: </td>
-        <td><input type="text" id="patientID" /></td>
+        <td><input type="text" id="patientID" name="patientID"/></td>
     </tr>
     <tr>
         <td>Please enter the date of the Assessment:</td>
-        <td><input type="text" id="date" /></td>
+        <td><input type="text" id="date" name="date" /></td>
     </tr>
     <tr>
         <td colspan="2" ><asp:Button ID="retrieveCANS" runat="server" OnClick="Retrieve" Text="Fetch CANS"/></td>
@@ -38,109 +38,109 @@
         </tr>
         <tr>
             <td>Family</td>
-            <td><input type="text" id="1"/></td> 
+            <td><asp:TextBox id="Q1"  runat="server"/></td> 
         </tr>
         <tr>
             <td>Living Situation</td>
-            <td><input type="text" id="2"/></td> 
+            <td><asp:TextBox id="Q2" runat="server"/></td> 
         </tr>
         <tr>
             <td>Social Functioning</td>
-            <td><input type="text" id="3"/></td> 
+            <td><asp:TextBox id="Q3"  runat="server"/></td> 
         </tr>
         <tr>
             <td>Recreational</td>
-            <td><input type="text" id="4"/></td> 
+            <td><asp:TextBox id="Q4"  runat="server"/></td> 
         </tr>
         <tr>
             <td>Job Functioning</td>
-            <td><input type="text" id="5"/></td> 
+            <td><asp:TextBox id="Q5"  runat="server"/></td> 
         </tr>
         <tr>
             <td>Developmental</td>
-            <td><input type="text" id="6"/></td> 
+            <td><asp:TextBox id="Q6"  runat="server"/></td> 
         </tr>
         <tr>
             <td>Legal</td>
-            <td><input type="text" id="7"/></td> 
+            <td><asp:TextBox id="Q7"  runat="server"/></td> 
         </tr>
         <tr>
             <td>Medical</td>
-            <td><input type="text" id="8"/></td> 
+            <td><asp:TextBox id="Q8"  runat="server"/></td> 
         </tr>
         <tr>
             <td>Physcial</td>
-            <td><input type="text" id="9"/></td> 
+            <td><asp:TextBox id="Q9"  runat="server"/></td> 
         </tr>
         <tr>
             <td>Sexuality</td>
-            <td><input type="text" id="10"/></td> 
+            <td><asp:TextBox id="Q10"  runat="server"/></td> 
         </tr>
         <tr>
             <td>Sleep</td>
-            <td><input type="text" id="11"/></td> 
+            <td><asp:TextBox id="Q11"  runat="server"/></td> 
         </tr>
         <tr>
             <td>School Behavior</td>
-            <td><input type="text" id="12"/></td> 
+            <td><asp:TextBox id="Q12"  runat="server"/></td> 
         </tr>
         <tr>
             <td>School Achievement</td>
-            <td><input type="text" id="13"/></td> 
+            <td><asp:TextBox id="Q13"  runat="server"/></td> 
         </tr>
         <tr>
             <td>School Attendance</td>
-            <td><input type="text" id="14"/></td> 
+            <td><asp:TextBox id="Q14"  runat="server"/></td> 
         </tr>
         <tr>
          <td><h3>Youth Strengths</h3></td>
         </tr>
         <tr>
             <td>Family</td>
-            <td><input type="text" id="15"/></td> 
+            <td><asp:TextBox id="Q15"  runat="server"/></td> 
         </tr>
         <tr>
             <td>Interpersonal</td>
-            <td><input type="text" id="16"/></td> 
+            <td><asp:TextBox id="Q16"  runat="server"/></td> 
         </tr>
         <tr>
             <td>Optimism</td>
-            <td><input type="text" id="17"/></td> 
+            <td><asp:TextBox id="Q17"  runat="server"/></td> 
         </tr>
         <tr>
             <td>Educational</td>
-            <td><input type="text" id="18"/></td> 
+            <td><asp:TextBox id="Q18"  runat="server"/></td> 
         </tr>
         <tr>
             <td>Vocational</td>
-            <td><input type="text" id="19"/></td> 
+            <td><asp:TextBox id="Q19"  runat="server"/></td> 
         </tr>
         <tr>
             <td>Talents/Interests</td>
-            <td><input type="text" id="20"/></td> 
+            <td><asp:TextBox id="Q20"  runat="server"/></td> 
         </tr>
         <tr>
             <td>Spiritual/Religious</td>
-            <td><input type="text" id="21"/></td> 
+            <td><asp:TextBox id="Q21"  runat="server"/></td> 
         </tr>
         <tr>
             <td>Community Life</td>
-            <td><input type="text" id="22"/></td> 
+            <td><asp:TextBox id="Q22"  runat="server"/></td> 
         </tr>
         <tr>
             <td>Relation Permanence</td>
-            <td><input type="text" id="23"/></td> 
+            <td><asp:TextBox id="Q23"  runat="server"/></td> 
         </tr>
         <tr>
             <td>Resiliency</td>
-            <td><input type="text" id="24"/></td> 
+            <td><asp:TextBox id="Q24"  runat="server"/></td> 
         </tr>
         <tr>
             <td>Resourcefulness</td>
-            <td><input type="text" id="25"/></td> 
+            <td><asp:TextBox id="Q25"  runat="server"/></td> 
         </tr>
         <tr>
-        <td colspan="2"><asp:Button ID="UpdateCANS" runat="server"  Text="Update CANS"/><asp:Button ID="DeleteCANS" runat="server" Text="Delete CANS"/></td>
+        <td colspan="2"><asp:Button ID="UpdateCANS" runat="server"  Text="Update CANS"/></td>
            
         </tr>
     </table>

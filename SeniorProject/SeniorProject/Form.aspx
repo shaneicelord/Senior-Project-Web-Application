@@ -6,8 +6,19 @@
 <head runat="server">
     <title>CANS Form</title>
     <link href="Content/CustomStyle.css" rel="stylesheet" />
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Content/Site.css" rel="stylesheet" />
 </head>
 <body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+    <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/">Home</a></li>
+                </ul>
+            </div>
+            </div>
+        </div>
     <form id="CANS" runat="server" method="post">
          <h1> CANS Assessment </h1>
 

@@ -1,0 +1,1 @@
+SELECT Score FROM ITEM_SCORE WHERE AssessmentID IN (SELECT AssessmentID FROM ASSESSMENTS WHERE PatientID= 1 AND AssessmentDate='2017/04/2');
