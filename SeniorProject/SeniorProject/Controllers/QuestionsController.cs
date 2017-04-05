@@ -13,7 +13,6 @@ namespace SeniorProject.Controllers
     //If you want to give the authorization to the admin role, type [Authorize(Roles = "Administrator")]
     //Use username: hame@unf.edu and password: 12_34Hame to login 
     [Authorize]
-
     public class QuestionsController : Controller
     {
         private QuestionDBContext db = new QuestionDBContext();

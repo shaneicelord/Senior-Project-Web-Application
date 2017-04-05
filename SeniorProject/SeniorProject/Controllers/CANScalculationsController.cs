@@ -10,7 +10,8 @@ using SeniorProject.Models;
 
 namespace SeniorProject.Controllers
 {
-    public class CANScalculationsController : Controller
+    [Authorize]
+    public class CANScalculationsController : ApplicationBaseController
     {
         private CANScalculationsDBContext db = new CANScalculationsDBContext();
 

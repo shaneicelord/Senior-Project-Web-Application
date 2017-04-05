@@ -10,7 +10,7 @@ using SeniorProject.Models;
 
 namespace SeniorProject.Controllers
 {
-    public class PatientsController : Controller
+    public class PatientsController : ApplicationBaseController
     {
         private DanielsCANSEntities db = new DanielsCANSEntities();
 

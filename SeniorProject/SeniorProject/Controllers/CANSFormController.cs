@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace SeniorProject.Controllers
 {
-    public class CANSFormController : Controller
+    public class CANSFormController : ApplicationBaseController
     {
         // GET: CANSForm
         public ActionResult CANSForm()

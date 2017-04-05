@@ -13,7 +13,7 @@ using SeniorProject.Models;
 namespace SeniorProject.Controllers
 {
     [Authorize]
-    public class AccountController : Controller
+    public class AccountController : ApplicationBaseController
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
@@ -169,7 +169,13 @@ namespace SeniorProject.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser
+                {
+                    UserName = model.Email,
+                    Email = model.Email,
+                    FirstName = model.FirstName,
+                    LastName = model.LastName
+                };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -183,7 +189,7 @@ namespace SeniorProject.Controllers
                     await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
                     //Assign Role to user Here      
-                    await this.UserManager.AddToRoleAsync(user.Id, model.UserRoles);
+                 //   await this.UserManager.AddToRoleAsync(user.Id, model.UserRoles);
                     //Ends Here    
                     //return RedirectToAction("Index", "Users");
 
@@ -193,11 +199,11 @@ namespace SeniorProject.Controllers
                     // Uncomment to debug locally 
                     // TempData["ViewBagLink"] = callbackUrl;
 
-                    ViewBag.Message = "Check your email and verify your account. Your account must be verified before you can log in.";
+                 //   ViewBag.Message = "Check your email and verify your account. Your account must be verified before you can log in.";
 
-                    return View("Info");
+                 //   return View("Info");
 
-                    //return RedirectToAction("ConfirmationSent", "Account");
+                    return View("ConfirmationSent");
                 }
                 ViewBag.Name = new SelectList(context.Roles.Where(u => !u.Name.Contains("Admin")).ToList(), "Name", "Name");
 
@@ -534,4 +540,6 @@ namespace SeniorProject.Controllers
         }*/
         #endregion
     }
+
+
 }
