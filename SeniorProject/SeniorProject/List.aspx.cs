@@ -63,5 +63,20 @@ namespace SeniorProject
                 
 
          }
-    }
+
+        protected void Update(object sender, EventArgs e)
+        {
+            SqlConnection conn = new SqlConnection("Server=tcp:quantumsense.database.windows.net,1433;Initial Catalog=DanielsCANS;Persist Security Info=False;User ID=tiffanyn;Password=Quantumsense1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+            conn.Open();
+
+            int itemCount = 25;
+            string patientID = Request.Form["patientID"];
+            IFormatProvider culture = System.Threading.Thread.CurrentThread.CurrentCulture;
+            string date = Request.Form["date"];
+            DateTime dt = DateTime.Parse(date, culture, System.Globalization.DateTimeStyles.AssumeLocal);
+            string sqlDate = dt.Date.ToString("yyyy-MM-dd").Trim();
+
+        }
+
+        }
 }

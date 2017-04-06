@@ -5,9 +5,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>CANS</title>
-    <link href="Content/CustomStyle.css" rel="stylesheet" />
+      <link href="Content/CustomStyle.css" rel="stylesheet" />
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Content/Site.css" rel="stylesheet" />
 </head>
 <body>
+      <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+    <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/">Home</a></li>
+                </ul>
+            </div>
+            </div>
+        </div>
     <form id="View" runat="server">
        <h1> Past CANS </h1>
 
@@ -140,7 +151,7 @@
             <td><asp:TextBox id="Q25"  runat="server"/></td> 
         </tr>
         <tr>
-        <td colspan="2"><asp:Button ID="UpdateCANS" runat="server"  Text="Update CANS"/></td>
+        <td colspan="2"><asp:Button ID="UpdateCANS" runat="server" OnClick="Update" Text="Update CANS"/></td>
            
         </tr>
     </table>
