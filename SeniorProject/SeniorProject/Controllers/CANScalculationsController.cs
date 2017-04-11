@@ -11,11 +11,13 @@ using SeniorProject.Models;
 namespace SeniorProject.Controllers
 {
     [Authorize]
+
     public class CANScalculationsController : ApplicationBaseController
     {
         private CANScalculationsDBContext db = new CANScalculationsDBContext();
 
         // GET: CANScalculations
+        [AllowAnonymous]
         public ActionResult Index()
         {
             return View(db.CANScalculationss.ToList());
@@ -68,12 +70,12 @@ namespace SeniorProject.Controllers
                 }
                 else if (fTotalNum > cANScalculations.totalNumber)
                 {
-                    cANScalculations.Progress = "-" + (((fTotalNum - cANScalculations.totalNumber) * 100 / fTotalNum) ).ToString();
+                    cANScalculations.Progress =(((fTotalNum - cANScalculations.totalNumber) * 100 / fTotalNum) ).ToString();
                 }
 
                 else if (fTotalNum < cANScalculations.totalNumber)
                 {
-                    cANScalculations.Progress = (((cANScalculations.totalNumber - fTotalNum) * 100 / fTotalNum) ).ToString();
+                    cANScalculations.Progress = "-" + (((cANScalculations.totalNumber - fTotalNum) * 100 / fTotalNum) ).ToString();
                 }
                 else if (fTotalNum == cANScalculations.totalNumber)
                 {
@@ -153,7 +155,7 @@ namespace SeniorProject.Controllers
                 {
                    // double d = (double)(fTotalNum - cANScalculations.totalNumber) / (double)fTotalNum;
                    // int i = Convert.ToInt32(d * (double)100);
-                    cANScalculations.Progress = "-" +(((fTotalNum - cANScalculations.totalNumber) * 100 / fTotalNum) ).ToString();
+                    cANScalculations.Progress =(((fTotalNum - cANScalculations.totalNumber) * 100 / fTotalNum) ).ToString();
                 }
 
                 else if (fTotalNum < cANScalculations.totalNumber)
@@ -162,7 +164,7 @@ namespace SeniorProject.Controllers
                    // double d = (double)(cANScalculations.totalNumber - fTotalNum) / (double)fTotalNum;
                     //int i = Convert.ToInt32(d * (double)100);
                    // cANScalculations.Progress = i;
-                    cANScalculations.Progress = (((cANScalculations.totalNumber - fTotalNum) * 100 / fTotalNum)).ToString();
+                    cANScalculations.Progress = "-" + (((cANScalculations.totalNumber - fTotalNum) * 100 / fTotalNum)).ToString();
                 }
                 else if (fTotalNum == cANScalculations.totalNumber)
                 {

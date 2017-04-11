@@ -140,6 +140,10 @@
             <td><input type="text" name="25" id="25" required pattern="([0-3])|(NA)" title="Only numbers [0, 1, 2, 3] or NA allowed"/></td> 
         </tr>
         <tr>
+            <td>Language</td>
+            <td><input type="text" name="26" id="26" required pattern="([0-3])|(NA)" title="Only numbers [0, 1, 2, 3] or NA allowed"/></td> 
+        </tr>
+        <tr>
             <td><asp:Button ID="SubmitCANS" runat="server" OnClick="Insert" Text="Submit CANS" /></td>
         </tr>
 
