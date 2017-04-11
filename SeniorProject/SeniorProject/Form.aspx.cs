@@ -43,6 +43,7 @@ namespace SeniorProject
             SqlCommand assessmentINSERT = new SqlCommand(assessment, conn);
             assessmentID = (Int32)assessmentINSERT.ExecuteScalar();
 
+            int total = 0;
             var form = Request.Form;
             for (int i=1; i<=itemCount; i++)
             {
@@ -50,10 +51,16 @@ namespace SeniorProject
                 string formValue = Request.Form[index].Trim();
                 int score;
                 Int32.TryParse(formValue, out score);
+                total = total + score; 
                 string itemScore = string.Format("INSERT INTO ITEM_SCORE (ItemID, Score, AssessmentID) VALUES ({0}, {1}, (SELECT AssessmentID FROM ASSESSMENTS WHERE AssessmentDate= '{2}'))", i, score, sqlDate);
                 SqlCommand scoreINSERT = new SqlCommand(itemScore, conn);
                 scoreINSERT.ExecuteNonQuery();
             }
+            string finalTotal = "INSERT INTO ASSESSMENT (Total) VALUES (@total) WHERE PatientID=@patientID";
+            var totalParam = new SqlParameter("total", total);
+            SqlCommand totalINSERT = new SqlCommand(finalTotal, conn);
+            totalINSERT.Parameters.Add(totalParam);
+            totalINSERT.ExecuteNonQuery(); 
             conn.Close();
         }
 
