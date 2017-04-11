@@ -1,28 +1,23 @@
 ﻿@model SeniorProject.Models.IndexViewModel
+
+@using Microsoft.AspNet.Identity;
 @{
-    ViewBag.Title = "Manage";
+    ViewBag.Title = "Account Details";
 }
 
 <h2>@ViewBag.Title.</h2>
 
 <p class="text-success">@ViewBag.StatusMessage</p>
 <div>
-    <h4>Change your account settings</h4>
+    <h4>View your account</h4>
     <hr />
     <dl class="dl-horizontal">
+        <dt>User ID:</dt>
+            <dd>@HttpContext.Current.User.Identity.GetUserId()</dd>
+        <dt>Email:</dt>
+            <dd>@HttpContext.Current.User.Identity.Name</dd>
         <dt>Password:</dt>
-        <dd>
-            [
-            @if (Model.HasPassword)
-            {
-                @Html.ActionLink("Change your password", "ChangePassword")
-            }
-            else
-            {
-                @Html.ActionLink("Create", "SetPassword")
-            }
-            ]
-        </dd>
+        <dd>@Html.ActionLink("Change your password", "ChangePassword")</dd>
         @*<dt>External Logins:</dt>
         <dd>
             @Model.Logins.Count [
@@ -81,7 +76,7 @@
                         <input type="submit" value="Enable" class="btn btn-link" />
                         </text>
                     }
-                }*@
-        </dd>
+                }
+        </dd>*@
     </dl>
 </div>

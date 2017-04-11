@@ -11,7 +11,8 @@ using SeniorProject.Models;
 namespace SeniorProject.Controllers
 {
     [Authorize]
-    public class CANScalculationsController : Controller
+
+    public class CANScalculationsController : ApplicationBaseController
     {
         private CANScalculationsDBContext db = new CANScalculationsDBContext();
 

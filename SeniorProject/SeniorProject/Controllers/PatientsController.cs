@@ -10,14 +10,14 @@ using SeniorProject.Models;
 
 namespace SeniorProject.Controllers
 {
-    public class PatientsController : Controller
+    public class PatientsController : ApplicationBaseController
     {
         private DanielsCANSEntities db = new DanielsCANSEntities();
 
         // GET: Patients
         public ActionResult Index()
         {
-            var pATIENTS = db.PATIENTS.Include(p => p.AspNetUser).Include(p => p.USER);
+            var pATIENTS = db.PATIENTS.Include(p => p.AspNetUser);
             return View(pATIENTS.ToList());
         }
 
@@ -40,7 +40,6 @@ namespace SeniorProject.Controllers
         public ActionResult Create()
         {
             ViewBag.UserID = new SelectList(db.AspNetUsers, "Id", "Email");
-            ViewBag.UserID = new SelectList(db.USERS, "UserID", "Email");
             return View();
         }
 
@@ -59,7 +58,6 @@ namespace SeniorProject.Controllers
             }
 
             ViewBag.UserID = new SelectList(db.AspNetUsers, "Id", "Email", pATIENT.UserID);
-            ViewBag.UserID = new SelectList(db.USERS, "UserID", "Email", pATIENT.UserID);
             return View(pATIENT);
         }
 
@@ -76,7 +74,6 @@ namespace SeniorProject.Controllers
                 return HttpNotFound();
             }
             ViewBag.UserID = new SelectList(db.AspNetUsers, "Id", "Email", pATIENT.UserID);
-            ViewBag.UserID = new SelectList(db.USERS, "UserID", "Email", pATIENT.UserID);
             return View(pATIENT);
         }
 
@@ -94,7 +91,6 @@ namespace SeniorProject.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.UserID = new SelectList(db.AspNetUsers, "Id", "Email", pATIENT.UserID);
-            ViewBag.UserID = new SelectList(db.USERS, "UserID", "Email", pATIENT.UserID);
             return View(pATIENT);
         }
 

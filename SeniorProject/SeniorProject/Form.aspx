@@ -38,110 +38,111 @@
         </tr>
         <tr>
             <td>Family</td>
-            <td><input type="text" name="1" id="1"/></td> 
+            <td><input type="text" name="1" id="1" required pattern="([0-3])|(NA)" title="Only numbers [0, 1, 2, 3] or NA allowed" /></td> 
         </tr>
         <tr>
             <td>Living Situation</td>
-            <td><input type="text" name="2" id="2"/></td> 
+            <td><input type="text" name="2" id="2" required pattern="([0-3])|(NA)" title="Only numbers [0, 1, 2, 3] or NA allowed" /></td>
         </tr>
         <tr>
             <td>Social Functioning</td>
-            <td><input type="text" name="3" id="3"/></td> 
+            <td><input type="text" name="3" id="3" required pattern="([0-3])|(NA)" title="Only numbers [0, 1, 2, 3] or NA allowed" /></td>
         </tr>
         <tr>
             <td>Recreational</td>
-            <td><input type="text" name="4" id="4"/></td> 
+            <td><input type="text" name="4" id="4" required pattern="([0-3])|(NA)" title="Only numbers [0, 1, 2, 3] or NA allowed" /></td>
         </tr>
         <tr>
             <td>Job Functioning</td>
-            <td><input type="text" name="5" id="5"/></td> 
+            <td><input type="text" name="5" id="5" required pattern="([0-3])|(NA)" title="Only numbers [0, 1, 2, 3] or NA allowed" /></td>
         </tr>
         <tr>
             <td>Developmental</td>
-            <td><input type="text" name="6"  id="6"/></td> 
+            <td><input type="text" name="6"  id="6" required pattern="([0-3])|(NA)" title="Only numbers [0, 1, 2, 3] or NA allowed" /></td>
         </tr>
         <tr>
             <td>Legal</td>
-            <td><input type="text" name="7" id="7"/></td> 
+            <td><input type="text" name="7" id="7" required pattern="([0-3])|(NA)" title="Only numbers [0, 1, 2, 3] or NA allowed" /></td>
         </tr>
         <tr>
             <td>Medical</td>
-            <td><input type="text" name="8" id="8"/></td> 
+            <td><input type="text" name="8" id="8" required pattern="([0-3])|(NA)" title="Only numbers [0, 1, 2, 3] or NA allowed" /></td>
         </tr>
         <tr>
             <td>Physcial</td>
-            <td><input type="text" name="9" id="9"/></td> 
+            <td><input type="text" name="9" id="9" required pattern="([0-3])|(NA)" title="Only numbers [0, 1, 2, 3] or NA allowed" /></td>
         </tr>
         <tr>
             <td>Sexuality</td>
-            <td><input type="text" name="10" id="10"/></td> 
+            <td><input type="text" name="10" id="10" required pattern="([0-3])|(NA)" title="Only numbers [0, 1, 2, 3] or NA allowed" /></td>
         </tr>
         <tr>
             <td>Sleep</td>
-            <td><input type="text" name="11" id="11"/></td> 
+            <td><input type="text" name="11" id="11" required pattern="([0-3])|(NA)" title="Only numbers [0, 1, 2, 3] or NA allowed" /></td>
         </tr>
         <tr>
             <td>School Behavior</td>
-            <td><input type="text" name="12" id="12"/></td> 
+            <td><input type="text" name="12" id="12" required pattern="([0-3])|(NA)" title="Only numbers [0, 1, 2, 3] or NA allowed" /></td>
         </tr>
         <tr>
             <td>School Achievement</td>
-            <td><input type="text" name="13" id="13"/></td> 
+            <td><input type="text" name="13" id="13" required pattern="([0-3])|(NA)" title="Only numbers [0, 1, 2, 3] or NA allowed" /></td>
         </tr>
         <tr>
             <td>School Attendance</td>
-            <td><input type="text" name="14"id="14"/></td> 
+            <td><input type="text" name="14"id="14" required pattern="([0-3])|(NA)" title="Only numbers [0, 1, 2, 3] or NA allowed" /></td>
         </tr>
           <tr>
          <td><h3>Youth Strengths</h3></td>
         </tr>
         <tr>
             <td>Family</td>
-            <td><input type="text"name="15" id="15"/></td> 
+            <td><input type="text"name="15" id="15" required pattern="([0-3])|(NA)" title="Only numbers [0, 1, 2, 3] or NA allowed" /></td>
         </tr>
         <tr>
             <td>Interpersonal</td>
-            <td><input type="text" name="16" id="16"/></td> 
+            <td><input type="text" name="16" id="16" required pattern="([0-3])|(NA)" title="Only numbers [0, 1, 2, 3] or NA allowed" /></td>
         </tr>
         <tr>
             <td>Optimism</td>
-            <td><input type="text" name="17" id="17"/></td> 
+            <td><input type="text" name="17" id="17" required pattern="([0-3])|(NA)" title="Only numbers [0, 1, 2, 3] or NA allowed" /></td>
         </tr>
         <tr>
             <td>Educational</td>
-            <td><input type="text" name="18" id="18"/></td> 
+            <td><input type="text" name="18" id="18" required pattern="([0-3])|(NA)" title="Only numbers [0, 1, 2, 3] or NA allowed" /></td>
         </tr>
         <tr>
             <td>Vocational</td>
-            <td><input type="text" name="19" id="19"/></td> 
+            <td><input type="text" name="19" id="19" required pattern="([0-3])|(NA)" title="Only numbers [0, 1, 2, 3] or NA allowed" /></td>
         </tr>
         <tr>
             <td>Talents/Interests</td>
-            <td><input type="text" name="20" id="20"/></td> 
+            <td><input type="text" name="20" id="20" required pattern="([0-3])|(NA)" title="Only numbers [0, 1, 2, 3] or NA allowed" /></td>
         </tr>
         <tr>
             <td>Spiritual/Religious</td>
-            <td><input type="text" name="21" id="21"/></td> 
+            <td><input type="text" name="21" id="21" required pattern="([0-3])|(NA)" title="Only numbers [0, 1, 2, 3] or NA allowed"/></td> 
         </tr>
         <tr>
             <td>Community Life</td>
-            <td><input type="text" name="22" id="22"/></td> 
+            <td><input type="text" name="22" id="22" required pattern="([0-3])|(NA)" title="Only numbers [0, 1, 2, 3] or NA allowed"/></td> 
         </tr>
         <tr>
             <td>Relation Permanence</td>
-            <td><input type="text" name="23" id="23"/></td> 
+            <td><input type="text" name="23" id="23" required pattern="([0-3])|(NA)" title="Only numbers [0, 1, 2, 3] or NA allowed"/></td> 
         </tr>
         <tr>
             <td>Resiliency</td>
-            <td><input type="text" name="24" id="24"/></td> 
+            <td><input type="text" name="24" id="24" required pattern="([0-3])|(NA)" title="Only numbers [0, 1, 2, 3] or NA allowed"/></td> 
         </tr>
         <tr>
             <td>Resourcefulness</td>
-            <td><input type="text" name="25" id="25"/></td> 
+            <td><input type="text" name="25" id="25" required pattern="([0-3])|(NA)" title="Only numbers [0, 1, 2, 3] or NA allowed"/></td> 
         </tr>
         <tr>
             <td><asp:Button ID="SubmitCANS" runat="server" OnClick="Insert" Text="Submit CANS" /></td>
         </tr>
+
     </table>
     </div>
     </form>
