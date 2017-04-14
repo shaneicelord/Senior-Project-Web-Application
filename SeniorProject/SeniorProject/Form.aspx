@@ -267,6 +267,9 @@
             <td>Intentional Misbehavior</td>
             <td><input type="text" name="57" id="57" required pattern="([0-3])|(NA)" title="Only numbers [0, 1, 2, 3] or NA allowed"/></td> 
         </tr>
+          <tr>
+         <td><h3>Modules</h3></td>
+        </tr>
          <tr>
             <td>Cognitive</td>
             <td><input type="text" name="58" id="58" required pattern="([0-3])"/></td>
@@ -378,6 +381,250 @@
         <tr>
             <td>Duration</td>
             <td><input type="text" name="85" id="85" required pattern="([0-3])"/></td> 
+        </tr>
+         <tr>
+            <td>Force</td>
+            <td><input type="text" name="86" id="86" required pattern="([0-3])"/></td>
+        </tr>
+        <tr>
+            <td>Reaction to Disclosure</td>
+            <td><input type="text" name="87"  id="87" required pattern="([0-3])"/></td>
+        </tr>
+        <tr>
+            <td>Affect Regulation</td>
+            <td><input type="text" name="88" id="88" required pattern="([0-3])"/></td>
+        </tr>
+        <tr>
+            <td>Intrusions</td>
+            <td><input type="text" name="89" id="89" required pattern="([0-3])"/></td>
+        </tr>
+        <tr>
+            <td>Attachment</td>
+            <td><input type="text" name="90" id="90" required pattern="([0-3])"/></td>
+        </tr>
+        <tr>
+            <td>Dissociation</td>
+            <td><input type="text" name="91" id="91" required pattern="([0-3])"/></td>
+        </tr>
+        <tr>
+            <td>Severity of Use</td>
+            <td><input type="text" name="92" id="92" required pattern="([0-3])"/></td>
+        </tr>
+        <tr>
+            <td>Duration of Use</td>
+            <td><input type="text" name="93" id="93" required pattern="([0-3])"/></td>
+        </tr>
+        <tr>
+            <td>Stage of Recovery</td>
+            <td><input type="text" name="94" id="94" required pattern="([0-3])"/></td>
+        </tr>
+        <tr>
+            <td>Peer Influences</td>
+            <td><input type="text" name="95"id="95" required pattern="([0-3])"/></td>
+        </tr>
+        <tr>
+            <td>Parental Influences</td>
+            <td><input type="text"name="96" id="96" required pattern="([0-3])"/></td>
+        </tr>
+        <tr>
+            <td>Environmental Influences</td>
+            <td><input type="text" name="97" id="97" required pattern="([0-3])"/></td>
+        </tr>
+        <tr>
+            <td>History of Physical Abuse</td>
+            <td><input type="text" name="98" id="98" required pattern="([0-3])"/></td>
+        </tr>
+        <tr>
+            <td>History of Violence</td>
+            <td><input type="text" name="99" id="99" required pattern="([0-3])"/></td>
+        </tr>
+        <tr>
+            <td>Witness to Domestic Violence</td>
+            <td><input type="text" name="100" id="100" required pattern="([0-3])"/></td>
+        </tr>
+        <tr>
+            <td>Witness to Environmental Violence</td>
+            <td><input type="text" name="101" id="101" required pattern="([0-3])"/></td>
+        </tr>
+        <tr>
+            <td>Frustration Management</td>
+            <td><input type="text" name="102" id="102" required pattern="([0-3])"/></td> 
+        </tr>
+        <tr>
+            <td>Hostility</td>
+            <td><input type="text" name="103" id="103" required pattern="([0-3])"/></td> 
+        </tr>
+        <tr>
+            <td>Paranoid Thinking</td>
+            <td><input type="text" name="104" id="104" required pattern="([0-3])"/></td> 
+        </tr>
+        <tr>
+            <td>Secondary Gains from Anger</td>
+            <td><input type="text" name="105" id="105" required pattern="([0-3])"/></td> 
+        </tr>
+        <tr>
+            <td>Violent Thinking</td>
+            <td><input type="text" name="106" id="106" required pattern="([0-3])"/></td> 
+        </tr>
+        <tr>
+            <td>Aware of Violence Potential</td>
+            <td><input type="text" name="107" id="107" required pattern="([0-3])"/></td> 
+        </tr>
+        <tr>
+            <td>Response to Consequences</td>
+            <td><input type="text" name="108" id="108" required pattern="([0-3])"/></td>
+        </tr>
+        <tr>
+            <td>Commitment to Self Control</td>
+            <td><input type="text" name="109" id="109" required pattern="([0-3])"/></td> 
+        </tr>
+        <tr>
+            <td>Treatment of Involvment</td>
+            <td><input type="text" name="110" id="110" required pattern="([0-3])"/></td> 
+        </tr>
+        <tr>
+            <td>Relationship</td>
+            <td><input type="text" name="111" id="111" required pattern="([0-3])"/></td> 
+        </tr>
+        <tr>
+            <td>Physical Force/Threat</td>
+            <td><input type="text" name="112" id="112" required pattern="([0-3])"/></td> 
+        </tr>
+        <tr>
+            <td>Planning</td>
+            <td><input type="text" name="113" id="113" required pattern="([0-3])"/></td> 
+        </tr>
+         <tr>
+            <td>Age Differential</td>
+            <td><input type="text" name="114" id="114" required pattern="([0-3])"/></td>
+        </tr>
+        <tr>
+            <td>Type of Sex Act</td>
+            <td><input type="text" name="115"  id="115" required pattern="([0-3])"/></td>
+        </tr>
+        <tr>
+            <td>Response to Accusation</td>
+            <td><input type="text" name="116" id="116" required pattern="([0-3])"/></td>
+        </tr>
+        <tr>
+            <td>Temporal Consistency</td>
+            <td><input type="text" name="117" id="117" required pattern="([0-3])"/></td>
+        </tr>
+        <tr>
+            <td>History of Sexual Behavior</td>
+            <td><input type="text" name="118" id="118" required pattern="([0-3])"/></td>
+        </tr>
+        <tr>
+            <td>Severity of Sexual Abuse</td>
+            <td><input type="text" name="119" id="119" required pattern="([0-3])"/></td>
+        </tr>
+        <tr>
+            <td>Prior Treatment</td>
+            <td><input type="text" name="120" id="120" required pattern="([0-3])"/></td>
+        </tr>
+        <tr>
+            <td>Frequency of Running</td>
+            <td><input type="text" name="121" id="121" required pattern="([0-3])"/></td>
+        </tr>
+        <tr>
+            <td>Consistency of Destination</td>
+            <td><input type="text" name="122" id="122" required pattern="([0-3])"/></td>
+        </tr>
+        <tr>
+            <td>Planning</td>
+            <td><input type="text" name="123"id="123" required pattern="([0-3])"/></td>
+        </tr>
+        <tr>
+            <td>Safety of Destination</td>
+            <td><input type="text"name="124" id="124" required pattern="([0-3])"/></td>
+        </tr>
+        <tr>
+            <td>Involvment in Illegal Acts</td>
+            <td><input type="text" name="125" id="125" required pattern="([0-3])"/></td>
+        </tr>
+        <tr>
+            <td>Likelyhood of Return on Own</td>
+            <td><input type="text" name="126" id="126" required pattern="([0-3])"/></td>
+        </tr>
+        <tr>
+            <td>Involvment of Others</td>
+            <td><input type="text" name="127" id="127" required pattern="([0-3])"/></td>
+        </tr>
+        <tr>
+            <td>Realistic Expectations</td>
+            <td><input type="text" name="128" id="128" required pattern="([0-3])"/></td>
+        </tr>
+        <tr>
+            <td>Seriousness</td>
+            <td><input type="text" name="129" id="129" required pattern="([0-3])"/></td>
+        </tr>
+        <tr>
+            <td>History</td>
+            <td><input type="text" name="130" id="130" required pattern="([0-3])"/></td> 
+        </tr>
+        <tr>
+            <td>Arrests</td>
+            <td><input type="text" name="131" id="131" required pattern="([0-3])"/></td> 
+        </tr>
+        <tr>
+            <td>Planning</td>
+            <td><input type="text" name="132" id="132" required pattern="([0-3])"/></td> 
+        </tr>
+        <tr>
+            <td>Community Safety</td>
+            <td><input type="text" name="133" id="133" required pattern="([0-3])"/></td> 
+        </tr>
+        <tr>
+            <td>Legal Compliance</td>
+            <td><input type="text" name="134" id="134" required pattern="([0-3])"/></td> 
+        </tr>
+        <tr>
+            <td>Peer Influences</td>
+            <td><input type="text" name="135" id="135" required pattern="([0-3])"/></td> 
+        </tr>
+        <tr>
+            <td>Parental Influences</td>
+            <td><input type="text" name="136" id="136" required pattern="([0-3])"/></td>
+        </tr>
+        <tr>
+            <td>Environmental Influences</td>
+            <td><input type="text" name="137" id="137" required pattern="([0-3])"/></td> 
+        </tr>
+        <tr>
+            <td>Seriousness</td>
+            <td><input type="text" name="138" id="138" required pattern="([0-3])"/></td> 
+        </tr>
+        <tr>
+            <td>History</td>
+            <td><input type="text" name="139" id="139" required pattern="([0-3])"/></td> 
+        </tr>
+        <tr>
+            <td>Planning</td>
+            <td><input type="text" name="140" id="140" required pattern="([0-3])"/></td> 
+        </tr>
+        <tr>
+            <td>Use of Accelerants</td>
+            <td><input type="text" name="141" id="141" required pattern="([0-3])"/></td> 
+        </tr>
+        <tr>
+            <td>Intention to Harm</td>
+            <td><input type="text" name="142" id="142" required pattern="([0-3])"/></td> 
+        </tr>
+        <tr>
+            <td>Community Safety</td>
+            <td><input type="text" name="143" id="143" required pattern="([0-3])"/></td> 
+        </tr>
+        <tr>
+            <td>Response to Accusation</td>
+            <td><input type="text" name="144" id="144" required pattern="([0-3])"/></td> 
+        </tr>
+        <tr>
+            <td>Remorse</td>
+            <td><input type="text" name="145" id="145" required pattern="([0-3])"/></td> 
+        </tr>
+        <tr>
+            <td>Likelyhood of Future Fires</td>
+            <td><input type="text" name="146" id="146" required pattern="([0-3])"/></td> 
         </tr>
         <tr>
             <td><asp:Button ID="SubmitCANS" runat="server" OnClick="Insert" Text="Submit CANS" /></td>
