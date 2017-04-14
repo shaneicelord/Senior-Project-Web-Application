@@ -267,6 +267,118 @@
             <td>Intentional Misbehavior</td>
             <td><input type="text" name="57" id="57" required pattern="([0-3])|(NA)" title="Only numbers [0, 1, 2, 3] or NA allowed"/></td> 
         </tr>
+         <tr>
+            <td>Cognitive</td>
+            <td><input type="text" name="58" id="58" required pattern="([0-3])"/></td>
+        </tr>
+        <tr>
+            <td>Autism Spectrum</td>
+            <td><input type="text" name="59"  id="59" required pattern="([0-3])"/></td>
+        </tr>
+        <tr>
+            <td>Communication</td>
+            <td><input type="text" name="60" id="60" required pattern="([0-3])"/></td>
+        </tr>
+        <tr>
+            <td>Self Care/Daily Living</td>
+            <td><input type="text" name="61" id="61" required pattern="([0-3])"/></td>
+        </tr>
+        <tr>
+            <td>Supervision</td>
+            <td><input type="text" name="62" id="62" required pattern="([0-3])"/></td>
+        </tr>
+        <tr>
+            <td>Involvement</td>
+            <td><input type="text" name="63" id="63" required pattern="([0-3])"/></td>
+        </tr>
+        <tr>
+            <td>Knowledge</td>
+            <td><input type="text" name="64" id="64" required pattern="([0-3])"/></td>
+        </tr>
+        <tr>
+            <td>Organization</td>
+            <td><input type="text" name="65" id="65" required pattern="([0-3])"/></td>
+        </tr>
+        <tr>
+            <td>Social Resources</td>
+            <td><input type="text" name="66" id="66" required pattern="([0-3])"/></td>
+        </tr>
+        <tr>
+            <td>Residential Stability</td>
+            <td><input type="text" name="67"id="67" required pattern="([0-3])"/></td>
+        </tr>
+        <tr>
+            <td>Physical</td>
+            <td><input type="text"name="68" id="68" required pattern="([0-3])"/></td>
+        </tr>
+        <tr>
+            <td>Mental Health</td>
+            <td><input type="text" name="69" id="69" required pattern="([0-3])"/></td>
+        </tr>
+        <tr>
+            <td>Substance Abuse</td>
+            <td><input type="text" name="70" id="70" required pattern="([0-3])"/></td>
+        </tr>
+        <tr>
+            <td>Developmental</td>
+            <td><input type="text" name="71" id="71" required pattern="([0-3])"/></td>
+        </tr>
+        <tr>
+            <td>Safety</td>
+            <td><input type="text" name="72" id="72" required pattern="([0-3])"/></td>
+        </tr>
+        <tr>
+            <td>Sexual Abuse</td>
+            <td><input type="text" name="73" id="73" required pattern="([0-3])"/></td>
+        </tr>
+        <tr>
+            <td>Physical Abuse</td>
+            <td><input type="text" name="74" id="74" required pattern="([0-3])"/></td> 
+        </tr>
+        <tr>
+            <td>Neglect</td>
+            <td><input type="text" name="75" id="75" required pattern="([0-3])"/></td> 
+        </tr>
+        <tr>
+            <td>Emotional Abuse</td>
+            <td><input type="text" name="76" id="76" required pattern="([0-3])"/></td> 
+        </tr>
+        <tr>
+            <td>Medical Trauma</td>
+            <td><input type="text" name="77" id="77" required pattern="([0-3])"/></td> 
+        </tr>
+        <tr>
+            <td>Natural Disaster</td>
+            <td><input type="text" name="78" id="78" required pattern="([0-3])"/></td> 
+        </tr>
+        <tr>
+            <td>Witness to Family Violence</td>
+            <td><input type="text" name="79" id="79" required pattern="([0-3])"/></td> 
+        </tr>
+        <tr>
+            <td>Witness to Community Violence</td>
+            <td><input type="text" name="80" id="80" required pattern="([0-3])"/></td>
+        </tr>
+        <tr>
+            <td>Witness/Victim - Criminal Acts</td>
+            <td><input type="text" name="81" id="81" required pattern="([0-3])"/></td> 
+        </tr>
+        <tr>
+            <td>Other (specify)</td>
+            <td><input type="text" name="82" id="82" required pattern="([0-3])"/></td> 
+        </tr>
+        <tr>
+            <td>Emotional Closeness to Perpetrator</td>
+            <td><input type="text" name="83" id="83" required pattern="([0-3])"/></td> 
+        </tr>
+        <tr>
+            <td>Frequency</td>
+            <td><input type="text" name="84" id="84" required pattern="([0-3])"/></td> 
+        </tr>
+        <tr>
+            <td>Duration</td>
+            <td><input type="text" name="85" id="85" required pattern="([0-3])"/></td> 
+        </tr>
         <tr>
             <td><asp:Button ID="SubmitCANS" runat="server" OnClick="Insert" Text="Submit CANS" /></td>
         </tr>

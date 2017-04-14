@@ -25,7 +25,7 @@ namespace SeniorProject
             SqlConnection conn = new SqlConnection("Server=tcp:quantumsense.database.windows.net,1433;Initial Catalog=DanielsCANS;Persist Security Info=False;User ID=tiffanyn;Password=Quantumsense1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" );
             conn.Open();
 
-            int itemCount = 25;
+            int itemCount = 85;
             int patientID = Int32.Parse(Request.Form["patientID"]);
             string userID = Request.Form["userID"].Trim();
 
