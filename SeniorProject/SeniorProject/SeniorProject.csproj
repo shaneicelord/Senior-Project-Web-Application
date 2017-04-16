@@ -429,6 +429,7 @@
     <Content Include="Views\Graph\DepartmentGraph.cshtml" />
     <Content Include="Views\Graph\PerDepartment.cshtml" />
     <Content Include="Views\Graph\ChooseDepartment.cshtml" />
+    <Content Include="Views\Home\LoggedInHome.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

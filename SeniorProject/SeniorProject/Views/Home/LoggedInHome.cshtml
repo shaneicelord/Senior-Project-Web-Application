@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="jumbotron">
+    <h1>CANS Tracking System</h1>
+    <p class="lead">Enter, monitor, and track CANS assessments for patients.</p>
+
+</div>
+
+<div class="row">
+    <div class="col-md-3">
+        <h2>Enter New CANS</h2>
+        <p>
+            Enter a new CANS assessment for a patient.
+        </p>
+        <p><a class="btn btn-default" href="~/Form.aspx">Enter new CANS here &raquo;</a></p>
+    </div>
+    <div class="col-md-3">
+        <h2>View Graphs</h2>
+        <p>View graphs for a therapist, patient, or department.</p>
+        <p><a class="btn btn-default" href="@Url.Action("Graphs", "Graph")">View graphs here &raquo;</a></p>
+    </div>
+    <div class="col-md-3">
+        <h2>View Past CANS</h2>
+        <p>View previous CANS assessment for a patient.</p>
+        <p><a class="btn btn-default" href="~/List.aspx">View previous CANS here &raquo;</a></p>
+    </div>
+    <div class="col-md-3">
+        <h2>View Account</h2>
+        <p>View your account information. <strong>User ID</strong> can be found here.</p>
+        <p><a class="btn btn-default" href="@Url.Action("Index", "Manage")">View account here &raquo;</a></p>
+    </div>
+</div>
