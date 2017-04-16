@@ -232,8 +232,6 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PatientsController.cs" />
     <Compile Include="Controllers\QuestionsController.cs" />
-    <Compile Include="Controllers\RoleController.cs" />
-    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\WebFormController.cs" />
     <Compile Include="Form.aspx.cs">
       <DependentUpon>Form.aspx</DependentUpon>
@@ -399,9 +397,6 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\CANSForm\CANSForm.cshtml" />
-    <Content Include="Views\Users\Index.cshtml" />
-    <Content Include="Views\Role\Index.cshtml" />
-    <Content Include="Views\Role\Create.cshtml" />
     <Content Include="Views\Questions\Create.cshtml" />
     <Content Include="Views\Questions\Delete.cshtml" />
     <Content Include="Views\Questions\Details.cshtml" />
