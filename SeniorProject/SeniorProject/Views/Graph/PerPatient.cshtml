@@ -1,13 +1,15 @@
-﻿ 
+﻿
 @{
     ViewBag.Title = "Graph";
+
+    var pID = Session["PatientID"];
 }
 
 <html>
 
 <body>
-    <h2>Average CANS Score for </h2>
-    <p><img src="~/Graph/PatientGraph"/></p>
-    
+    <h2>Average CANS Score for a Patient</h2>
+    <p><img src="~/Graph/PatientGraph" /></p>
+
 </body>
-        </html>
+</html>

@@ -7,8 +7,7 @@ using SeniorProject.Models;
 
 namespace SeniorProject.Controllers
 {
-    [Authorize]
-    public class GraphController : ApplicationBaseController
+    public class GraphController : Controller
     {
 
         // GET: Graphs
@@ -47,6 +46,24 @@ namespace SeniorProject.Controllers
             return View();
         }
 
+        // GET: DepartmentGraph
+        public ActionResult DepartmentGraph()
+        {
+            return View();
+        }
+
+        // GET: ChooseDepartment
+        public ActionResult ChooseDepartment()
+        {
+            return View();
+        }
+
+        // GET: PerDepartment
+        public ActionResult PerDepartment()
+        {
+            return View();
+        }
+
         [HttpPost]
         public ActionResult SearchPatients(GraphSession data)
         {
@@ -65,6 +82,13 @@ namespace SeniorProject.Controllers
         {
             Session["UserID"] = data.UserEmail;
             return RedirectToAction("PerTherapist");
+        }
+
+        [HttpPost]
+        public ActionResult ChooseDepartment(GraphSession data)
+        {
+            Session["DepartmentID"] = data.DepartmentID;
+            return RedirectToAction("PerDepartment");
         }
     }
 }

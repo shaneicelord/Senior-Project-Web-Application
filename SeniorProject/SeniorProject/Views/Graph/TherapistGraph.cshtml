@@ -7,15 +7,15 @@
     var UserID = db.QueryValue("SELECT Id FROM AspNetUsers WHERE Email = '" + Session["UserID"] + "'");
 
 
-        var data = db.Query("CREATE TABLE PLSHELP (number int) DECLARE @number AS INT = 1 WHILE (SELECT AVG(Score) FROM ITEM_SCORE INNER JOIN ASSESSMENTS ON ITEM_SCORE.AssessmentID = ASSESSMENTS.AssessmentID WHERE UserID = '" + UserID + "' AND Number = @number) IS NOT NULL BEGIN INSERT INTO PLSHELP SELECT AVG(Score) FROM ITEM_SCORE INNER JOIN ASSESSMENTS ON ITEM_SCORE.AssessmentID = ASSESSMENTS.AssessmentID WHERE UserID = '" + UserID + "' AND Number = @number; SET @number = @number + 1 END SELECT number FROM PLSHELP DROP TABLE PLSHELP;");
-        var myChart = new Chart(width: 1280, height: 720)
-            .AddTitle("Average Patient Scores for User")
-            .AddSeries("Default",
-            chartType: "FastLine",
-        yValues: data, yFields: "number")
-        .SetXAxis("Patient CANS Number", 1)
-        .SetYAxis("Average Composite CANS Score", 0, 3)
-            .Write();
+    var data = db.Query("CREATE TABLE PLSHELP (number float) DECLARE @number AS INT = 1 WHILE (SELECT AVG(Cast(Score as Float)) FROM ITEM_SCORE INNER JOIN ASSESSMENTS ON ITEM_SCORE.AssessmentID = ASSESSMENTS.AssessmentID WHERE UserID = '" + UserID + "' AND Number = @number) IS NOT NULL BEGIN INSERT INTO PLSHELP SELECT AVG(Cast(Score as Float)) FROM ITEM_SCORE INNER JOIN ASSESSMENTS ON ITEM_SCORE.AssessmentID = ASSESSMENTS.AssessmentID WHERE UserID = '" + UserID + "' AND Number = @number; SET @number = @number + 1 END SELECT number FROM PLSHELP DROP TABLE PLSHELP;");
+    var myChart = new Chart(width: 1280, height: 720, theme: ChartTheme.Green)
+        .AddTitle("Average Patient Scores for User")
+        .AddSeries("Default",
+        chartType: "Line",
+    yValues: data, yFields: "number")
+    .SetXAxis("Patient CANS Number", 1)
+    .SetYAxis("Average Composite CANS Score", 0, 3)
+        .Write();
 }
 <html>
 
