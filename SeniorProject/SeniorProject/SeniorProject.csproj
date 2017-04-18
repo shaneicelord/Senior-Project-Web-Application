@@ -224,6 +224,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminFunctionsController.cs" />
     <Compile Include="Controllers\ApplicationBaseController.cs" />
     <Compile Include="Controllers\CANScalculationsController.cs" />
     <Compile Include="Controllers\CANSFormController.cs" />
@@ -232,6 +233,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PatientsController.cs" />
     <Compile Include="Controllers\QuestionsController.cs" />
+    <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Controllers\WebFormController.cs" />
     <Compile Include="Form.aspx.cs">
       <DependentUpon>Form.aspx</DependentUpon>
@@ -425,9 +427,12 @@
     <Content Include="Views\Graph\PerDepartment.cshtml" />
     <Content Include="Views\Graph\ChooseDepartment.cshtml" />
     <Content Include="Views\Home\LoggedInHome.cshtml" />
+    <Content Include="Views\AdminFunctions\Index.cshtml" />
+    <Content Include="Views\Roles\ManageUserRoles.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\ManageUsers\" />
     <Folder Include="Views\WebForm\" />
   </ItemGroup>
   <ItemGroup>

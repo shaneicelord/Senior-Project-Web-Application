@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using SeniorProject.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace SeniorProject.Controllers
 {
@@ -18,9 +19,10 @@ namespace SeniorProject.Controllers
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
-        public AccountController()
-        {
 
+        public AccountController()
+             : this(new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext())))
+        {
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
@@ -28,6 +30,13 @@ namespace SeniorProject.Controllers
             UserManager = userManager;
             SignInManager = signInManager;
         }
+
+        public AccountController(UserManager<ApplicationUser> uM)
+        {
+            UM = uM;
+        }
+
+        public UserManager<ApplicationUser> UM { get; private set; }
 
         public ApplicationSignInManager SignInManager
         {
@@ -184,6 +193,12 @@ namespace SeniorProject.Controllers
                     string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+
+                    //Send email to admin to assign user role
+                    string adminID = "9c7bead9-3eb5-40b1-bc8a-2c39f055f159";
+                    string emailSubject = "Assign User Role";
+                    string emailBody = "A new user, " + user.FirstName + " " + user.LastName + ", has signed up to use the CANS Tracking System. " + "Please log in using your admin account and assign them a role using their email address " + user.Email +" .";
+                    await UserManager.SendEmailAsync(adminID, emailSubject, emailBody);
 
                     //Resnd email confirmation link =
                     //string callbackURL = await SendEmailConfirmationTokenAsync(user.Id, "Confirm your account");
@@ -460,6 +475,7 @@ namespace SeniorProject.Controllers
         #region Helpers
         // Used for XSRF protection when adding external logins
         private const string XsrfKey = "XsrfId";
+        private UserManager<ApplicationUser> userManager;
 
         private IAuthenticationManager AuthenticationManager
         {

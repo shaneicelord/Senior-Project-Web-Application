@@ -34,12 +34,13 @@
                 <ul class="nav navbar-nav">
                 <!--<li>@Html.ActionLink("Home", "Index", "Home")</li>-->
                 <!--<li>@Html.ActionLink("About", "About", "Home")</li>-->
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                     <!--<li>@Html.ActionLink("CANS Calculations", "Index", "CANScalculations")</li>-->
                     <!--<li>@Html.ActionLink("Add to Form", "Index", "Questions")</li>-->
                     <li>@Html.ActionLink("CANS Intelligence", "Graphs", "Graph")</li>
                     <li><a href="~/Form.aspx">CANS Form</a></li>
                     <li><a href="~/List.aspx">Past CANS</a></li>
+                    <li>@Html.ActionLink("Admin", "Index", "AdminFunctions")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
