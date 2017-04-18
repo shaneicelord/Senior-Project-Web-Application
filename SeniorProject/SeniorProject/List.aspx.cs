@@ -43,7 +43,7 @@ namespace SeniorProject
             showingID.Value = patientID;
             showingDate.Value = sqlDate;
 
-            string assessment = string.Format("SELECT Score FROM ITEM_SCORE WHERE AssessmentID IN (SELECT AssessmentID FROM ASSESSMENTS WHERE PatientID= {0} AND AssessmentDate='{1}')", patientID, sqlDate);
+            string assessment = string.Format("SELECT Score FROM ITEM_SCORE WHERE AssessmentID = (SELECT AssessmentID FROM ASSESSMENTS WHERE PatientID= {0} AND AssessmentDate='{1}')", patientID, sqlDate);
             SqlCommand retrieve = new SqlCommand(assessment, conn);
             reader = retrieve.ExecuteReader();
             //int i = 0;

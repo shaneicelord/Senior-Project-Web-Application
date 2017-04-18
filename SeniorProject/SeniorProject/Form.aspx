@@ -272,13 +272,13 @@
         </tr>
          <tr>
             <td>Cognitive</td>
-            <td><input type="text" name="58" id="58" required pattern="([0-3])"/></td>
+            <td><input type="text" name="58" id="58"  pattern="([0-3])"/></td>
         </tr>
         <tr>
             <td>Autism Spectrum</td>
-            <td><input type="text" name="59"  id="59" required pattern="([0-3])"/></td>
+            <td><input type="text" name="59"  id="59"  pattern="([0-3])"/></td>
         </tr>
-        <tr>
+        <!--<tr>
             <td>Communication</td>
             <td><input type="text" name="60" id="60" required pattern="([0-3])"/></td>
         </tr>
@@ -625,7 +625,7 @@
         <tr>
             <td>Likelyhood of Future Fires</td>
             <td><input type="text" name="146" id="146" required pattern="([0-3])"/></td> 
-        </tr>
+        </tr>-->
         <tr>
             <td><asp:Button ID="SubmitCANS" runat="server" OnClick="Insert" Text="Submit CANS" /></td>
         </tr>

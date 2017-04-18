@@ -21,7 +21,7 @@
                 </button>
                 @if (Request.IsAuthenticated)
                 {
-                    @Html.ActionLink("CANS Monitoring System", "LoggedInHome", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                    @Html.ActionLink("CANS Tracking System", "LoggedInHome", "Home", new { area = "" }, new { @class = "navbar-brand" })
                 }
                 else
                 {
@@ -37,10 +37,11 @@
                     <!--<li>@Html.ActionLink("CANS Calculations", "Index", "CANScalculations")</li>-->
                     <!--<li>@Html.ActionLink("Add to Form", "Index", "Questions")</li>-->
                     <li>@Html.ActionLink("CANS Intelligence", "Graphs", "Graph")</li>
-                    <li><a href="~/Form.aspx">CANS Form</a></li>
-                    <li><a href="~/List.aspx">Past CANS</a></li>
+                    <li><a href="~/Form.aspx">Create an Assessment</a></li>
+                    <li><a href="~/List.aspx">Past CANS Assessments</a></li>
+                    <li>@Html.ActionLink("Patients", "Index", "Patients")</li>
                     <li>@Html.ActionLink("Admin", "Index", "AdminFunctions")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <!--<li>@Html.ActionLink("Contact", "Contact", "Home")</li>-->
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
