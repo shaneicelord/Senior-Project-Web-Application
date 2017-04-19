@@ -283,7 +283,7 @@
          <td><h2><center>Modules</center></h2></td>
         </tr>
         <tr>
-                <td><h3>Developmental Needs</h3></td>
+                <td><h3>DD - Developmental Needs</h3></td>
         </tr>
          <tr>
             <td>Cognitive</td>
@@ -302,7 +302,7 @@
             <td><input type="text" name="61" id="61" pattern="([0-3])"/></td>
         </tr>
         <tr>
-                <td><h3>Current Caregiver Strengths and Needs</h3></td>
+                <td><h3>Current Caregiver</h3></td>
         </tr>
         <tr>
             <td>Supervision</td>
@@ -345,11 +345,11 @@
             <td><input type="text" name="71" id="71" pattern="([0-3])"/></td>
         </tr>
         <tr>
-                <td><h3>Trauma</h3></td>
-        </tr>
-        <tr>
             <td>Safety</td>
             <td><input type="text" name="72" id="72" pattern="([0-3])"/></td>
+        </tr>
+             <tr>
+                <td><h3>Trauma (Characteristics of trauma experience)</h3></td>
         </tr>
         <tr>
             <td>Sexual Abuse</td>
@@ -387,9 +387,6 @@
             <td>Witness/Victim - Criminal Acts</td>
             <td><input type="text" name="81" id="81" pattern="([0-3])"/></td> 
         </tr>
-         <tr>
-                <td><h3>*If Sexual Abuse >0, complete the following: </h3></td>
-        </tr>
         <tr>
             <td>Other (specify)</td>
             <td><input type="text" name="82" id="82" pattern="([0-3])"/></td> 
@@ -415,9 +412,6 @@
             <td><input type="text" name="87"  id="87" pattern="([0-3])"/></td>
         </tr>
         <tr>
-                <td><h3>Adjustment</h3></td>
-        </tr>
-        <tr>
             <td>Affect Regulation</td>
             <td><input type="text" name="88" id="88" pattern="([0-3])"/></td>
         </tr>
@@ -434,7 +428,7 @@
             <td><input type="text" name="91" id="91" pattern="([0-3])"/></td>
         </tr>
         <tr>
-                <td><h3>Substance Use</h3></td>
+                <td><h3>SUD - Substance Use</h3></td>
         </tr>
         <tr>
             <td>Severity of Use</td>
@@ -480,9 +474,6 @@
             <td><input type="text" name="101" id="101" pattern="([0-3])"/></td>
         </tr>
         <tr>
-                <td><h3>Emotional / Behavioral Risks</h3></td>
-        </tr>
-        <tr>
             <td>Frustration Management</td>
             <td><input type="text" name="102" id="102" pattern="([0-3])"/></td> 
         </tr>
@@ -503,9 +494,6 @@
             <td><input type="text" name="106" id="106"  pattern="([0-3])"/></td> 
         </tr>
         <tr>
-                <td><h3>Resiliency Factors</h3></td>
-        </tr>
-        <tr>
             <td>Aware of Violence Potential</td>
             <td><input type="text" name="107" id="107"  pattern="([0-3])"/></td> 
         </tr>
@@ -522,7 +510,7 @@
             <td><input type="text" name="110" id="110"  pattern="([0-3])"/></td> 
         </tr>
         <tr>
-                <td><h3>Sexually Aggressive Behavior</h3></td>
+                <td><h3>SAB - Sexually Aggressive Behavior</h3></td>
         </tr>
         <tr>
             <td>Relationship</td>
@@ -600,7 +588,7 @@
             <td><input type="text" name="128" id="128"  pattern="([0-3])"/></td>
         </tr>
         <tr>
-                <td><h3>Juvenile Justice</h3></td>
+                <td><h3>JJ - Juvenile Justice</h3></td>
         </tr>
         <tr>
             <td>Seriousness</td>
@@ -639,7 +627,7 @@
             <td><input type="text" name="137" id="137"  pattern="([0-3])"/></td> 
         </tr>
         <tr>
-                <td><h3>Fire Setting</h3></td>
+                <td><h3>FS - Fire Setting</h3></td>
         </tr>
         <tr>
             <td>Seriousness</td>
