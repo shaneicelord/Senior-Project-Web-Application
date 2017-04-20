@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DanielsCANSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DanielsCANSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="__MigrationHistory">
           <Key>
             <PropertyRef Name="MigrationId" />
@@ -56,6 +56,8 @@
           <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
           <Property Name="Email" Type="nvarchar" MaxLength="256" />
           <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="256" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="256" />
           <Property Name="PasswordHash" Type="nvarchar(max)" />
           <Property Name="SecurityStamp" Type="nvarchar(max)" />
           <Property Name="PhoneNumber" Type="nvarchar(max)" />
@@ -75,6 +77,7 @@
           <Property Name="UserID" Type="nvarchar" MaxLength="128" />
           <Property Name="AssessmentDate" Type="date" Nullable="false" />
           <Property Name="Number" Type="int" Nullable="false" />
+          <Property Name="Total" Type="int" />
         </EntityType>
         <EntityType Name="CANS_ITEMS">
           <Key>
@@ -83,6 +86,13 @@
           <Property Name="ItemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ItemName" Type="varchar" MaxLength="999" Nullable="false" />
           <Property Name="ParentItem" Type="int" />
+        </EntityType>
+        <EntityType Name="DEPARTMENTS">
+          <Key>
+            <PropertyRef Name="DepartmentID" />
+          </Key>
+          <Property Name="DepartmentID" Type="int" Nullable="false" />
+          <Property Name="DepartmentName" Type="nvarchar" MaxLength="64" Nullable="false" />
         </EntityType>
         <EntityType Name="ITEM_SCORE">
           <Key>
@@ -106,25 +116,17 @@
           <Property Name="Ethnicity" Type="nvarchar" MaxLength="64" />
           <Property Name="DateOfBirth" Type="date" />
           <Property Name="Gender" Type="nvarchar" MaxLength="64" />
+          <Property Name="DepartmentID" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'DanielsCANS.dbo.ROLES' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="ROLES">
+        <EntityType Name="sysdiagrams">
           <Key>
-            <PropertyRef Name="UserID" />
+            <PropertyRef Name="diagram_id" />
           </Key>
-          <Property Name="UserID" Type="nvarchar" MaxLength="128" Nullable="false" />
-        </EntityType>
-        <EntityType Name="USERS">
-          <Key>
-            <PropertyRef Name="UserID" />
-          </Key>
-          <Property Name="UserID" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="Email" Type="varchar" MaxLength="255" Nullable="false" />
-          <Property Name="Passcode" Type="varchar" MaxLength="255" Nullable="false" />
-          <Property Name="LastName" Type="varchar" MaxLength="255" Nullable="false" />
-          <Property Name="FirstName" Type="varchar" MaxLength="255" Nullable="false" />
-          <Property Name="RememberMe" Type="bit" />
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <Association Name="FK__ASSESSMEN__Patie__3B75D760">
           <End Role="PATIENTS" Type="Self.PATIENTS" Multiplicity="1" />
@@ -171,18 +173,6 @@ warning 6002: The table/view 'DanielsCANS.dbo.ROLES' does not have a primary key
             </Principal>
             <Dependent Role="ITEM_SCORE">
               <PropertyRef Name="ItemID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__PATIENTS__UserID__38996AB5">
-          <End Role="USERS" Type="Self.USERS" Multiplicity="0..1" />
-          <End Role="PATIENTS" Type="Self.PATIENTS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="USERS">
-              <PropertyRef Name="UserID" />
-            </Principal>
-            <Dependent Role="PATIENTS">
-              <PropertyRef Name="UserID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -266,15 +256,15 @@ warning 6002: The table/view 'DanielsCANS.dbo.ROLES' does not have a primary key
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ROLES_AspNetUsers">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
-          <End Role="ROLES" Type="Self.ROLES" Multiplicity="0..1" />
+        <Association Name="FK_PATIENTS_DEPARTMENTS">
+          <End Role="DEPARTMENTS" Type="Self.DEPARTMENTS" Multiplicity="0..1" />
+          <End Role="PATIENTS" Type="Self.PATIENTS" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
+            <Principal Role="DEPARTMENTS">
+              <PropertyRef Name="DepartmentID" />
             </Principal>
-            <Dependent Role="ROLES">
-              <PropertyRef Name="UserID" />
+            <Dependent Role="PATIENTS">
+              <PropertyRef Name="DepartmentID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -287,14 +277,10 @@ warning 6002: The table/view 'DanielsCANS.dbo.ROLES' does not have a primary key
           <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ASSESSMENTS" EntityType="Self.ASSESSMENTS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CANS_ITEMS" EntityType="Self.CANS_ITEMS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DEPARTMENTS" EntityType="Self.DEPARTMENTS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ITEM_SCORE" EntityType="Self.ITEM_SCORE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PATIENTS" EntityType="Self.PATIENTS" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="USERS" EntityType="Self.USERS" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ROLES" EntityType="Self.ROLES" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [ROLES].[UserID] AS [UserID]
-    FROM [dbo].[ROLES] AS [ROLES]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__ASSESSMEN__Patie__3B75D760" Association="Self.FK__ASSESSMEN__Patie__3B75D760">
             <End Role="PATIENTS" EntitySet="PATIENTS" />
             <End Role="ASSESSMENTS" EntitySet="ASSESSMENTS" />
@@ -310,10 +296,6 @@ warning 6002: The table/view 'DanielsCANS.dbo.ROLES' does not have a primary key
           <AssociationSet Name="FK__ITEM_SCOR__ItemI__4316F928" Association="Self.FK__ITEM_SCOR__ItemI__4316F928">
             <End Role="CANS_ITEMS" EntitySet="CANS_ITEMS" />
             <End Role="ITEM_SCORE" EntitySet="ITEM_SCORE" />
-          </AssociationSet>
-          <AssociationSet Name="FK__PATIENTS__UserID__38996AB5" Association="Self.FK__PATIENTS__UserID__38996AB5">
-            <End Role="USERS" EntitySet="USERS" />
-            <End Role="PATIENTS" EntitySet="PATIENTS" />
           </AssociationSet>
           <AssociationSet Name="FK_CANS_ITEMS_CANS_ITEMS1" Association="Self.FK_CANS_ITEMS_CANS_ITEMS1">
             <End Role="CANS_ITEMS" EntitySet="CANS_ITEMS" />
@@ -339,13 +321,12 @@ warning 6002: The table/view 'DanielsCANS.dbo.ROLES' does not have a primary key
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="PATIENTS" EntitySet="PATIENTS" />
           </AssociationSet>
-          <AssociationSet Name="FK_ROLES_AspNetUsers" Association="Self.FK_ROLES_AspNetUsers">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="ROLES" EntitySet="ROLES" />
+          <AssociationSet Name="FK_PATIENTS_DEPARTMENTS" Association="Self.FK_PATIENTS_DEPARTMENTS">
+            <End Role="DEPARTMENTS" EntitySet="DEPARTMENTS" />
+            <End Role="PATIENTS" EntitySet="PATIENTS" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DanielsCANSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -408,8 +389,9 @@ warning 6002: The table/view 'DanielsCANS.dbo.ROLES' does not have a primary key
           <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
           <NavigationProperty Name="ASSESSMENTS" Relationship="Self.FK__ASSESSMEN__UserI__3C69FB99" FromRole="AspNetUsers" ToRole="ASSESSMENTS" />
           <NavigationProperty Name="PATIENTS" Relationship="Self.FK_PATIENTS_AspNetUsers" FromRole="AspNetUsers" ToRole="PATIENTS" />
-          <NavigationProperty Name="ROLE" Relationship="Self.FK_ROLES_AspNetUsers" FromRole="AspNetUsers" ToRole="ROLES" />
           <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+          <Property Name="FirstName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="ASSESSMENT">
           <Key>
@@ -423,6 +405,7 @@ warning 6002: The table/view 'DanielsCANS.dbo.ROLES' does not have a primary key
           <NavigationProperty Name="AspNetUser" Relationship="Self.FK__ASSESSMEN__UserI__3C69FB99" FromRole="ASSESSMENTS" ToRole="AspNetUsers" />
           <NavigationProperty Name="PATIENT" Relationship="Self.FK__ASSESSMEN__Patie__3B75D760" FromRole="ASSESSMENTS" ToRole="PATIENTS" />
           <NavigationProperty Name="ITEM_SCORE" Relationship="Self.FK__ITEM_SCOR__Asses__4222D4EF" FromRole="ASSESSMENTS" ToRole="ITEM_SCORE" />
+          <Property Name="Total" Type="Int32" />
         </EntityType>
         <EntityType Name="CANS_ITEMS">
           <Key>
@@ -461,26 +444,8 @@ warning 6002: The table/view 'DanielsCANS.dbo.ROLES' does not have a primary key
           <Property Name="Gender" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="AspNetUser" Relationship="Self.FK_PATIENTS_AspNetUsers" FromRole="PATIENTS" ToRole="AspNetUsers" />
           <NavigationProperty Name="ASSESSMENTS" Relationship="Self.FK__ASSESSMEN__Patie__3B75D760" FromRole="PATIENTS" ToRole="ASSESSMENTS" />
-          <NavigationProperty Name="USER" Relationship="Self.FK__PATIENTS__UserID__38996AB5" FromRole="PATIENTS" ToRole="USERS" />
-        </EntityType>
-        <EntityType Name="USER">
-          <Key>
-            <PropertyRef Name="UserID" />
-          </Key>
-          <Property Name="UserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Passcode" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="LastName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="FirstName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="RememberMe" Type="Boolean" />
-          <NavigationProperty Name="PATIENTS" Relationship="Self.FK__PATIENTS__UserID__38996AB5" FromRole="USERS" ToRole="PATIENTS" />
-        </EntityType>
-        <EntityType Name="ROLE">
-          <Key>
-            <PropertyRef Name="UserID" />
-          </Key>
-          <Property Name="UserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_ROLES_AspNetUsers" FromRole="ROLES" ToRole="AspNetUsers" />
+          <Property Name="DepartmentID" Type="Int32" />
+          <NavigationProperty Name="DEPARTMENT" Relationship="DanielsCANSModel.FK_PATIENTS_DEPARTMENTS" FromRole="PATIENT" ToRole="DEPARTMENT" />
         </EntityType>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
@@ -534,18 +499,6 @@ warning 6002: The table/view 'DanielsCANS.dbo.ROLES' does not have a primary key
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ROLES_AspNetUsers">
-          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
-          <End Role="ROLES" Type="Self.ROLE" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ROLES">
-              <PropertyRef Name="UserID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__ASSESSMEN__Patie__3B75D760">
           <End Role="PATIENTS" Type="Self.PATIENT" Multiplicity="1" />
           <End Role="ASSESSMENTS" Type="Self.ASSESSMENT" Multiplicity="*" />
@@ -594,18 +547,6 @@ warning 6002: The table/view 'DanielsCANS.dbo.ROLES' does not have a primary key
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PATIENTS__UserID__38996AB5">
-          <End Role="USERS" Type="Self.USER" Multiplicity="0..1" />
-          <End Role="PATIENTS" Type="Self.PATIENT" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="USERS">
-              <PropertyRef Name="UserID" />
-            </Principal>
-            <Dependent Role="PATIENTS">
-              <PropertyRef Name="UserID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="AspNetUserRoles">
           <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
           <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
@@ -620,8 +561,6 @@ warning 6002: The table/view 'DanielsCANS.dbo.ROLES' does not have a primary key
           <EntitySet Name="CANS_ITEMS" EntityType="Self.CANS_ITEMS" />
           <EntitySet Name="ITEM_SCORE" EntityType="Self.ITEM_SCORE" />
           <EntitySet Name="PATIENTS" EntityType="Self.PATIENT" />
-          <EntitySet Name="USERS" EntityType="Self.USER" />
-          <EntitySet Name="ROLES" EntityType="Self.ROLE" />
           <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
@@ -637,10 +576,6 @@ warning 6002: The table/view 'DanielsCANS.dbo.ROLES' does not have a primary key
           <AssociationSet Name="FK_PATIENTS_AspNetUsers" Association="Self.FK_PATIENTS_AspNetUsers">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="PATIENTS" EntitySet="PATIENTS" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ROLES_AspNetUsers" Association="Self.FK_ROLES_AspNetUsers">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="ROLES" EntitySet="ROLES" />
           </AssociationSet>
           <AssociationSet Name="FK__ASSESSMEN__Patie__3B75D760" Association="Self.FK__ASSESSMEN__Patie__3B75D760">
             <End Role="PATIENTS" EntitySet="PATIENTS" />
@@ -658,15 +593,47 @@ warning 6002: The table/view 'DanielsCANS.dbo.ROLES' does not have a primary key
             <End Role="CANS_ITEMS" EntitySet="CANS_ITEMS" />
             <End Role="CANS_ITEMS1" EntitySet="CANS_ITEMS" />
           </AssociationSet>
-          <AssociationSet Name="FK__PATIENTS__UserID__38996AB5" Association="Self.FK__PATIENTS__UserID__38996AB5">
-            <End Role="USERS" EntitySet="USERS" />
-            <End Role="PATIENTS" EntitySet="PATIENTS" />
-          </AssociationSet>
           <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
             <End Role="AspNetRoles" EntitySet="AspNetRoles" />
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
           </AssociationSet>
+          <EntitySet Name="DEPARTMENTS" EntityType="DanielsCANSModel.DEPARTMENT" />
+          <EntitySet Name="sysdiagrams" EntityType="DanielsCANSModel.sysdiagram" />
+          <AssociationSet Name="FK_PATIENTS_DEPARTMENTS" Association="DanielsCANSModel.FK_PATIENTS_DEPARTMENTS">
+            <End Role="DEPARTMENT" EntitySet="DEPARTMENTS" />
+            <End Role="PATIENT" EntitySet="PATIENTS" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="DEPARTMENT">
+          <Key>
+            <PropertyRef Name="DepartmentID" />
+          </Key>
+          <Property Name="DepartmentID" Type="Int32" Nullable="false" />
+          <Property Name="DepartmentName" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="PATIENTS" Relationship="DanielsCANSModel.FK_PATIENTS_DEPARTMENTS" FromRole="DEPARTMENT" ToRole="PATIENT" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_PATIENTS_DEPARTMENTS">
+          <End Type="DanielsCANSModel.DEPARTMENT" Role="DEPARTMENT" Multiplicity="0..1" />
+          <End Type="DanielsCANSModel.PATIENT" Role="PATIENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DEPARTMENT">
+              <PropertyRef Name="DepartmentID" />
+            </Principal>
+            <Dependent Role="PATIENT">
+              <PropertyRef Name="DepartmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -713,6 +680,8 @@ warning 6002: The table/view 'DanielsCANS.dbo.ROLES' does not have a primary key
           <EntitySetMapping Name="AspNetUsers">
             <EntityTypeMapping TypeName="DanielsCANSModel.AspNetUser">
               <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
@@ -731,6 +700,7 @@ warning 6002: The table/view 'DanielsCANS.dbo.ROLES' does not have a primary key
           <EntitySetMapping Name="ASSESSMENTS">
             <EntityTypeMapping TypeName="DanielsCANSModel.ASSESSMENT">
               <MappingFragment StoreEntitySet="ASSESSMENTS">
+                <ScalarProperty Name="Total" ColumnName="Total" />
                 <ScalarProperty Name="AssessmentID" ColumnName="AssessmentID" />
                 <ScalarProperty Name="PatientID" ColumnName="PatientID" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
@@ -760,6 +730,7 @@ warning 6002: The table/view 'DanielsCANS.dbo.ROLES' does not have a primary key
           <EntitySetMapping Name="PATIENTS">
             <EntityTypeMapping TypeName="DanielsCANSModel.PATIENT">
               <MappingFragment StoreEntitySet="PATIENTS">
+                <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
                 <ScalarProperty Name="PatientID" ColumnName="PatientID" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
@@ -772,25 +743,6 @@ warning 6002: The table/view 'DanielsCANS.dbo.ROLES' does not have a primary key
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="USERS">
-            <EntityTypeMapping TypeName="DanielsCANSModel.USER">
-              <MappingFragment StoreEntitySet="USERS">
-                <ScalarProperty Name="UserID" ColumnName="UserID" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Passcode" ColumnName="Passcode" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
-                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-                <ScalarProperty Name="RememberMe" ColumnName="RememberMe" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ROLES">
-            <EntityTypeMapping TypeName="DanielsCANSModel.ROLE">
-              <MappingFragment StoreEntitySet="ROLES">
-                <ScalarProperty Name="UserID" ColumnName="UserID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <AssociationSetMapping Name="AspNetUserRoles" TypeName="DanielsCANSModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
             <EndProperty Name="AspNetRoles">
               <ScalarProperty Name="Id" ColumnName="RoleId" />
@@ -799,6 +751,25 @@ warning 6002: The table/view 'DanielsCANS.dbo.ROLES' does not have a primary key
               <ScalarProperty Name="Id" ColumnName="UserId" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="DEPARTMENTS">
+            <EntityTypeMapping TypeName="DanielsCANSModel.DEPARTMENT">
+              <MappingFragment StoreEntitySet="DEPARTMENTS">
+                <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+                <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="DanielsCANSModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

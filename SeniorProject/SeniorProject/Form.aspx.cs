@@ -40,10 +40,12 @@ namespace SeniorProject
             numberIncremented++;
             incrementNumberSELECT.Parameters.Clear();
 
+
             string assessment = string.Format("INSERT INTO ASSESSMENTS(PatientID, UserID, AssessmentDate, Number) VALUES({0}, '{1}', '{2}', {3}); SELECT CAST(SCOPE_IDENTITY() AS INT);", patientID, userID, sqlDate, numberIncremented);
             SqlCommand assessmentINSERT = new SqlCommand(assessment, conn);
             assessmentID = (Int32)assessmentINSERT.ExecuteScalar();
-            
+
+            int success = 0; 
             int total = 0;
             var form = Request.Form;
             for (int i=1; i<=itemCount; i++)
@@ -51,9 +53,16 @@ namespace SeniorProject
                 string index = i.ToString();
                 string formValue = Request.Form[index].Trim();
                 int score;
+                //string NA = "NA";
+                //if (formValue.Equals(NA, StringComparison.OrdinalIgnoreCase))
+                //{
+                //    string itemNA = string.Format("INSERT INTO ITEM_SCORE (ItemID, AssessmentID) VALUES ({0}, {1})", i, assessmentID);
+                //    SqlCommand naINSERT = new SqlCommand(itemNA, conn);
+                //    naINSERT.ExecuteNonQuery();
+                //}
                 Int32.TryParse(formValue, out score);
                 total = total + score; 
-                string itemScore = string.Format("INSERT INTO ITEM_SCORE (ItemID, Score, AssessmentID) VALUES ({0}, {1}, (SELECT AssessmentID FROM ASSESSMENTS WHERE AssessmentDate= '{2}'))", i, score, sqlDate);
+                string itemScore = string.Format("INSERT INTO ITEM_SCORE (ItemID, Score, AssessmentID) VALUES ({0}, {1}, {2})", i, score, assessmentID);
                 SqlCommand scoreINSERT = new SqlCommand(itemScore, conn);
                 scoreINSERT.ExecuteNonQuery();
             }
@@ -62,7 +71,11 @@ namespace SeniorProject
             SqlCommand totalINSERT = new SqlCommand(finalTotal, conn);
             //totalINSERT.Parameters.Add(totalParam);
             //totalINSERT.Parameters.Add(patient);
-            totalINSERT.ExecuteNonQuery(); 
+            success=totalINSERT.ExecuteNonQuery();
+            if (success != 0)
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Assessment Created Successfully')", true);
+            }
             conn.Close();
         }
 

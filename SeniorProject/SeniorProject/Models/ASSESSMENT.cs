@@ -25,6 +25,7 @@ namespace SeniorProject.Models
         public string UserID { get; set; }
         public System.DateTime AssessmentDate { get; set; }
         public int Number { get; set; }
+        public Nullable<int> Total { get; set; }
     
         public virtual AspNetUser AspNetUser { get; set; }
         public virtual PATIENT PATIENT { get; set; }

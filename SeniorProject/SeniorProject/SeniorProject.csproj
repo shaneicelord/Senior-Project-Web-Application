@@ -295,6 +295,9 @@
     <Compile Include="Models\C__MigrationHistory.cs">
       <DependentUpon>CANSModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DEPARTMENT.cs">
+      <DependentUpon>CANSModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\GraphModels.cs" />
     <Compile Include="Models\ITEM_SCORE.cs">
       <DependentUpon>CANSModel.tt</DependentUpon>
@@ -305,10 +308,7 @@
     <Compile Include="Models\Question.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\ROLE.cs">
-      <DependentUpon>CANSModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\USER.cs">
+    <Compile Include="Models\sysdiagram.cs">
       <DependentUpon>CANSModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -411,11 +411,6 @@
     <Content Include="Views\CANScalculations\Index.cshtml" />
     <Content Include="Views\Account\ConfirmationSent.cshtml" />
     <Content Include="Views\Shared\Info.cshtml" />
-    <Content Include="Views\Patients\Create.cshtml" />
-    <Content Include="Views\Patients\Delete.cshtml" />
-    <Content Include="Views\Patients\Details.cshtml" />
-    <Content Include="Views\Patients\Edit.cshtml" />
-    <Content Include="Views\Patients\Index.cshtml" />
     <Content Include="Views\Graph\Graphs.cshtml" />
     <Content Include="Views\Graph\PatientGraph.cshtml" />
     <Content Include="Views\Graph\PerPatient.cshtml" />
@@ -429,6 +424,11 @@
     <Content Include="Views\Home\LoggedInHome.cshtml" />
     <Content Include="Views\AdminFunctions\Index.cshtml" />
     <Content Include="Views\Roles\ManageUserRoles.cshtml" />
+    <Content Include="Views\Patients\Create.cshtml" />
+    <Content Include="Views\Patients\Delete.cshtml" />
+    <Content Include="Views\Patients\Details.cshtml" />
+    <Content Include="Views\Patients\Edit.cshtml" />
+    <Content Include="Views\Patients\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

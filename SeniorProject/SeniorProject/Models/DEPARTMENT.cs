@@ -12,20 +12,16 @@ namespace SeniorProject.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class USER
+    public partial class DEPARTMENT
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public USER()
+        public DEPARTMENT()
         {
             this.PATIENTS = new HashSet<PATIENT>();
         }
     
-        public string UserID { get; set; }
-        public string Email { get; set; }
-        public string Passcode { get; set; }
-        public string LastName { get; set; }
-        public string FirstName { get; set; }
-        public Nullable<bool> RememberMe { get; set; }
+        public int DepartmentID { get; set; }
+        public string DepartmentName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PATIENT> PATIENTS { get; set; }

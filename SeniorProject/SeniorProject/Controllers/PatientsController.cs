@@ -10,14 +10,14 @@ using SeniorProject.Models;
 
 namespace SeniorProject.Controllers
 {
-    public class PatientsController : ApplicationBaseController
+    public class PatientsController : Controller
     {
         private DanielsCANSEntities db = new DanielsCANSEntities();
 
         // GET: Patients
         public ActionResult Index()
         {
-            var pATIENTS = db.PATIENTS.Include(p => p.AspNetUser);
+            var pATIENTS = db.PATIENTS.Include(p => p.AspNetUser).Include(p => p.DEPARTMENT);
             return View(pATIENTS.ToList());
         }
 
@@ -40,6 +40,7 @@ namespace SeniorProject.Controllers
         public ActionResult Create()
         {
             ViewBag.UserID = new SelectList(db.AspNetUsers, "Id", "Email");
+            ViewBag.DepartmentID = new SelectList(db.DEPARTMENTS, "DepartmentID", "DepartmentName");
             return View();
         }
 
@@ -48,7 +49,7 @@ namespace SeniorProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PatientID,UserID,LastName,FirstName,IsActive,Caregiver,Ethnicity,DateOfBirth,Gender")] PATIENT pATIENT)
+        public ActionResult Create([Bind(Include = "PatientID,UserID,LastName,FirstName,IsActive,Caregiver,Ethnicity,DateOfBirth,Gender,DepartmentID")] PATIENT pATIENT)
         {
             if (ModelState.IsValid)
             {
@@ -58,6 +59,7 @@ namespace SeniorProject.Controllers
             }
 
             ViewBag.UserID = new SelectList(db.AspNetUsers, "Id", "Email", pATIENT.UserID);
+            ViewBag.DepartmentID = new SelectList(db.DEPARTMENTS, "DepartmentID", "DepartmentName", pATIENT.DepartmentID);
             return View(pATIENT);
         }
 
@@ -74,6 +76,7 @@ namespace SeniorProject.Controllers
                 return HttpNotFound();
             }
             ViewBag.UserID = new SelectList(db.AspNetUsers, "Id", "Email", pATIENT.UserID);
+            ViewBag.DepartmentID = new SelectList(db.DEPARTMENTS, "DepartmentID", "DepartmentName", pATIENT.DepartmentID);
             return View(pATIENT);
         }
 
@@ -82,7 +85,7 @@ namespace SeniorProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "PatientID,UserID,LastName,FirstName,IsActive,Caregiver,Ethnicity,DateOfBirth,Gender")] PATIENT pATIENT)
+        public ActionResult Edit([Bind(Include = "PatientID,UserID,LastName,FirstName,IsActive,Caregiver,Ethnicity,DateOfBirth,Gender,DepartmentID")] PATIENT pATIENT)
         {
             if (ModelState.IsValid)
             {
@@ -91,6 +94,7 @@ namespace SeniorProject.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.UserID = new SelectList(db.AspNetUsers, "Id", "Email", pATIENT.UserID);
+            ViewBag.DepartmentID = new SelectList(db.DEPARTMENTS, "DepartmentID", "DepartmentName", pATIENT.DepartmentID);
             return View(pATIENT);
         }
 
