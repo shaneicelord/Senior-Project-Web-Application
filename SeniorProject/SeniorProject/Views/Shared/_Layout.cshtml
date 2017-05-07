@@ -19,7 +19,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @if (Request.IsAuthenticated)
+               <!-- @if (Request.IsAuthenticated)
                 {
                     @Html.ActionLink("CANS Tracking System", "LoggedInHome", "Home", new { area = "" }, new { @class = "navbar-brand" })
                 }
@@ -27,8 +27,8 @@
                 {
                     @Html.ActionLink("CANS Monitoring System", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
                 }          
-               
-
+               -->
+                @Html.ActionLink("CANS Tracking System", "LoggedInHome", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
