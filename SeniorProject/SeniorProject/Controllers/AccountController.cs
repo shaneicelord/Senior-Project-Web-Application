@@ -190,6 +190,7 @@ namespace SeniorProject.Controllers
         //
         // POST: /Account/Register
         [HttpPost]
+        [Authorize]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
@@ -209,8 +210,8 @@ namespace SeniorProject.Controllers
 
                 if (result.Succeeded)
                 {
-                    //  Comment the following line to prevent log in until the user is confirmed.
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
+                    //  Comment the following line to prevent logging in as registered user.
+                    // await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
 
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
 
@@ -285,7 +286,7 @@ namespace SeniorProject.Controllers
                 if (user == null)
                 {
                     // Error if email does not exist
-                    ModelState.AddModelError("", "Email does not exist");
+                    ModelState.AddModelError("", "Email is not associated with an account");
                     return View(model);
                 }
 
