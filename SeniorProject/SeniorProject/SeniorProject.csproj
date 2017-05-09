@@ -231,6 +231,7 @@
     <Compile Include="Controllers\GraphController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ManageUsersController.cs" />
     <Compile Include="Controllers\PatientsController.cs" />
     <Compile Include="Controllers\QuestionsController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
@@ -258,6 +259,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AdminViewModels.cs" />
     <Compile Include="Models\AspNetRole.cs">
       <DependentUpon>CANSModel.tt</DependentUpon>
     </Compile>
@@ -318,6 +320,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\CustomStyle.css" />
+    <Content Include="Content\Images\MoveToInbox.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Form.aspx" />
@@ -429,10 +432,13 @@
     <Content Include="Views\Patients\Details.cshtml" />
     <Content Include="Views\Patients\Edit.cshtml" />
     <Content Include="Views\Patients\Index.cshtml" />
+    <Content Include="Views\ManageUsers\Index.cshtml" />
+    <Content Include="Views\ManageUsers\Details.cshtml" />
+    <Content Include="Views\ManageUsers\Edit.cshtml" />
+    <Content Include="Views\ManageUsers\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\ManageUsers\" />
     <Folder Include="Views\WebForm\" />
   </ItemGroup>
   <ItemGroup>

@@ -85,6 +85,7 @@ namespace SeniorProject.Controllers
             }
 
             // Require the user to have a confirmed email before they can log on.
+            /*
             var user = await UserManager.FindByNameAsync(model.UserName);
             if (user != null)
             {
@@ -97,6 +98,23 @@ namespace SeniorProject.Controllers
                     return View("Error");
                 }
             }
+            */
+
+            // Require the user to have a confirmed email before they can log on.            
+            var user = await UserManager.FindByNameAsync(model.UserName);
+            if (user != null)
+            {
+                // if (!await UserManager.IsEmailConfirmedAsync(user.Id))
+                if(!user.IsActive ?? false)
+                {
+                    //Resend email confirmation link
+                    //string callbackURL = await SendEmailConfirmationTokenAsync(user.Id, "Confirm your account-Resend");
+
+                    ViewBag.errorMessage = "Your account has been disabled. Please contact IT support for further assistance.";
+                    return View("Error");
+                }
+            }
+            
 
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
@@ -183,7 +201,8 @@ namespace SeniorProject.Controllers
                     UserName = model.Email,
                     Email = model.Email,
                     FirstName = model.FirstName,
-                    LastName = model.LastName
+                    LastName = model.LastName,
+                    IsActive = true
                 };
 
                 var result = await UserManager.CreateAsync(user, model.Password);
@@ -261,10 +280,13 @@ namespace SeniorProject.Controllers
             if (ModelState.IsValid)
             {
                 var user = await UserManager.FindByNameAsync(model.Email);
-                if (user == null || !(await UserManager.IsEmailConfirmedAsync(user.Id)))
+                //Send email even if not verified
+                //if (user == null || !(await UserManager.IsEmailConfirmedAsync(user.Id)))
+                if (user == null)
                 {
-                    // Don't reveal that the user does not exist or is not confirmed
-                    return View("ForgotPasswordConfirmation");
+                    // Error if email does not exist
+                    ModelState.AddModelError("", "Email does not exist");
+                    return View(model);
                 }
 
                 // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771

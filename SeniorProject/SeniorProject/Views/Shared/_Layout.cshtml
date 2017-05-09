@@ -19,7 +19,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-               <!-- @if (Request.IsAuthenticated)
+                @if (Request.IsAuthenticated)
                 {
                     @Html.ActionLink("CANS Tracking System", "LoggedInHome", "Home", new { area = "" }, new { @class = "navbar-brand" })
                 }
@@ -27,20 +27,27 @@
                 {
                     @Html.ActionLink("CANS Monitoring System", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
                 }          
-               -->
-                @Html.ActionLink("CANS Tracking System", "LoggedInHome", "Home", new { area = "" }, new { @class = "navbar-brand" })
+
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                <!--<li>@Html.ActionLink("Home", "Index", "Home")</li>-->
-                <!--<li>@Html.ActionLink("About", "About", "Home")</li>-->
+                    <!--<li>@Html.ActionLink("Home", "Index", "Home")</li>-->
+                    <!--<li>@Html.ActionLink("About", "About", "Home")</li>-->
                     <!--<li>@Html.ActionLink("CANS Calculations", "Index", "CANScalculations")</li>-->
                     <!--<li>@Html.ActionLink("Add to Form", "Index", "Questions")</li>-->
-                    <li>@Html.ActionLink("CANS Intelligence", "Graphs", "Graph")</li>
-                    <li><a href="~/Form.aspx">Create an Assessment</a></li>
-                    <li><a href="~/List.aspx">Past CANS Assessments</a></li>
-                    <li>@Html.ActionLink("Patients", "Index", "Patients")</li>
-                    <li>@Html.ActionLink("Admin", "Index", "AdminFunctions")</li>
+                    @if (Request.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("CANS Intelligence", "Graphs", "Graph")</li>
+                        <li><a href="~/Form.aspx">Create an Assessment</a></li>
+                        <li><a href="~/List.aspx">Past CANS Assessments</a></li>
+                        <li>@Html.ActionLink("Patients", "Index", "Patients")</li>
+                    }
+                    
+                    @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                    {
+                        <li>@Html.ActionLink("Admin", "Index", "AdminFunctions")</li>
+                    }
+                    
                     <!--<li>@Html.ActionLink("Contact", "Contact", "Home")</li>-->
                 </ul>
                 @Html.Partial("_LoginPartial")

@@ -138,5 +138,21 @@ namespace SeniorProject
         {
             return new ApplicationSignInManager(context.GetUserManager<ApplicationUserManager>(), context.Authentication);
         }
+
+        public override Task<SignInStatus> PasswordSignInAsync(string userName, string password, bool rememberMe, bool shouldLockout)
+        {
+            var user = UserManager.FindByEmailAsync(userName).Result;
+
+            if (user != null)
+            {
+                if ((user.IsActive.HasValue && !user.IsActive.Value) || !user.IsActive.HasValue)
+                {
+                    return Task.FromResult<SignInStatus>(SignInStatus.LockedOut);
+                }
+            }
+            
+
+            return base.PasswordSignInAsync(userName, password, rememberMe, shouldLockout);
+        }
     }
 }
