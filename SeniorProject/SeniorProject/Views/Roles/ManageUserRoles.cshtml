@@ -16,12 +16,14 @@
     @Html.ValidationSummary(true)
 
     <p>
-        Email: @Html.TextBox("UserName")
-        Role Name: @Html.DropDownList("RoleName", (IEnumerable<SelectListItem>)ViewBag.Roles, "Select ...")
+        Email: @Html.TextBox("UserName", null, new {@class = "form-control", placeholder = "Email", type = "email", required = "required"})
+        <br/>
+        Role Name: @Html.DropDownList("RoleName", (IEnumerable<SelectListItem>)ViewBag.Roles, "Select ...", new { @class = "form-control", required = "required" })
 
     </p>
 
     <div><p style="color: green">@ViewBag.RoleSuccessMessage</p></div>
+    <div><p style="color: red">@ViewBag.InvalidEmail</p></div>
 
     <input type="submit" value="Add role" />
 }
@@ -31,9 +33,13 @@
 {
     @Html.AntiForgeryToken()
     <p>
-        Email : @Html.TextBox("UserName")
+        Email : @Html.TextBox("UserName", null, new { @class = "form-control", placeholder = "Email", type = "email", required = "required" })
+        <br />
+        
         <input type="submit" value="Get Roles for this User" />
     </p>
+
+    <div><p style="color: red">@ViewBag.FailGetRoleMessage</p></div>
 }
 
 @if (ViewBag.RolesForThisUser != null)
@@ -58,13 +64,15 @@
     @Html.ValidationSummary(true)
 
     <p>
-        Email : @Html.TextBox("UserName")
-        Role Name: @Html.DropDownList("RoleName", (IEnumerable<SelectListItem>)ViewBag.Roles, "Select ...")
+        Email : @Html.TextBox("UserName", null, new { @class = "form-control", placeholder = "Email", type = "email", required = "required" })
+        <br />
+        Role Name: @Html.DropDownList("RoleName", (IEnumerable<SelectListItem>)ViewBag.Roles, "Select ...", new { @class = "form-control", required = "required" })
 
     </p>
 
     <div><p style="color: green">@ViewBag.SuccessRemoveMessage</p></div>
     <div><p style="color: red">@ViewBag.FailRemoveMessage</p></div>
+    <div><p style="color: red">@ViewBag.EmailError</p></div>
 
     <input type="submit" value="Delete this user from Role" />
 }

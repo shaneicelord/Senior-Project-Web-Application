@@ -75,7 +75,7 @@ namespace SeniorProject.Models
         public string LastName { get; set; }
 
         [Required]
-        [Display(Name = "UserRoles")]
+        [Display(Name = "Roles")]
         public string UserRoles { get; set; }
 
         [Required]
