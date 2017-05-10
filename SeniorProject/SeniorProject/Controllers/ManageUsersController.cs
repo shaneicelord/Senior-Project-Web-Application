@@ -11,6 +11,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace SeniorProject.Controllers
 {
@@ -179,6 +180,58 @@ namespace SeniorProject.Controllers
                 return RedirectToAction("Index");
             }
             return View();
+        }
+
+        // GET: /ManageUsers/ResetPassword
+        public ActionResult ResetPassword()
+        {
+            AdminResetPasswordViewModel model = new AdminResetPasswordViewModel();
+            return View(model);
+        }
+
+        //
+        // POST: /ManageUsers/ResetPassword
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ResetPassword(AdminResetPasswordViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            ApplicationDbContext context = new ApplicationDbContext();
+
+            var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
+
+            ApplicationUser user = context.Users.Where(u => u.UserName.Equals(model.Email, StringComparison.CurrentCultureIgnoreCase)).FirstOrDefault();
+            
+            if (UserManager.FindByName(model.Email) != null)
+            {
+                var removePassword = UserManager.RemovePassword(user.Id);
+                if (removePassword.Succeeded)
+                {
+                    //Removed Password Success
+                    var AddPassword = UserManager.AddPassword(user.Id, model.NewPassword);
+                    if (AddPassword.Succeeded)
+                    {
+                        return View("AdminResetPasswordConfirmation");
+                    }
+                }
+                else
+                {
+                    // Error if email does not exist
+                    ModelState.AddModelError("", "Error resetting email address");
+                    return View(model);
+                }
+            }
+            else
+            {
+                // Error if email does not exist
+                ModelState.AddModelError("", "Email is not associated with an account");
+                return View(model);
+            }
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
         }
 
     }
