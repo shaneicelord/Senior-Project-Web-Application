@@ -440,6 +440,7 @@
     <Content Include="Views\ManageUsers\Delete.cshtml" />
     <Content Include="Views\ManageUsers\AdminResetPasswordConfirmation.cshtml" />
     <Content Include="Views\ManageUsers\ResetPassword.cshtml" />
+    <Content Include="Views\CANSForm\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

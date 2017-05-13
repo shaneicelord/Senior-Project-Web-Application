@@ -5,7 +5,10 @@
 }
 
 <h2>Manage User Roles</h2>
-@Html.ActionLink("Reset page", "ManageUserRoles")
+<p>
+    @Html.ActionLink("Back to List", "Index", "AdminFunctions") |
+    @Html.ActionLink("Reset page", "ManageUserRoles")
+</p>
 <hr />
 
 <h2>Role Add to User</h2>
@@ -44,8 +47,8 @@
 
 @if (ViewBag.RolesForThisUser != null)
 {
-    <div style="background-color:yellow;">
-        <h3>Roles assigned to this user </h3>
+    <div style="color: #FF4000;">
+        <h3>Roles assigned to this user: </h3>
         <ol>
             @foreach (string s in ViewBag.RolesForThisUser)
             {
