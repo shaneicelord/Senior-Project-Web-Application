@@ -4,27 +4,32 @@
 }
 
 <div class="jumbotron">
-    <h1>CANS Tracking System</h1>
+    <h1 class="intro">CANS Tracking System</h1>
     <p class="lead">Enter, monitor, and track CANS assessments for patients.</p>
-    
+
 </div>
 
 <div class="row">
-    <div class="col-md-4">
-        <h2>Register</h2>
+    <div class="col-md-3">
+        <h2>CANS</h2>
         <p>
-            Create a new account before you use the application for the first time.
+            Create, edit, and view previous CANS assessment for a patient.
         </p>
-        <p><a class="btn btn-default" href="@Url.Action("Register", "Account")">Register here &raquo;</a></p>
+        <p><a class="btn btn-default" href="@Url.Action("Index", "CANSForm")">Click here &raquo;</a></p>
     </div>
-    <div class="col-md-4">
-        <h2>Login</h2>
-        <p>Login to use the application with an existing account.</p>
-        <p><a class="btn btn-default" href="@Url.Action("Login", "Account")">Login here &raquo;</a></p>
+    <div class="col-md-3">
+        <h2>Graphs</h2>
+        <p>View graphs for a therapist, patient, or department.</p>
+        <p><a class="btn btn-default" href="@Url.Action("Graphs", "Graph")">Click here &raquo;</a></p>
     </div>
-    <div class="col-md-4">
-        <h2>Contact</h2>
-        <p>Contact Daniel's IT administrators if you encounter any issues or errors.</p>
-        <p><a class="btn btn-default" href="@Url.Action("Contact", "Home")">Contact here &raquo;</a></p>
+    <div class="col-md-3">
+        <h2>Patients</h2>
+        <p>Create, edit, and view your patient information.</p>
+        <p><a class="btn btn-default" href="@Url.Action("Index", "Patients")">Click here &raquo;</a></p>
+    </div>
+    <div class="col-md-3">
+        <h2>Account</h2>
+        <p>View your account information. <strong>User ID</strong> can be found here.</p>
+        <p><a class="btn btn-default" href="@Url.Action("Index", "Manage")">Click here &raquo;</a></p>
     </div>
 </div>

@@ -15,6 +15,7 @@ namespace SeniorProject.Controllers
         private DanielsCANSEntities db = new DanielsCANSEntities();
 
         // GET: Patients
+        [Authorize]
         public ActionResult Index()
         {
             var pATIENTS = db.PATIENTS.Include(p => p.AspNetUser).Include(p => p.DEPARTMENT);

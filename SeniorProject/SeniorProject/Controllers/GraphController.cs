@@ -9,7 +9,7 @@ namespace SeniorProject.Controllers
 {
     public class GraphController : Controller
     {
-
+        [Authorize]
         // GET: Graphs
         public ActionResult Graphs()
         {

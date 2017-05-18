@@ -1,0 +1,57 @@
+﻿@model IEnumerable<SeniorProject.Models.ApplicationUser>
+
+@{
+    ViewBag.Title = "User List";
+}
+
+<h2>View list of users</h2>
+
+<p>
+    @Html.ActionLink("Back to List", "Index", "AdminFunctions") |
+    @Html.ActionLink("Create New Account", "Register", "Account") |
+    @Html.ActionLink("Manage Roles", "ManageUserRoles", "Roles")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            First Name
+        </th>
+        <th>
+            Last Name
+        </th>
+        <th>
+            Email Address
+        </th>
+        <th>
+            Active
+        </th>
+        <th>
+
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsActive)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+               <!-- @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                   -->
+            </td>
+        </tr>
+    }
+
+</table>
