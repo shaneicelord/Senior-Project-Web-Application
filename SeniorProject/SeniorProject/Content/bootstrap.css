@@ -36,6 +36,17 @@ summary {
   display: block;
 }
 
+.modules{
+    color: red;
+}
+
+.legend{
+    border: 2px;
+    border-color:red;  
+    margin-left:40%; 
+    margin-right:15%;
+}
+
 audio,
 canvas,
 video {
