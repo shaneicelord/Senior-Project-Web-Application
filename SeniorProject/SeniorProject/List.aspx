@@ -20,7 +20,7 @@
             </div>
         </div>
     <form id="View" runat="server">
-       <h1> Past CANS </h1>
+       <h1 style ="text-align: center"> Past CANS </h1>
 
         <hr />
     <div>

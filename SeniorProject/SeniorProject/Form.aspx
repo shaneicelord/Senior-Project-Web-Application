@@ -20,7 +20,7 @@
             </div>
         </div>
     <form id="CANS" runat="server" method="post">
-         <h1> CANS Assessment </h1>
+         <h1 style ="text-align: center"> CANS Assessment </h1>
 
         <hr />
         <table class="center">
@@ -30,7 +30,7 @@
         </table>
         <br />
 
-        <table class="legend">
+        <table class="center">
             <tr>
                 <td colspan="2">
                     <b>Module Legend</b>
