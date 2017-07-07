@@ -15,6 +15,10 @@
     <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a href="/">Home</a></li>
+                    <li><a href="/CANSForm">CANS</a></li>
+                    <li><a href="/Graph/Graphs">Graphs</a></li>
+                    <li><a href="/Patients">Patients</a></li>
+                    <li><a href="/AdminFunctions">Admin</a></li>
                 </ul>
             </div>
             </div>

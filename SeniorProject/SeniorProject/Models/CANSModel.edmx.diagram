@@ -7,7 +7,7 @@
       <Diagram DiagramId="b3b5a75f64c74e5db064b3b3719893bd" Name="Diagram1">
         <EntityTypeShape EntityType="DanielsCANSModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DanielsCANSModel.AspNetRole" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DanielsCANSModel.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DanielsCANSModel.AspNetUserClaim" Width="1.5" PointX="5.125" PointY="5.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DanielsCANSModel.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="8" IsExpanded="true" />
         <EntityTypeShape EntityType="DanielsCANSModel.AspNetUser" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
         <EntityTypeShape EntityType="DanielsCANSModel.ASSESSMENT" Width="1.5" PointX="8.25" PointY="7.25" IsExpanded="true" />

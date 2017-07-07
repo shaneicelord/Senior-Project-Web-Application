@@ -19,7 +19,8 @@ namespace SeniorProject.Controllers
         [Authorize]
         public ActionResult Index()
         {
-            var pATIENTS = db.PATIENTS.Include(p => p.AspNetUser).Include(p => p.DEPARTMENT).Where(p => p.AspNetUser.ToString().Trim() == User.Identity.GetUserId().Trim());
+            var userID = User.Identity.GetUserId().Trim();
+            var pATIENTS = db.PATIENTS.Include(p => p.AspNetUser).Include(p => p.DEPARTMENT).Where(p => p.AspNetUser.Id.Trim() == userID);
 
             return View(pATIENTS.ToList());
         }
