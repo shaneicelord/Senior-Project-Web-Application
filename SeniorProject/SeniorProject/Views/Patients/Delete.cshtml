@@ -67,6 +67,22 @@
             @Html.DisplayFor(model => model.Gender)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.AspNetUser.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AspNetUser.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DEPARTMENT.DepartmentName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DEPARTMENT.DepartmentName)
+        </dd>
+
     </dl>
 
     @using (Html.BeginForm()) {

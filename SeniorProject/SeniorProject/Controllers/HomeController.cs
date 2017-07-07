@@ -26,5 +26,10 @@ namespace SeniorProject.Controllers
 
             return View();
         }
+
+        public ActionResult LoggedInHome()
+        {
+            return View();
+        }
     }
 }

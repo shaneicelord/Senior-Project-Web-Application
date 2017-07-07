@@ -12,10 +12,10 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.LastName)
+            Patient ID
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FirstName)
+            Full Name
         </th>
         <th>
             @Html.DisplayNameFor(model => model.IsActive)
@@ -32,17 +32,25 @@
         <th>
             @Html.DisplayNameFor(model => model.Gender)
         </th>
-       
+        <th>
+            Assigned Therapist 
+        </th>
+        <th>
+           Therapist ID
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DEPARTMENT.DepartmentName)
+        </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.LastName)
+            @Html.DisplayFor(modelItem => item.PatientID)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.FirstName)
+            @Html.DisplayFor(modelItem => item.LastName), @Html.DisplayFor(modelItem => item.FirstName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.IsActive)
@@ -59,11 +67,18 @@
         <td>
             @Html.DisplayFor(modelItem => item.Gender)
         </td>
-       
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.PatientID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.PatientID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.PatientID })
+            @Html.DisplayFor(modelItem => item.AspNetUser.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AspNetUser.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DEPARTMENT.DepartmentName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PatientID }) 
+            @Html.ActionLink("Details", "Details", new { id=item.PatientID }) 
         </td>
     </tr>
 }

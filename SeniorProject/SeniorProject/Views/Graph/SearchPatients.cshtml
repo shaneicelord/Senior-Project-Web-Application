@@ -20,38 +20,37 @@
 
     <form method="post" action="">
         <fieldset>
-            <legend>Select Patient</legend>
+            <legend>Please enter the ID of the patient you would like to view the graph for. The graph generated will show the change in the average CANS score of the patient over the length of their stay in the program.</legend>
             @using (Html.BeginForm())
             {
-            <div>
-                @Html.TextBoxFor(m => m.PatientID)
-            </div>
-            <div>
-                <label>&nbsp;</label>
-                <input type="submit" value="Submit" class="submit" />
-            </div>
+                <div>
+                    @Html.TextBoxFor(m => m.PatientID)
+                </div>
+                <div>
+                    <input type="submit" value="Submit" class="submit" />
+                </div>
 
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Last Name</th>
-                        <th>First Name</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var row in db.Query(selectQuery))
-                    {
+                <table>
+                    <thead>
                         <tr>
-                            <td>@row.PatientID</td>
-                            <td>@row.LastName</td>
-                            <td>@row.FirstName</td>
+                            <th>ID</th>
+                            <th>Last Name</th>
+                            <th>First Name</th>
                         </tr>
-                    }
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @foreach (var row in db.Query(selectQuery))
+                        {
+                            <tr>
+                                <td>@row.PatientID</td>
+                                <td>@row.LastName</td>
+                                <td>@row.FirstName</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
             }
         </fieldset>
     </form>
 </body>
-        </html>
+</html>

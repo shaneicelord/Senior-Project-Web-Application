@@ -1,0 +1,81 @@
+﻿
+@{
+    ViewBag.Title = "ManageUserRoles";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Manage User Roles</h2>
+<p>
+    @Html.ActionLink("Back to List", "Index", "AdminFunctions") |
+    @Html.ActionLink("Reset page", "ManageUserRoles")
+</p>
+<hr />
+
+<h2>Role Add to User</h2>
+
+@using (Html.BeginForm("RoleAddToUser", "Roles"))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <p>
+        Email: @Html.TextBox("UserName", null, new {@class = "form-control", placeholder = "Email", type = "email", required = "required"})
+        <br/>
+        Role Name: @Html.DropDownList("RoleName", (IEnumerable<SelectListItem>)ViewBag.Roles, "Select ...", new { @class = "form-control", required = "required" })
+
+    </p>
+
+    <div><p style="color: green">@ViewBag.RoleSuccessMessage</p></div>
+    <div><p style="color: red">@ViewBag.InvalidEmail</p></div>
+
+    <input type="submit" value="Add role" />
+}
+<hr />
+<h3>Get Roles for a User</h3>
+@using (Html.BeginForm("GetRoles", "Roles"))
+{
+    @Html.AntiForgeryToken()
+    <p>
+        Email : @Html.TextBox("UserName", null, new { @class = "form-control", placeholder = "Email", type = "email", required = "required" })
+        <br />
+        
+        <input type="submit" value="Get Roles for this User" />
+    </p>
+
+    <div><p style="color: red">@ViewBag.FailGetRoleMessage</p></div>
+}
+
+@if (ViewBag.RolesForThisUser != null)
+{
+    <div style="color: #FF4000;">
+        <h3>Roles assigned to this user: </h3>
+        <ol>
+            @foreach (string s in ViewBag.RolesForThisUser)
+            {
+                <li>@s</li>
+            }
+        </ol>
+    </div>
+}
+
+<hr />
+<h3>Remove user from a Role</h3>
+
+@using (Html.BeginForm("DeleteRoleForUser", "Roles"))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <p>
+        Email : @Html.TextBox("UserName", null, new { @class = "form-control", placeholder = "Email", type = "email", required = "required" })
+        <br />
+        Role Name: @Html.DropDownList("RoleName", (IEnumerable<SelectListItem>)ViewBag.Roles, "Select ...", new { @class = "form-control", required = "required" })
+
+    </p>
+
+    <div><p style="color: green">@ViewBag.SuccessRemoveMessage</p></div>
+    <div><p style="color: red">@ViewBag.FailRemoveMessage</p></div>
+    <div><p style="color: red">@ViewBag.EmailError</p></div>
+
+    <input type="submit" value="Delete this user from Role" />
+}

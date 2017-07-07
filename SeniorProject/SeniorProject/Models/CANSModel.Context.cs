@@ -34,7 +34,7 @@ namespace SeniorProject.Models
         public virtual DbSet<CANS_ITEMS> CANS_ITEMS { get; set; }
         public virtual DbSet<ITEM_SCORE> ITEM_SCORE { get; set; }
         public virtual DbSet<PATIENT> PATIENTS { get; set; }
-        public virtual DbSet<USER> USERS { get; set; }
-        public virtual DbSet<ROLE> ROLES { get; set; }
+        public virtual DbSet<DEPARTMENT> DEPARTMENTS { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     }
 }

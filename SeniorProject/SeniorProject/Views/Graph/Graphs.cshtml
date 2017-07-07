@@ -6,10 +6,11 @@
 
 <body>
     <h1>CANS Business Intelligence</h1>
-
-    <table>
-        <th><li>@Html.ActionLink("Therapist", "SearchTherapists", "Graph")</li></th>
-        <th><li>@Html.ActionLink("Patient", "SearchPatients", "Graph")</li></th>
-    </table>
+    <p>Please select the type of CANS Graphical Intelligence you would like to view. These graphs are currently generated using the last 6 months of data for departments and therapists, and shows the culmulative CANS history of a given patient. The ability to select a date range will come in the next release.</p>
+    <ul>
+        <li>@Html.ActionLink("Therapist", "SearchTherapists", "Graph")</li>
+        <li>@Html.ActionLink("Patient", "SearchPatients", "Graph")</li>
+        <li>@Html.ActionLink("Department", "ChooseDepartment", "Graph")</li>
+    </ul>
 </body>
-        </html>
+</html>

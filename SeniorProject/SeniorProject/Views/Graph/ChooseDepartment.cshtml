@@ -1,0 +1,51 @@
+﻿@using WebMatrix.Data;
+@using System.Web.Helpers;
+@model SeniorProject.Models.GraphSession
+
+
+<html>
+
+<body>
+    <h1>Select Department</h1>
+
+    <p>Please enter the number corresponding to the department you would like to view graphs for. The graph displayed Currently, the graphs display the average CANS score of a given department's patients over the past 6 months, adjusted for length of patient stay. In the next release, it will be possible to specify parameters for graph generation.</p>
+
+    <form method="post" action="">
+        <fieldset>
+            <legend>Select Department</legend>
+            @using (Html.BeginForm())
+            {
+                <div>
+                    @Html.TextBoxFor(m => m.DepartmentID)
+                </div>
+                <div>
+                    <input type="submit" value="Submit" class="submit" />
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>DepartmentName</th>
+                            <th>ID</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Foster Care</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>Therapy</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>WrapAround</td>
+                            <td>3</td>
+                        </tr>
+                    </tbody>
+                </table>
+            }
+        </fieldset>
+    </form>
+</body>
+</html>

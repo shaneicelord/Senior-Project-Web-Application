@@ -13,5 +13,11 @@
             get;
             set;
         }
+
+        public int DepartmentID
+        {
+            get;
+            set;
+        }
     }
 }

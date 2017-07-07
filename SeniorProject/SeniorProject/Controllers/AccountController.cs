@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using SeniorProject.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace SeniorProject.Controllers
 {
@@ -17,10 +18,10 @@ namespace SeniorProject.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-
         ApplicationDbContext context;
 
         public AccountController()
+             : this(new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext())))
         {
             context = new ApplicationDbContext();
         }
@@ -30,6 +31,13 @@ namespace SeniorProject.Controllers
             UserManager = userManager;
             SignInManager = signInManager;
         }
+
+        public AccountController(UserManager<ApplicationUser> uM)
+        {
+            UM = uM;
+        }
+
+        public UserManager<ApplicationUser> UM { get; private set; }
 
         public ApplicationSignInManager SignInManager
         {
@@ -77,6 +85,7 @@ namespace SeniorProject.Controllers
             }
 
             // Require the user to have a confirmed email before they can log on.
+            /*
             var user = await UserManager.FindByNameAsync(model.UserName);
             if (user != null)
             {
@@ -89,6 +98,23 @@ namespace SeniorProject.Controllers
                     return View("Error");
                 }
             }
+            */
+
+            // Require the user to have a confirmed email before they can log on.            
+            var user = await UserManager.FindByNameAsync(model.UserName);
+            if (user != null)
+            {
+                // if (!await UserManager.IsEmailConfirmedAsync(user.Id))
+                if(!user.IsActive ?? false)
+                {
+                    //Resend email confirmation link
+                    //string callbackURL = await SendEmailConfirmationTokenAsync(user.Id, "Confirm your account-Resend");
+
+                    ViewBag.errorMessage = "Your account has been disabled. Please contact IT support for further assistance.";
+                    return View("Error");
+                }
+            }
+            
 
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
@@ -96,7 +122,7 @@ namespace SeniorProject.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
+                    return RedirectToAction("LoggedInHome", "Home");
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
@@ -156,13 +182,15 @@ namespace SeniorProject.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            ViewBag.Name = new SelectList(context.Roles.Where(u => !u.Name.Contains("Admin")).ToList(), "Name", "Name");
+            ViewBag.Name = new SelectList(context.Roles.ToList(), "Name", "Name");
+
             return View();
         }
 
         //
         // POST: /Account/Register
         [HttpPost]
+        [Authorize]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
@@ -174,24 +202,33 @@ namespace SeniorProject.Controllers
                     UserName = model.Email,
                     Email = model.Email,
                     FirstName = model.FirstName,
-                    LastName = model.LastName
+                    LastName = model.LastName,
+                    IsActive = true
                 };
+
                 var result = await UserManager.CreateAsync(user, model.Password);
+
                 if (result.Succeeded)
                 {
-                    //  Comment the following line to prevent log in until the user is confirmed.
-                    //  await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
+                    //  Comment the following line to prevent logging in as registered user.
+                    // await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
 
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
+
                     // Send an email with this link
+                    /*
                     string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+                    */
 
-                    //Assign Role to user Here      
-                 //   await this.UserManager.AddToRoleAsync(user.Id, model.UserRoles);
-                    //Ends Here    
-                    //return RedirectToAction("Index", "Users");
+                    //Send email to admin to assign user role
+                    /*
+                    string adminID = "9c7bead9-3eb5-40b1-bc8a-2c39f055f159";
+                    string emailSubject = "Assign User Role";
+                    string emailBody = "A new user, " + user.FirstName + " " + user.LastName + ", has signed up to use the CANS Tracking System. " + "Please log in using your admin account and assign them a role using their email address " + user.Email +" .";
+                    await UserManager.SendEmailAsync(adminID, emailSubject, emailBody);
+                    */
 
                     //Resnd email confirmation link =
                     //string callbackURL = await SendEmailConfirmationTokenAsync(user.Id, "Confirm your account");
@@ -199,13 +236,12 @@ namespace SeniorProject.Controllers
                     // Uncomment to debug locally 
                     // TempData["ViewBagLink"] = callbackUrl;
 
-                 //   ViewBag.Message = "Check your email and verify your account. Your account must be verified before you can log in.";
-
-                 //   return View("Info");
+                    //Assign Role to user Here      
+                    await this.UserManager.AddToRoleAsync(user.Id, model.UserRoles);
 
                     return View("ConfirmationSent");
                 }
-                ViewBag.Name = new SelectList(context.Roles.Where(u => !u.Name.Contains("Admin")).ToList(), "Name", "Name");
+                ViewBag.Name = new SelectList(context.Roles.ToList(), "Name", "Name");
 
                 AddErrors(result);
             }
@@ -245,10 +281,13 @@ namespace SeniorProject.Controllers
             if (ModelState.IsValid)
             {
                 var user = await UserManager.FindByNameAsync(model.Email);
-                if (user == null || !(await UserManager.IsEmailConfirmedAsync(user.Id)))
+                //Send email even if not verified
+                //if (user == null || !(await UserManager.IsEmailConfirmedAsync(user.Id)))
+                if (user == null)
                 {
-                    // Don't reveal that the user does not exist or is not confirmed
-                    return View("ForgotPasswordConfirmation");
+                    // Error if email does not exist
+                    ModelState.AddModelError("", "Email is not associated with an account");
+                    return View(model);
                 }
 
                 // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
@@ -473,6 +512,7 @@ namespace SeniorProject.Controllers
         #region Helpers
         // Used for XSRF protection when adding external logins
         private const string XsrfKey = "XsrfId";
+        private UserManager<ApplicationUser> userManager;
 
         private IAuthenticationManager AuthenticationManager
         {

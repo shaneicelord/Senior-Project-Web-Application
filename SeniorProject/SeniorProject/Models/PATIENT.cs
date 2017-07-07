@@ -29,10 +29,11 @@ namespace SeniorProject.Models
         public string Ethnicity { get; set; }
         public Nullable<System.DateTime> DateOfBirth { get; set; }
         public string Gender { get; set; }
+        public Nullable<int> DepartmentID { get; set; }
     
         public virtual AspNetUser AspNetUser { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ASSESSMENT> ASSESSMENTS { get; set; }
-        public virtual USER USER { get; set; }
+        public virtual DEPARTMENT DEPARTMENT { get; set; }
     }
 }

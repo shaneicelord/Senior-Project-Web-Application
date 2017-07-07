@@ -13,19 +13,18 @@
 
     <form method="post" action="">
         <fieldset>
-            <legend>Please type the email of the Therapist you wish to view the graphs of:</legend>
+            <legend>Please type the email of the therapist you wish to view the graphs of and then click "Submit." Currently, the graphs display the average CANS score of a given therpist's patients over the past 6 months, adjusted for length of patient stay. In the next release, it will be possible to specify parameters for graph generation.</legend>
             @using (Html.BeginForm())
             {
-            <div>
-                <label>Email:</label>
-                @Html.TextBoxFor(m => m.UserEmail)
-            </div>
-            <div>
-                <label>&nbsp;</label>
-                <input type="submit" value="Submit" class="submit" />
-            </div>
+                <div>
+                    <label>Email:</label>
+                    @Html.TextBoxFor(m => m.UserEmail)
+                </div>
+                <div>
+                    <input type="submit" value="Submit" class="submit" />
+                </div>
             }
         </fieldset>
     </form>
 </body>
-        </html>
+</html>

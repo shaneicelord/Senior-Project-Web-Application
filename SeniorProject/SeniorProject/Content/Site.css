@@ -1,4 +1,15 @@
-﻿body {
+﻿.modules{
+    color: red;
+}
+
+.legend{
+    border: 2px;
+    border-color:red;  
+    margin-left:40%; 
+    margin-right:15%;
+}
+
+body {
     padding-top: 50px;
     padding-bottom: 20px;
 }
@@ -22,3 +33,8 @@ select,
 textarea {
     max-width: 280px;
 }
+
+table.center {
+    margin-left:auto; 
+    margin-right:auto;
+  }

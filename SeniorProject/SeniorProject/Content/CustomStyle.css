@@ -10,16 +10,29 @@ body, html{
     font-family: 'Montserrat', sans-serif; 
 }
 
+.modules{
+    color: red;
+}
+
+.legend{
+    border: 2px;
+    border-color:red;  
+    margin-left:40%; 
+    margin-right:15%;
+}
+
 h3{
 border-left: 2px solid #0094ff;
 font-weight:300;
 padding-left:20px;
 
 }
+table.center {
+    margin-left:40%; 
+    margin-right:15%;
+  }
 
 table{
-    border-collapse: collapse;
-	width: 100%;
 }
 
 th, td {

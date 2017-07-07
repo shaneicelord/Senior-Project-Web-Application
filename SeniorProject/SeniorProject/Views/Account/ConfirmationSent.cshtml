@@ -5,14 +5,18 @@
 }
 
 <h2>@ViewBag.Title.</h2>
+<p>
+    @Html.ActionLink("Back to List", "Index", "AdminFunctions")
+</p>
 <div>
     <p> <br />
-        A confirmation email has been sent to your email.
+        Your account has been successfully created.
         <br />
         <br />
-        Please click the link in the email to verify your account before using the CANS Tracking System.
+        @Html.ActionLink("Return to Admin page", "Index", "AdminFunctions")
+        <!--Please click the link in the email to verify your account before using the CANS Tracking System.
         <br />
         <br />
-        If the email doesn't appear in your inbox, please check your <b>junk/spam</b> folder.
+        If the email doesn't appear in your inbox, please check your <b>junk/spam</b> folder.-->
     </p>
 </div>
