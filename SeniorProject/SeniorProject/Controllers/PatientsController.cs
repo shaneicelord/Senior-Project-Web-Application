@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using SeniorProject.Models;
+using Microsoft.AspNet.Identity;
 
 namespace SeniorProject.Controllers
 {
@@ -18,7 +19,8 @@ namespace SeniorProject.Controllers
         [Authorize]
         public ActionResult Index()
         {
-            var pATIENTS = db.PATIENTS.Include(p => p.AspNetUser).Include(p => p.DEPARTMENT);
+            var pATIENTS = db.PATIENTS.Include(p => p.AspNetUser).Include(p => p.DEPARTMENT).Where(p => p.AspNetUser.ToString().Trim() == User.Identity.GetUserId().Trim());
+
             return View(pATIENTS.ToList());
         }
 
