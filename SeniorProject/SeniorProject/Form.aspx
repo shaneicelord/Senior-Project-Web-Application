@@ -353,7 +353,7 @@
             <td><input type="text" name="59" id="59" required pattern="([0-3])|(0.1)" title="Only numbers [0, 1, 2, 3] or 0.1 allowed"/></td> 
         </tr>
           <tr>
-         <td><h2><center>Modules</center></h2></td>
+         <td colspan=2><h2><center>Modules</center></h2></td>
         </tr>
         <tr>
                 <td><h3>DD - Developmental Needs</h3></td>
@@ -366,7 +366,7 @@
             <td>Autism Spectrum</td>
             <td><input type="text" name="61"  id="61" pattern="([0-3])|(0.1)" title="Only numbers [0, 1, 2, 3] or 0.1 allowed"/></td>
         </tr>
-        <!--<tr>
+        <tr>
             <td>Communication</td>
             <td><input type="text" name="62" id="62" pattern="([0-3])|(0.1)" title="Only numbers [0, 1, 2, 3] or 0.1 allowed"/></td>
         </tr>
@@ -737,7 +737,7 @@
         <tr>
             <td>Likelyhood of Future Fires</td>
             <td><input type="text" name="148" id="148"  pattern="([0-3])|(0.1)" title="Only numbers [0, 1, 2, 3] or 0.1 allowed"/></td> 
-        </tr>-->
+        </tr>
         <tr>
             <td><asp:Button ID="SubmitCANS" runat="server" OnClick="Insert" Text="Submit CANS" /></td>
         </tr>

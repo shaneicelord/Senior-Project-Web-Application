@@ -154,9 +154,9 @@
             <td>Resourcefulness</td>
             <td><asp:TextBox id="Q25"  runat="server"/></td> 
         </tr>
-
-        <!--
-
+        <tr>
+     <td><h3>Acculturation</h3></td>
+        </tr>
         <tr>
             <td>Language</td>
             <td><asp:TextBox id="Q26"  runat="server"/></td> 
@@ -172,6 +172,9 @@
         <tr>
             <td>Cultural Stress</td>
             <td><asp:TextBox id="Q29"  runat="server"/></td> 
+        </tr>
+        <tr>
+     <td><h3>Caregiver Strengths and Needs</h3></td>
         </tr>
         <tr>
             <td>Supervision</td>
@@ -218,6 +221,9 @@
             <td><asp:TextBox id="Q40"  runat="server"/></td> 
         </tr>
         <tr>
+     <td><h3>Youth Behavioral and Emotional Needs</h3></td>
+        </tr>
+        <tr>
             <td>Psychosis</td>
             <td><asp:TextBox id="Q41"  runat="server"/></td> 
         </tr>
@@ -252,6 +258,9 @@
         <tr>
             <td>Substance Use</td>
             <td><asp:TextBox id="Q49"  runat="server"/></td> 
+        </tr>
+        <tr>
+     <td><h3>Youth Risk Behaviors</h3></td>
         </tr>
         <tr>
             <td>Suicide Risk</td>
@@ -294,6 +303,12 @@
             <td><asp:TextBox id="Q59"  runat="server"/></td> 
         </tr>
         <tr>
+         <td colspan=2><h2><center>Modules</center></h2></td>
+        </tr>
+        <tr>
+     <td><h3>Developmental Needs</h3></td>
+        </tr>
+        <tr>
             <td>Cognitive</td>
             <td><asp:TextBox id="Q60"  runat="server"/></td> 
         </tr>
@@ -308,6 +323,9 @@
         <tr>
             <td>Self Care/Daily Living</td>
             <td><asp:TextBox id="Q63"  runat="server"/></td> 
+        </tr>
+        <tr>
+     <td><h3>Current Caregiver</h3></td>
         </tr>
         <tr>
             <td>Supervision</td>
@@ -352,6 +370,9 @@
         <tr>
             <td>Safety</td>
             <td><asp:TextBox id="Q74"  runat="server"/></td> 
+        </tr>
+        <tr>
+     <td><h3>Trauma</h3></td>
         </tr>
         <tr>
             <td>Sexual Abuse</td>
@@ -430,6 +451,9 @@
             <td><asp:TextBox id="Q93"  runat="server"/></td> 
         </tr>
         <tr>
+     <td><h3>Substance Abuse</h3></td>
+        </tr>
+        <tr>
             <td>Severity of Use</td>
             <td><asp:TextBox id="Q94"  runat="server"/></td> 
         </tr>
@@ -452,6 +476,9 @@
         <tr>
             <td>Environmental Influences</td>
             <td><asp:TextBox id="Q99"  runat="server"/></td> 
+        </tr>
+        <tr>
+     <td><h3>Violence</h3></td>
         </tr>
         <tr>
             <td>History of Physical Abuse</td>
@@ -506,6 +533,9 @@
             <td><asp:TextBox id="Q112"  runat="server"/></td> 
         </tr>
         <tr>
+     <td><h3>Sexually Aggressive Behavior</h3></td>
+        </tr>
+        <tr>
             <td>Relationship</td>
             <td><asp:TextBox id="Q113"  runat="server"/></td> 
         </tr>
@@ -546,6 +576,9 @@
             <td><asp:TextBox id="Q122"  runat="server"/></td> 
         </tr>
         <tr>
+     <td><h3>Runaway</h3></td>
+        </tr>
+        <tr>
             <td>Frequency of Running</td>
             <td><asp:TextBox id="Q123"  runat="server"/></td> 
         </tr>
@@ -576,6 +609,9 @@
         <tr>
             <td>Realistic Expectations</td>
             <td><asp:TextBox id="Q130"  runat="server"/></td> 
+        </tr>
+        <tr>
+     <td><h3>Juvenile Justice</h3></td>
         </tr>
         <tr>
             <td>Seriousness</td>
@@ -614,6 +650,9 @@
             <td><asp:TextBox id="Q139"  runat="server"/></td> 
         </tr>
         <tr>
+     <td><h3>Fire Setting</h3></td>
+        </tr>
+        <tr>
             <td>Seriousness</td>
             <td><asp:TextBox id="Q140"  runat="server"/></td> 
         </tr>
@@ -649,8 +688,6 @@
             <td>Likelyhood of Future Fires</td>
             <td><asp:TextBox id="Q148"  runat="server"/></td> 
         </tr>
-        
-        -->
 
         <tr>
         <td colspan="2"><asp:Button ID="UpdateCANS" runat="server" OnClick="Update" Text="Update CANS"/></td>
